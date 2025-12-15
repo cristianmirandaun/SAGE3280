@@ -1,0 +1,145 @@
+openapi: 3.0.0
+info:
+  title: SAGE3280 API (base)
+  version: "0.1.0"
+paths:
+  /patients:
+    post:
+      summary: Crear paciente
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatientCreate'
+      responses:
+        "200":
+          description: Paciente creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PatientRead'
+    get:
+      summary: Listar pacientes
+      parameters:
+        - in: query
+          name: skip
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Lista
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PatientRead'
+
+  /contacts:
+    post:
+      summary: Crear contacto/convocatoria
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactCreate'
+      responses:
+        "200":
+          description: Contacto creado
+  /contacts/attempt:
+    post:
+      summary: Registrar intento de contacto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactAttemptCreate'
+      responses:
+        "200":
+          description: Intento registrado
+
+components:
+  schemas:
+    PatientCreate:
+      type: object
+      properties:
+        document_type:
+          type: string
+        document_number:
+          type: string
+        first_name:
+          type: string
+        last_name:
+          type: string
+        birth_date:
+          type: string
+          format: date
+        phone:
+          type: string
+        email:
+          type: string
+        group:
+          type: string
+        risk_level:
+          type: string
+      required:
+        - document_number
+        - first_name
+        - group
+    PatientRead:
+      allOf:
+        - $ref: '#/components/schemas/PatientCreate'
+        - type: object
+          properties:
+            id:
+              type: integer
+            is_contacted:
+              type: boolean
+            contact_status:
+              type: string
+            last_contacted_at:
+              type: string
+              format: date-time
+    ContactCreate:
+      type: object
+      properties:
+        patient_id:
+          type: integer
+        contact_reason:
+          type: string
+        contact_type:
+          type: string
+        scheduled_at:
+          type: string
+          format: date-time
+        priority:
+          type: integer
+        metadata:
+          type: object
+      required:
+        - patient_id
+        - contact_reason
+        - contact_type
+    ContactAttemptCreate:
+      type: object
+      properties:
+        contact_id:
+          type: integer
+        patient_id:
+          type: integer
+        attempt_number:
+          type: integer
+        message:
+          type: string
+        response:
+          type: string
+        response_code:
+          type: string
+      required:
+        - patient_id
+        - attempt_number
