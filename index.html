@@ -1,828 +1,802 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MEDVi – Weight Loss &amp; GLP-1 Care</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <title>MEDVi - Personalized Telehealth Care</title>
+  <meta name="description" content="MEDVi connects you with licensed physicians for GLP-1 weight loss, peptides, men's health, women's health, and more." />
+  <link rel="icon" href="https://framerusercontent.com/images/xWKyg85eDVm8FJeXNodQY3RoGpE.png" />
+  <link rel="apple-touch-icon" href="https://framerusercontent.com/images/xWKyg85eDVm8FJeXNodQY3RoGpE.png" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Onest:wght@500;600;700&family=Red+Hat+Text:wght@400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Onest:wght@400;500;600;700&family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ─── Reset ─────────────────────────────────────────────── */
+    /* ── Reset ─────────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    html { scroll-behavior: smooth; font-size: 16px; }
 
-    /* ─── Tokens ─────────────────────────────────────────────── */
+    /* ── Tokens ─────────────────────────────────────────────────── */
     :root {
-      --charcoal:   #242220;
-      --green:      #2e936f;
-      --green-dark: #1b6549;
-      --green-deep: #112111;
-      --offwhite:   #faf9f7;
-      --beige:      #e0d9d0;
-      --pink:       #d690b3;
-      --coral:      #eb8771;
-      --purple:     #956bad;
-      --sand:       #a58979;
-      --gold:       #c6a673;
-      --teal:       #8cb0b2;
-      --blue-dark:  #122165;
-      --blue-light: #7aa5c9;
-      --radius-sm:  8px;
-      --radius-md:  16px;
-      --radius-lg:  24px;
-      --radius-xl:  40px;
+      --c-dark:    #171a18;
+      --c-green:   #2e936f;
+      --c-green2:  #1b6549;
+      --c-green3:  #112111;
+      --c-white:   #ffffff;
+      --c-off:     #faf9f7;
+      --c-beige:   #e8e2da;
+      --c-text:    #242220;
+      --c-muted:   rgba(36,34,32,.55);
+      --c-pink:    #d690b3;
+      --c-coral:   #eb8771;
+      --c-purple:  #956bad;
+      --c-sand:    #a58979;
+      --c-gold:    #c6a673;
+      --c-teal:    #8cb0b2;
+      --c-navy:    #122165;
+      --font-head: 'Onest', sans-serif;
+      --font-body: 'Red Hat Text', sans-serif;
+      --font-num:  'Montserrat', sans-serif;
+      --r-sm: 10px; --r-md: 18px; --r-lg: 26px; --r-xl: 40px;
     }
 
     body {
-      font-family: 'Red Hat Text', sans-serif;
-      background-color: var(--offwhite);
-      color: var(--charcoal);
-      line-height: 1.6;
+      font-family: var(--font-body);
+      background: var(--c-off);
+      color: var(--c-text);
       -webkit-font-smoothing: antialiased;
+      line-height: 1.6;
     }
 
-    /* ─── NAV ────────────────────────────────────────────────── */
+    /* ── Shared helpers ─────────────────────────────────────────── */
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .label {
+      display: inline-block;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--c-text); opacity: .5;
+    }
+    .label-green { color: var(--c-green); opacity: 1; }
+    .label-white { color: #fff; opacity: .6; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 13px 26px; border-radius: 99px;
+      font-family: var(--font-body); font-size: 14px; font-weight: 600;
+      text-decoration: none; border: none; cursor: pointer;
+      transition: opacity .18s, transform .18s;
+    }
+    .btn:hover { opacity: .88; transform: translateY(-1px); }
+    .btn-green  { background: var(--c-green); color: #fff; }
+    .btn-dark   { background: var(--c-dark);  color: #fff; }
+    .btn-outline{ background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.45); }
+
+    /* check icon */
+    .check { display: inline-block; width: 20px; height: 20px; flex-shrink: 0;
+      border-radius: 50%; background: var(--c-green);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z'/%3E%3C/svg%3E");
+      background-size: 11px; background-position: center; background-repeat: no-repeat;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       NAV
+    ═══════════════════════════════════════════════════════════ */
     nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(250, 249, 247, 0.92);
-      backdrop-filter: blur(12px);
+      position: sticky; top: 0; z-index: 200;
+      background: rgba(250,249,247,.93);
+      backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(36,34,32,.08);
     }
     .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
+      display: flex; align-items: center;
+      height: 66px; gap: 8px;
     }
-    .nav-logo img {
-      height: 34px;
-      display: block;
-    }
+    .nav-logo img { height: 32px; display: block; }
     .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      list-style: none;
+      display: flex; align-items: center; gap: 2px;
+      list-style: none; margin-left: auto;
     }
     .nav-links a {
-      text-decoration: none;
-      font-family: 'Red Hat Text', sans-serif;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--charcoal);
-      padding: 7px 14px;
-      border-radius: 99px;
-      transition: background .2s, color .2s;
+      text-decoration: none; font-size: 13px; font-weight: 500;
+      color: var(--c-text); padding: 8px 14px; border-radius: 99px;
+      transition: background .15s;
     }
-    .nav-links a:hover,
-    .nav-links a.active {
-      background: var(--charcoal);
-      color: #fff;
-    }
-    .nav-cta {
-      background: var(--green) !important;
-      color: #fff !important;
-      font-weight: 600 !important;
-    }
-    .nav-cta:hover {
-      background: var(--green-dark) !important;
-    }
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 6px;
-    }
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--charcoal);
-      border-radius: 2px;
-    }
+    .nav-links a:hover { background: rgba(36,34,32,.08); }
+    .nav-links .nav-active { background: var(--c-dark); color: #fff; }
+    .nav-links .nav-cta { background: var(--c-green); color: #fff; margin-left: 6px; }
+    .nav-links .nav-cta:hover { background: var(--c-green2); opacity: 1; }
 
-    /* ─── HERO ───────────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════ */
     .hero {
-      background: linear-gradient(160deg, var(--green-dark) 0%, var(--green-deep) 100%);
-      padding: 100px 24px 80px;
-      text-align: center;
-      color: #fff;
+      background: linear-gradient(145deg, #173d2b 0%, var(--c-green3) 100%);
+      padding: 90px 32px 0;
       overflow: hidden;
       position: relative;
     }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(ellipse 80% 60% at 50% 110%, rgba(46,147,111,.45) 0%, transparent 70%);
-      pointer-events: none;
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://framerusercontent.com/images/zmJZrAHLgexbSUaBuE8JSFohl8.png');
+      background-size: cover; background-position: center top;
+      opacity: .18; pointer-events: none;
     }
-    .hero-label {
-      display: inline-block;
-      font-family: 'Red Hat Text', sans-serif;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.65);
-      margin-bottom: 20px;
-    }
-    .hero h1 {
-      font-family: 'Onest', sans-serif;
-      font-size: clamp(36px, 6vw, 64px);
-      font-weight: 700;
-      line-height: 1.12;
-      max-width: 760px;
-      margin: 0 auto 28px;
-    }
-    .hero h1 em {
-      font-style: normal;
-      color: #7fffc4;
-    }
-    .hero-sub {
-      font-size: 17px;
-      font-weight: 400;
-      max-width: 540px;
-      margin: 0 auto 40px;
-      color: rgba(255,255,255,.8);
-      line-height: 1.65;
-    }
-    .hero-btns {
-      display: flex;
-      gap: 14px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 99px;
-      font-family: 'Red Hat Text', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: transform .18s, box-shadow .18s, background .18s;
-      cursor: pointer;
-      border: none;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.18); }
-    .btn-primary {
-      background: var(--green);
-      color: #fff;
-    }
-    .btn-primary:hover { background: #259660; }
-    .btn-outline {
-      background: transparent;
-      color: #fff;
-      border: 2px solid rgba(255,255,255,.45);
-    }
-    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.7); }
-
-    /* ─── SERVICES PILL BAR ──────────────────────────────────── */
-    .services-bar {
-      background: var(--offwhite);
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--beige);
-    }
-    .services-bar-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    .service-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 9px 18px;
-      border-radius: 99px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      border: 2px solid transparent;
-      transition: transform .18s, box-shadow .18s;
-      color: #fff;
-    }
-    .service-pill:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.15); }
-    .pill-wl   { background: var(--green); }
-    .pill-pep  { background: var(--blue-dark); }
-    .pill-men  { background: var(--sand); }
-    .pill-wom  { background: var(--pink); color: var(--charcoal); }
-    .pill-hair { background: var(--gold); color: var(--charcoal); }
-    .pill-skin { background: var(--teal); color: var(--charcoal); }
-
-    /* ─── SECTION GENERIC ────────────────────────────────────── */
-    section {
-      padding: 96px 24px;
-    }
-    .section-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-    .section-label {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 16px;
-    }
-    .section-h2 {
-      font-family: 'Onest', sans-serif;
-      font-size: clamp(28px, 4vw, 46px);
-      font-weight: 700;
-      line-height: 1.18;
-      color: var(--charcoal);
-      max-width: 680px;
-    }
-    .section-h2 em {
-      font-style: normal;
-      color: var(--green);
-    }
-
-    /* ─── WEIGHT-LOSS SECTION ────────────────────────────────── */
-    #weight-loss {
-      background: var(--offwhite);
-    }
-    .wl-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 64px;
-      align-items: start;
-      margin-top: 60px;
-    }
-    /* Left column */
-    .wl-left {}
-    .wl-included-label {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-      color: var(--charcoal);
-      margin-top: 36px;
-      margin-bottom: 14px;
-      opacity: .6;
-    }
-    .wl-benefits {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .wl-benefits li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--charcoal);
-    }
-    .wl-benefits li::before {
-      content: '';
-      flex-shrink: 0;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--green);
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z' clip-rule='evenodd'/%3E%3C/svg%3E");
-      background-size: 13px;
-      background-position: center;
-      background-repeat: no-repeat;
-    }
-
-    /* Right column */
-    .wl-right {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .wl-h3 {
-      font-family: 'Onest', sans-serif;
-      font-size: clamp(20px, 2.5vw, 28px);
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--charcoal);
-    }
-    .wl-body {
-      font-size: 16px;
-      font-weight: 400;
-      color: rgba(36,34,32,.7);
-      line-height: 1.7;
-    }
-
-    /* Feature cards */
-    .wl-cards {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .wl-card {
-      background: #fff;
-      border: 1px solid var(--beige);
-      border-radius: var(--radius-md);
-      padding: 22px 20px;
-      transition: box-shadow .2s;
-    }
-    .wl-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.09); }
-    .wl-card-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 10px;
-      background: rgba(46,147,111,.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 14px;
-    }
-    .wl-card-icon svg { width: 20px; height: 20px; }
-    .wl-card h4 {
-      font-family: 'Onest', sans-serif;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 6px;
-    }
-    .wl-card p {
-      font-size: 13px;
-      color: rgba(36,34,32,.65);
-      line-height: 1.55;
-    }
-
-    /* CTA row */
-    .wl-cta-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .wl-disclaimer {
-      font-size: 11px;
-      color: rgba(36,34,32,.45);
-      line-height: 1.5;
-      max-width: 420px;
-      margin-top: 8px;
-    }
-
-    /* ─── TRUST BADGES ───────────────────────────────────────── */
-    .trust-bar {
-      background: var(--charcoal);
-      padding: 40px 24px;
-    }
-    .trust-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      gap: 32px;
-      flex-wrap: wrap;
-    }
-    .trust-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-      text-align: center;
-    }
-    .trust-num {
-      font-family: 'Onest', sans-serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: #fff;
-    }
-    .trust-num span { color: var(--green); }
-    .trust-label {
-      font-size: 13px;
-      font-weight: 500;
-      color: rgba(255,255,255,.6);
-    }
-    .trust-divider {
-      width: 1px;
-      height: 48px;
-      background: rgba(255,255,255,.12);
-    }
-
-    /* ─── HOW IT WORKS ───────────────────────────────────────── */
-    #how-it-works {
-      background: #fff;
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
-      margin-top: 56px;
-    }
-    .step-card {
-      background: var(--offwhite);
-      border-radius: var(--radius-lg);
-      padding: 36px 28px;
-      position: relative;
-    }
-    .step-num {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 64px;
-      font-weight: 800;
-      color: rgba(46,147,111,.12);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-    .step-card h3 {
-      font-family: 'Onest', sans-serif;
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--charcoal);
-      margin-bottom: 10px;
-    }
-    .step-card p {
-      font-size: 14px;
-      color: rgba(36,34,32,.65);
-      line-height: 1.65;
-    }
-
-    /* ─── OTHER SERVICES ─────────────────────────────────────── */
-    #other-services {
-      background: var(--offwhite);
-    }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 16px;
-      margin-top: 48px;
-    }
-    .service-card {
-      border-radius: var(--radius-lg);
-      padding: 32px 24px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(0,0,0,.12); }
-    .service-card-tag {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      opacity: .6;
-    }
-    .service-card h3 {
-      font-family: 'Onest', sans-serif;
-      font-size: 20px;
-      font-weight: 700;
-      line-height: 1.25;
-      color: var(--charcoal);
-    }
-    .sc-wl   { background: rgba(46,147,111,.1); }
-    .sc-pep  { background: rgba(18,33,101,.08); }
-    .sc-men  { background: rgba(165,137,121,.12); }
-    .sc-wom  { background: rgba(214,144,179,.15); }
-    .sc-hair { background: rgba(197,166,115,.12); }
-    .sc-skin { background: rgba(140,176,178,.15); }
-
-    /* ─── FOOTER ─────────────────────────────────────────────── */
-    footer {
-      background: var(--charcoal);
-      color: rgba(255,255,255,.6);
-      padding: 64px 24px 32px;
-    }
-    .footer-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.6fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid rgba(255,255,255,.1);
+    .hero-inner { position: relative; z-index: 1; text-align: center; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,.1); border-radius: 99px;
+      padding: 6px 14px; font-size: 12px; font-weight: 600; color: rgba(255,255,255,.8);
       margin-bottom: 28px;
     }
-    .footer-brand img { height: 30px; margin-bottom: 16px; filter: brightness(0) invert(1); }
-    .footer-brand p { font-size: 13px; line-height: 1.7; max-width: 320px; }
-    .footer-col h4 {
-      font-size: 13px;
-      font-weight: 700;
-      color: #fff;
-      margin-bottom: 14px;
-      letter-spacing: .04em;
+    .hero-eyebrow span { width: 6px; height: 6px; border-radius: 50%; background: #7fffbf; flex-shrink: 0; }
+    .hero h1 {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: clamp(38px, 6vw, 72px); line-height: 1.08;
+      color: #fff; margin-bottom: 24px;
     }
-    .footer-col a {
-      display: block;
-      font-size: 13px;
-      color: rgba(255,255,255,.5);
+    .hero h1 em { font-style: normal; color: #7fffbf; }
+    .hero-sub {
+      font-size: 17px; font-weight: 400;
+      color: rgba(255,255,255,.7); line-height: 1.7;
+      max-width: 520px; margin: 0 auto 40px;
+    }
+    .hero-cards {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; padding-bottom: 0;
+    }
+    .hero-card {
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.15);
+      border-bottom: none;
+      border-radius: 16px 16px 0 0;
+      padding: 18px 22px 22px;
       text-decoration: none;
-      margin-bottom: 8px;
-      transition: color .18s;
+      color: #fff;
+      font-size: 13px; font-weight: 600;
+      min-width: 160px; text-align: center;
+      transition: background .18s;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
     }
+    .hero-card:hover { background: rgba(255,255,255,.16); }
+    .hero-card-icon { font-size: 22px; }
+    .hero-card.active { background: var(--c-off); color: var(--c-text); }
+
+    /* ═══════════════════════════════════════════════════════════
+       CALLOUTS / TRUST BADGES
+    ═══════════════════════════════════════════════════════════ */
+    .callouts {
+      background: var(--c-off);
+      border-bottom: 1px solid var(--c-beige);
+      padding: 28px 32px;
+    }
+    .callouts-inner {
+      display: flex; align-items: center; justify-content: center;
+      gap: 48px; flex-wrap: wrap;
+    }
+    .callout-item {
+      display: flex; align-items: center; gap: 12px;
+      font-size: 13px; font-weight: 600; color: var(--c-text);
+    }
+    .callout-item svg { color: var(--c-green); flex-shrink: 0; }
+
+    /* ═══════════════════════════════════════════════════════════
+       SECTION PATTERN (alternating image/text blocks)
+    ═══════════════════════════════════════════════════════════ */
+    .svc-section { padding: 80px 32px; }
+    .svc-section:nth-child(even) { background: #fff; }
+    .svc-inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .svc-inner.reverse { direction: rtl; }
+    .svc-inner.reverse > * { direction: ltr; }
+
+    /* image side */
+    .svc-img-wrap {
+      border-radius: var(--r-lg); overflow: hidden;
+      position: relative;
+    }
+    .svc-img-wrap img { width: 100%; height: auto; display: block; }
+    .svc-badge {
+      position: absolute; top: 18px; left: 18px;
+      background: #fff; border-radius: 99px;
+      padding: 6px 14px; font-size: 12px; font-weight: 700;
+      color: var(--c-text);
+    }
+    .svc-soon {
+      position: absolute; top: 18px; right: 18px;
+      background: rgba(0,0,0,.55); color: #fff; backdrop-filter: blur(6px);
+      border-radius: 99px; padding: 5px 13px;
+      font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    }
+
+    /* text side */
+    .svc-text { display: flex; flex-direction: column; gap: 20px; }
+    .svc-text h2 {
+      font-family: var(--font-head); font-size: clamp(26px, 3.2vw, 42px);
+      font-weight: 700; line-height: 1.18; color: var(--c-text);
+    }
+    .svc-text h2 em { font-style: normal; color: var(--c-green); }
+    .svc-text p { font-size: 15px; color: var(--c-muted); line-height: 1.75; }
+
+    /* benefit list */
+    .benefit-label {
+      font-size: 10px; font-weight: 700; letter-spacing: .14em;
+      text-transform: uppercase; color: var(--c-muted);
+    }
+    .benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .benefits li {
+      display: flex; align-items: center; gap: 11px;
+      font-size: 14px; font-weight: 500; color: var(--c-text);
+    }
+
+    /* mini feature cards */
+    .feat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .feat-card {
+      background: var(--c-off); border: 1px solid var(--c-beige);
+      border-radius: var(--r-md); padding: 20px 18px;
+    }
+    .feat-card h4 { font-family: var(--font-head); font-size: 14px; font-weight: 700; margin-bottom: 6px; }
+    .feat-card p  { font-size: 12px; color: var(--c-muted); line-height: 1.55; }
+    .feat-icon {
+      width: 36px; height: 36px; border-radius: 9px;
+      background: rgba(46,147,111,.12); display: flex;
+      align-items: center; justify-content: center; margin-bottom: 12px;
+    }
+
+    .svc-disclaimer {
+      font-size: 11px; color: var(--c-muted); line-height: 1.55;
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       PEPTIDES (coming soon overlay style)
+    ═══════════════════════════════════════════════════════════ */
+    .peptides-img-wrap {
+      position: relative; border-radius: var(--r-lg); overflow: hidden;
+      background: linear-gradient(135deg, #0e1a3a 0%, var(--c-navy) 100%);
+      min-height: 400px; display: flex; align-items: center; justify-content: center;
+    }
+    .peptides-img-wrap img { width: 100%; height: auto; display: block; border-radius: var(--r-lg); }
+
+    /* ═══════════════════════════════════════════════════════════
+       MODERN HEALTHCARE (full-width band)
+    ═══════════════════════════════════════════════════════════ */
+    .modern-band {
+      background: var(--c-dark);
+      padding: 96px 32px;
+      position: relative; overflow: hidden;
+    }
+    .modern-band-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://framerusercontent.com/images/A1lwE6WKdaWtTNHV4R3xFZ1ljVo.jpg');
+      background-size: cover; background-position: center;
+      opacity: .12; pointer-events: none;
+    }
+    .modern-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .modern-pre {
+      font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--c-green); margin-bottom: 16px;
+    }
+    .modern-h2 {
+      font-family: var(--font-head); font-size: clamp(32px, 5vw, 60px);
+      font-weight: 700; line-height: 1.1; color: #fff;
+      max-width: 640px; margin-bottom: 64px;
+    }
+    .modern-h2 em { font-style: normal; color: #7fffbf; }
+    .modern-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+    .modern-card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--r-lg); padding: 36px 32px;
+    }
+    .modern-card-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--c-green); margin-bottom: 14px;
+    }
+    .modern-card h3 {
+      font-family: var(--font-head); font-size: 20px; font-weight: 700;
+      color: #fff; margin-bottom: 12px; line-height: 1.3;
+    }
+    .modern-card p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; }
+
+    /* ═══════════════════════════════════════════════════════════
+       TESTIMONIALS
+    ═══════════════════════════════════════════════════════════ */
+    .testimonials { padding: 96px 32px; background: var(--c-off); }
+    .test-head { text-align: center; margin-bottom: 60px; }
+    .test-head h2 {
+      font-family: var(--font-head); font-size: clamp(30px, 4vw, 52px);
+      font-weight: 700; line-height: 1.15; color: var(--c-text);
+    }
+    .test-head h2 em { font-style: normal; color: var(--c-green); }
+    .test-head p { font-size: 16px; color: var(--c-muted); margin-top: 14px; max-width: 520px; margin-inline: auto; }
+    .test-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; max-width: 1100px; margin: 0 auto;
+    }
+    .test-card {
+      background: #fff; border: 1px solid var(--c-beige);
+      border-radius: var(--r-lg); padding: 32px 28px;
+    }
+    .test-stars { color: var(--c-green); font-size: 14px; margin-bottom: 14px; letter-spacing: 2px; }
+    .test-card p { font-size: 14px; color: var(--c-text); line-height: 1.7; font-style: italic; margin-bottom: 20px; }
+    .test-author { font-size: 13px; font-weight: 700; color: var(--c-text); }
+
+    /* ═══════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════ */
+    footer {
+      background: var(--c-dark); color: rgba(255,255,255,.55);
+      padding: 72px 32px 36px;
+    }
+    .footer-grid {
+      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      gap: 40px; max-width: 1100px; margin: 0 auto;
+      padding-bottom: 56px; border-bottom: 1px solid rgba(255,255,255,.1);
+      margin-bottom: 32px;
+    }
+    .footer-brand img { height: 28px; margin-bottom: 18px; filter: brightness(0) invert(1); display: block; }
+    .footer-brand p { font-size: 13px; line-height: 1.75; max-width: 280px; }
+    .footer-col h4 { font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: .05em; text-transform: uppercase; }
+    .footer-col a  { display: block; font-size: 13px; color: rgba(255,255,255,.45); text-decoration: none; margin-bottom: 9px; transition: color .15s; }
     .footer-col a:hover { color: #fff; }
-    .footer-contact { font-size: 13px; line-height: 1.8; }
-    .footer-contact a { color: rgba(255,255,255,.5); text-decoration: none; }
+    .footer-contact p { font-size: 13px; line-height: 2; }
+    .footer-contact a { color: rgba(255,255,255,.45); text-decoration: none; }
     .footer-contact a:hover { color: #fff; }
     .footer-bottom {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      max-width: 1100px; margin: 0 auto;
       font-size: 12px;
     }
-    .footer-bottom a {
-      color: rgba(255,255,255,.4);
-      text-decoration: none;
-    }
-    .footer-bottom a:hover { color: rgba(255,255,255,.75); }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 14px; }
+    .footer-legal { display: flex; flex-wrap: wrap; gap: 16px; }
+    .footer-legal a { color: rgba(255,255,255,.35); text-decoration: none; }
+    .footer-legal a:hover { color: rgba(255,255,255,.75); }
 
-    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════ */
     @media (max-width: 1024px) {
-      .wl-grid { grid-template-columns: 1fr; gap: 48px; }
-      .steps-grid { grid-template-columns: 1fr 1fr; }
-      .footer-top { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: 1 / -1; }
+      .svc-inner { grid-template-columns: 1fr; gap: 40px; }
+      .svc-inner.reverse { direction: ltr; }
+      .modern-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .nav-hamburger { display: flex; }
-      .wl-cards { grid-template-columns: 1fr; }
-      .steps-grid { grid-template-columns: 1fr; }
-      .trust-divider { display: none; }
-      .footer-top { grid-template-columns: 1fr; }
+      .nav-links li:not(:last-child) { display: none; }
+      .callouts-inner { gap: 24px; }
+      .hero h1 { font-size: clamp(32px, 8vw, 52px); }
+      .hero-cards { gap: 8px; }
+      .hero-card { min-width: 130px; font-size: 12px; }
+      .feat-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
     }
-    @media (max-width: 500px) {
-      section { padding: 64px 18px; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 480px) {
+      .wrap, .svc-section, .callouts, .modern-band, .testimonials, footer { padding-left: 20px; padding-right: 20px; }
+      .hero { padding: 60px 20px 0; }
+      .hero-cards { gap: 6px; }
+      .hero-card { min-width: 110px; padding: 14px 14px 18px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ─── NAVIGATION ──────────────────────────────────────────── -->
+<!-- ═══════════════════════════════════════════════════════════
+     NAV
+═══════════════════════════════════════════════════════════ -->
 <nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img
-        src="https://framerusercontent.com/images/1BRDkIzVV7TxG8fJDyUWdUDDE.png"
-        alt="MEDVi logo"
-      />
+  <div class="nav-inner wrap">
+    <a href="#" aria-label="MEDVi home">
+      <img src="https://framerusercontent.com/images/1BRDkIzVV7TxG8fJDyUWdUDDE.png" alt="MEDVi" height="32" />
     </a>
     <ul class="nav-links">
-      <li><a href="#weight-loss" class="active">Weight Loss</a></li>
+      <li><a href="#weight-loss" class="nav-active">Weight Loss</a></li>
       <li><a href="#peptides">Peptides &amp; Longevity</a></li>
       <li><a href="#mens-health">Men's Health</a></li>
       <li><a href="#womens-health">Women's Health</a></li>
       <li><a href="http://glp.medvi.org/" class="nav-cta">Get Started</a></li>
     </ul>
-    <div class="nav-hamburger" onclick="this.classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </div>
   </div>
 </nav>
 
-<!-- ─── HERO ────────────────────────────────────────────────── -->
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════ -->
 <header class="hero">
-  <p class="hero-label">Telehealth &amp; GLP-1 weight loss specialists</p>
-  <h1>Better health starts<br /><em>with the right care.</em></h1>
-  <p class="hero-sub">
-    MEDVi connects you with licensed physicians, personalized GLP-1 prescriptions,
-    and ongoing support — all from the comfort of home.
-  </p>
-  <div class="hero-btns">
-    <a href="http://glp.medvi.org/" class="btn btn-primary">Start Weight Loss Journey</a>
-    <a href="#weight-loss" class="btn btn-outline">Learn More ↓</a>
+  <div class="hero-bg"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span></span>
+      Join over 500,000 MEDVi patients
+    </div>
+    <h1>Healthcare,<br /><em>redefined</em><br />for real life.</h1>
+    <p class="hero-sub">
+      We offer online medical care: simple, straightforward and run by licensed professionals.
+      No waiting rooms. No unnecessary paperwork. Just effective care.
+    </p>
+    <div id="hero-cards" class="hero-cards">
+      <a href="#weight-loss" class="hero-card active">
+        <span class="hero-card-icon">⚖️</span>
+        Weight Loss
+      </a>
+      <a href="#peptides" class="hero-card">
+        <span class="hero-card-icon">🔬</span>
+        Peptides &amp; Longevity
+      </a>
+      <a href="#mens-health" class="hero-card">
+        <span class="hero-card-icon">♂</span>
+        Men's Health
+      </a>
+      <a href="#womens-health" class="hero-card">
+        <span class="hero-card-icon">♀</span>
+        Women's Health
+      </a>
+    </div>
   </div>
 </header>
 
-<!-- ─── SERVICE PILL BAR ─────────────────────────────────────── -->
-<div class="services-bar">
-  <div class="services-bar-inner">
-    <a href="#weight-loss"  class="service-pill pill-wl">⚖️ Weight Loss</a>
-    <a href="#peptides"     class="service-pill pill-pep">🔬 Peptides &amp; Longevity</a>
-    <a href="#mens-health"  class="service-pill pill-men">♂ Men's Health</a>
-    <a href="#womens-health" class="service-pill pill-wom">♀ Women's Health</a>
-    <a href="#hair"         class="service-pill pill-hair">💆 Hair Regrowth</a>
-    <a href="#skincare"     class="service-pill pill-skin">✨ Skincare</a>
-  </div>
-</div>
-
-<!-- ─── TRUST BAR ─────────────────────────────────────────────── -->
-<div class="trust-bar">
-  <div class="trust-inner">
-    <div class="trust-item">
-      <div class="trust-num">50<span>K+</span></div>
-      <div class="trust-label">Patients served</div>
+<!-- ═══════════════════════════════════════════════════════════
+     CALLOUTS
+═══════════════════════════════════════════════════════════ -->
+<div id="callouts" class="callouts">
+  <div class="callouts-inner">
+    <div class="callout-item">
+      <svg width="22" height="22" viewBox="0 0 29 29" fill="none" stroke="currentColor" stroke-width="1.6">
+        <circle cx="14.5" cy="14.5" r="12.5"/>
+        <path d="M9 14.5l3.5 3.5 7-7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Licensed medical providers
     </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">4.9<span>★</span></div>
-      <div class="trust-label">Average rating</div>
+    <div class="callout-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <rect x="3" y="3" width="18" height="18" rx="3"/>
+        <path d="M3 9h18M9 21V9" stroke-linecap="round"/>
+      </svg>
+      100% online
     </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">48<span>h</span></div>
-      <div class="trust-label">Avg. prescription time</div>
-    </div>
-    <div class="trust-divider"></div>
-    <div class="trust-item">
-      <div class="trust-num">24<span>/7</span></div>
-      <div class="trust-label">Medical support</div>
+    <div class="callout-item">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Clear prices
     </div>
   </div>
 </div>
 
-<!-- ─── WEIGHT-LOSS SECTION ──────────────────────────────────── -->
-<section id="weight-loss">
-  <div class="section-inner">
-    <span class="section-label">Doctor-guided GLP-1 care</span>
-    <h2 class="section-h2">
-      Losing weight <em>is easier</em> with<br />personalized care.
-    </h2>
+<!-- ═══════════════════════════════════════════════════════════
+     WEIGHT LOSS
+═══════════════════════════════════════════════════════════ -->
+<section id="weight-loss" class="svc-section">
+  <div class="svc-inner">
+    <!-- Image -->
+    <div class="svc-img-wrap">
+      <img
+        src="https://framerusercontent.com/images/TDqwwuuERJIkMwN3ZjsZgCTOFoU.png"
+        alt="Weight loss patient"
+        width="619" height="823"
+        loading="eager"
+      />
+    </div>
 
-    <div class="wl-grid">
-      <!-- Left -->
-      <div class="wl-left">
-        <p class="wl-included-label">Everything you need, included:</p>
-        <ul class="wl-benefits">
-          <li>Fast and effective GLP-1 prescription</li>
-          <li>Personalized 1:1 medical guidance</li>
-          <li>Free dietitian consultations included*</li>
-          <li>24/7 support</li>
-          <li>Fast and discreet shipping</li>
-        </ul>
-      </div>
+    <!-- Text -->
+    <div class="svc-text">
+      <span class="label label-green">Doctor-guided GLP-1 care</span>
+      <h2>Losing weight <em>is easier</em> with personalized care.</h2>
 
-      <!-- Right -->
-      <div class="wl-right">
-        <h3 class="wl-h3">
-          A smarter approach to weight loss,<br />designed with you in mind.
-        </h3>
-        <p class="wl-body">
-          Find the right GLP-1 medication with the peace of mind of medical
-          approval and affordability.
-        </p>
+      <p class="benefit-label">Everything you need, included:</p>
+      <ul class="benefits">
+        <li><span class="check"></span> Fast and effective GLP-1 prescription</li>
+        <li><span class="check"></span> Personalized 1:1 medical guidance</li>
+        <li><span class="check"></span> Free dietitian consultations included*</li>
+        <li><span class="check"></span> 24/7 support</li>
+        <li><span class="check"></span> Fast and discreet shipping</li>
+      </ul>
 
-        <div class="wl-cards">
-          <!-- Card 1 -->
-          <div class="wl-card">
-            <div class="wl-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#2e936f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="3" width="18" height="18" rx="3"/>
-                <path d="M3 9h18M9 21V9"/>
-              </svg>
-            </div>
-            <h4>Everything in one place</h4>
-            <p>Prescriptions, consultations, dietitian support, and shipping — all managed for you.</p>
+      <div class="feat-grid">
+        <div class="feat-card">
+          <div class="feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2e936f" stroke-width="2" stroke-linecap="round">
+              <rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>
+            </svg>
           </div>
-          <!-- Card 2 -->
-          <div class="wl-card">
-            <div class="wl-card-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#2e936f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-              </svg>
-            </div>
-            <h4>Unlimited 24/7 support</h4>
-            <p>Message your care team any time — no appointments needed, no waiting rooms.</p>
+          <h4>Everything, all in one place.</h4>
+          <p>Track your progress, communicate with your doctor, and manage your healthcare in your comprehensive patient portal.</p>
+        </div>
+        <div class="feat-card">
+          <div class="feat-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2e936f" stroke-width="2" stroke-linecap="round">
+              <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+            </svg>
           </div>
+          <h4>Unlimited 24/7 support.</h4>
+          <p>Medical support continues throughout your treatment, whenever you need it.</p>
         </div>
+      </div>
 
-        <div class="wl-cta-row">
-          <a href="http://glp.medvi.org/" class="btn btn-primary">Learn More</a>
-        </div>
-        <p class="wl-disclaimer">
-          Prescriptions issued only after online consultation with a licensed physician.
-          GLP-1 medications are not FDA-approved for weight loss in all cases. Individual
-          results may vary. *Free dietitian consultations are free for the end user and
-          subject to availability.
-        </p>
+      <a href="http://glp.medvi.org/" class="btn btn-dark">Learn More</a>
+
+      <p class="svc-disclaimer">
+        Prescriptions are issued only after an online consultation with an independent, licensed healthcare professional.
+        Compounded medications are dispensed at state-licensed pharmacies but are not FDA-approved.<br/>
+        *Free for end user, subject to insurance coverage and copay eligibility, to be determined at the time of consultation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PEPTIDES & LONGEVITY
+═══════════════════════════════════════════════════════════ -->
+<section id="peptides" class="svc-section">
+  <div class="svc-inner reverse">
+    <!-- Image -->
+    <div class="svc-img-wrap">
+      <img
+        src="https://framerusercontent.com/images/Qzg7hOnOYm2PR1xuvL1xDf7C4M.png"
+        alt="Peptides and longevity"
+        width="752" height="670"
+        loading="lazy"
+      />
+      <span class="svc-soon">Coming Soon</span>
+    </div>
+
+    <!-- Text -->
+    <div class="svc-text">
+      <span class="label">Peptides &amp; Longevity</span>
+      <h2>Unlock what<br /><em>your body can do.</em></h2>
+      <p style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c-navy);background:rgba(18,33,101,.1);display:inline-block;padding:5px 12px;border-radius:99px;">ADVANCED Peptide SUPPORT</p>
+      <p>Targeted support for recovery, performance, and longevity.<br/>Peptide therapy is designed to support how your body recovers, performs, and repairs over time—with targeted options for goals like recovery, strength, sleep, and overall optimization.</p>
+
+      <ul class="benefits">
+        <li><span class="check"></span> Support that works below the surface</li>
+        <li><span class="check"></span> Targeted recovery &amp; performance options</li>
+        <li><span class="check"></span> Long-term optimization approach</li>
+        <li><span class="check"></span> Fast and discreet shipping</li>
+      </ul>
+
+      <a href="#" class="btn btn-dark">Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MEN'S HEALTH
+═══════════════════════════════════════════════════════════ -->
+<section id="mens-health" class="svc-section">
+  <div class="svc-inner">
+    <!-- Image -->
+    <div class="svc-img-wrap">
+      <img
+        src="https://framerusercontent.com/images/ym25M3iouz0vhhEOFTk3BkvmRM.png"
+        alt="Men's health"
+        width="484" height="805"
+        loading="lazy"
+      />
+    </div>
+
+    <!-- Text -->
+    <div class="svc-text">
+      <span class="label">Men's Health</span>
+      <h2>Benefits that<br /><em>make a difference.</em></h2>
+
+      <ul class="benefits">
+        <li><span class="check"></span> Physical performance</li>
+        <li><span class="check"></span> Hormone balance</li>
+        <li><span class="check"></span> Energy levels</li>
+        <li><span class="check"></span> Mental focus</li>
+        <li><span class="check"></span> Fast and discreet shipping</li>
+      </ul>
+
+      <a href="#" class="btn btn-dark">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     WOMEN'S HEALTH
+═══════════════════════════════════════════════════════════ -->
+<section id="womens-health" class="svc-section">
+  <div class="svc-inner reverse">
+    <!-- Image -->
+    <div class="svc-img-wrap">
+      <img
+        src="https://framerusercontent.com/images/vyhgfyTZdnvKgcOFSsKadXmcI.png"
+        alt="Women's health"
+        width="800" height="966"
+        loading="lazy"
+      />
+      <span class="svc-soon">Coming Soon</span>
+    </div>
+
+    <!-- Text -->
+    <div class="svc-text">
+      <span class="label">Women's Health</span>
+      <h2>Care designed for<br /><em>women's health.</em></h2>
+      <p>Whole-body support for balance, vitality, and confidence. Support that evolves with your body.</p>
+
+      <p class="benefit-label">Benefits that support every stage:</p>
+      <ul class="benefits">
+        <li><span class="check"></span> Hormone balance</li>
+        <li><span class="check"></span> Healthy weight control</li>
+        <li><span class="check"></span> Hair strengthening and growth support</li>
+        <li><span class="check"></span> Skin health and radiance</li>
+        <li><span class="check"></span> Fast and discreet shipping</li>
+      </ul>
+
+      <a href="#" class="btn btn-dark">Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HAIR REGROWTH
+═══════════════════════════════════════════════════════════ -->
+<section id="hair-regrowth" class="svc-section">
+  <div class="svc-inner">
+    <!-- Image -->
+    <div class="svc-img-wrap">
+      <img
+        src="https://framerusercontent.com/images/MmOBvmKQi9xqc185vH7Cqxq8F8.png"
+        alt="Hair regrowth"
+        width="604" height="892"
+        loading="lazy"
+      />
+      <span class="svc-soon">Coming Soon</span>
+    </div>
+
+    <!-- Text -->
+    <div class="svc-text">
+      <span class="label">Hair Regrowth</span>
+      <h2>Personalized Support for<br /><em>Lasting Hair Results.</em></h2>
+
+      <ul class="benefits">
+        <li><span class="check"></span> Clinically backed regrowth ingredients</li>
+        <li><span class="check"></span> Targeted scalp and follicle support</li>
+        <li><span class="check"></span> Long-term hair density approach</li>
+        <li><span class="check"></span> Fast shipping</li>
+      </ul>
+
+      <a href="#" class="btn btn-dark">Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     SKINCARE
+═══════════════════════════════════════════════════════════ -->
+<section id="skincare" class="svc-section">
+  <div class="svc-inner reverse">
+    <!-- Image -->
+    <div class="svc-img-wrap">
+      <img
+        src="https://framerusercontent.com/images/DledV5XhgNZMvvKuNPweP2g.png"
+        alt="Skincare"
+        width="604" height="892"
+        loading="lazy"
+      />
+      <span class="svc-soon">Coming Soon</span>
+    </div>
+
+    <!-- Text -->
+    <div class="svc-text">
+      <span class="label">Skincare</span>
+      <h2>Personalized care for<br /><em>healthier, clearer skin.</em></h2>
+      <p>Skincare designed to treat the root cause—not just cover it up. From acne and aging to sensitivity and texture, every plan is built for real, visible improvement.</p>
+
+      <p class="benefit-label">Why our skincare works:</p>
+      <ul class="benefits">
+        <li><span class="check"></span> Clinician-guided tailored care</li>
+        <li><span class="check"></span> Prescription-strength options</li>
+        <li><span class="check"></span> Simple daily routines</li>
+        <li><span class="check"></span> Visible skin results</li>
+        <li><span class="check"></span> Personalized treatment plans</li>
+      </ul>
+
+      <a href="#" class="btn btn-dark">Coming Soon</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODERN HEALTHCARE BAND
+═══════════════════════════════════════════════════════════ -->
+<div id="modern-healthcare" class="modern-band">
+  <div class="modern-band-bg"></div>
+  <div class="modern-inner">
+    <p class="modern-pre">Better is possible—and we built for it.</p>
+    <h2 class="modern-h2">Modern healthcare,<br /><em>built around you.</em></h2>
+    <div class="modern-grid">
+      <div class="modern-card">
+        <p class="modern-card-tag">With you from start to success</p>
+        <h3>Care coaching and nutrition support</h3>
+        <p>Our care coaching team, led by certified medical assistants and registered dietitians, helps answer questions about your medication, program, and day-to-day lifestyle changes—so you have the guidance you need to stay on track and see results.</p>
+      </div>
+      <div class="modern-card">
+        <p class="modern-card-tag">The details matter</p>
+        <h3>We're creating a better healthcare experience</h3>
+        <p>We're here for those details. From seamless onboarding to ongoing support, we handle every step so you can focus on what matters—your health and your results.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════════════════════ -->
+<section id="testimonials" class="testimonials">
+  <div class="wrap">
+    <div class="test-head">
+      <h2>Those who chose MEDVi.<br />There's a reason people are <em>raving about us.</em></h2>
+      <p>Join the multitude of people who have trusted MEDVi to help change their lives, achieving significant, lasting weight loss.</p>
+    </div>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>"Ms. Gonzalez was great! She listened to my needs and provided details of the meds and any issues that rise."</p>
+        <div class="test-author">Billy</div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>"The provider was knowledgeable and helpful. She answered all my questions and made me feel as if this was not our first time meeting. I was very comfortable and enjoyed our conversation."</p>
+        <div class="test-author">Terika</div>
+      </div>
+      <div class="test-card">
+        <div class="test-stars">★★★★★</div>
+        <p>"The questions are to the point and easy to navigate. I'm able to voice my concerns if needed and ask questions of MEDVi. They are quick to respond and keep me updated on my prescription."</p>
+        <div class="test-author">Jamie</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── HOW IT WORKS ─────────────────────────────────────────── -->
-<section id="how-it-works">
-  <div class="section-inner">
-    <span class="section-label">Simple process</span>
-    <h2 class="section-h2">Get started in<br /><em>three easy steps.</em></h2>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-num">01</div>
-        <h3>Complete your intake</h3>
-        <p>Answer a quick health questionnaire so our physicians understand your goals and medical history.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">02</div>
-        <h3>Get your prescription</h3>
-        <p>A licensed doctor reviews your profile and, if appropriate, issues a GLP-1 prescription within 48 hours.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-num">03</div>
-        <h3>Receive &amp; start</h3>
-        <p>Your medication ships discreetly to your door. Your care team stays with you every step of the way.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── OTHER SERVICES ────────────────────────────────────────── -->
-<section id="other-services">
-  <div class="section-inner">
-    <span class="section-label">What we treat</span>
-    <h2 class="section-h2">Comprehensive care<br />for <em>your whole health.</em></h2>
-    <div class="services-grid">
-      <a href="#weight-loss" class="service-card sc-wl">
-        <span class="service-card-tag">Weight Loss</span>
-        <h3>GLP-1 &amp; Doctor-guided programs</h3>
-      </a>
-      <a href="#peptides" id="peptides" class="service-card sc-pep">
-        <span class="service-card-tag">Peptides &amp; Longevity</span>
-        <h3>Anti-aging &amp; performance peptides</h3>
-      </a>
-      <a href="#mens-health" id="mens-health" class="service-card sc-men">
-        <span class="service-card-tag">Men's Health</span>
-        <h3>TRT, ED &amp; hormone optimization</h3>
-      </a>
-      <a href="#womens-health" id="womens-health" class="service-card sc-wom">
-        <span class="service-card-tag">Women's Health</span>
-        <h3>Hormones, fertility &amp; wellness</h3>
-      </a>
-      <a href="#hair" id="hair" class="service-card sc-hair">
-        <span class="service-card-tag">Hair Regrowth</span>
-        <h3>Topical &amp; oral treatments</h3>
-      </a>
-      <a href="#skincare" id="skincare" class="service-card sc-skin">
-        <span class="service-card-tag">Skincare</span>
-        <h3>Prescription-grade skincare plans</h3>
-      </a>
-    </div>
-  </div>
-</section>
-
-<!-- ─── FOOTER ────────────────────────────────────────────────── -->
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <img
-          src="https://framerusercontent.com/images/1BRDkIzVV7TxG8fJDyUWdUDDE.png"
-          alt="MEDVi"
-        />
-        <p>
-          MEDVi is a telehealth platform connecting patients with licensed physicians
-          for personalized, evidence-based treatment — from weight loss to men's and
-          women's health.
-        </p>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <a href="#weight-loss">Weight Loss</a>
-        <a href="#peptides">Peptides &amp; Longevity</a>
-        <a href="#mens-health">Men's Health</a>
-        <a href="#womens-health">Women's Health</a>
-        <a href="#hair">Hair Regrowth</a>
-        <a href="#skincare">Skincare</a>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
-        <div class="footer-contact">
-          <a href="mailto:hello@medvi.org">hello@medvi.org</a><br />
-          <a href="tel:3236901564">(323) 690-1564</a><br />
-          <span>131 Continental Dr. Ste 305<br />Newark, DE 19713</span>
-        </div>
-      </div>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <img src="https://framerusercontent.com/images/1BRDkIzVV7TxG8fJDyUWdUDDE.png" alt="MEDVi" />
+      <p>MEDVi is a telehealth platform connecting patients with licensed physicians for personalized, evidence-based treatment — from GLP-1 weight loss to men's and women's health.</p>
     </div>
-
-    <div class="footer-bottom">
-      <span>© 2026 MEDVi. All rights reserved.</span>
-      <div class="footer-links">
-        <a href="#">Terms &amp; Conditions</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Privacy Practices</a>
-        <a href="#">Refund Policy</a>
-        <a href="#">Medical Consent</a>
-        <a href="#">For California Residents</a>
-        <a href="#">Bill of Rights</a>
-      </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#weight-loss">Weight Loss</a>
+      <a href="#peptides">Peptides &amp; Longevity</a>
+      <a href="#mens-health">Men's Health</a>
+      <a href="#womens-health">Women's Health</a>
+      <a href="#hair-regrowth">Hair Regrowth</a>
+      <a href="#skincare">Skincare</a>
+    </div>
+    <div class="footer-col footer-contact">
+      <h4>Contact</h4>
+      <p>
+        <a href="mailto:hello@medvi.org">hello@medvi.org</a><br />
+        <a href="tel:3236901564">(323) 690-1564</a><br />
+        131 Continental Dr. Ste 305<br />
+        Newark, DE 19713
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#">About MEDVi</a>
+      <a href="#">How It Works</a>
+      <a href="#">For Providers</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 MEDVi. All rights reserved.</span>
+    <div class="footer-legal">
+      <a href="#">Terms &amp; Conditions</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Privacy Practices</a>
+      <a href="#">Refund Policy</a>
+      <a href="#">Medical Consent</a>
+      <a href="#">For California Residents</a>
+      <a href="#">Bill of Rights</a>
     </div>
   </div>
 </footer>
