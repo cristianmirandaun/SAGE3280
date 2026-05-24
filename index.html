@@ -3,1165 +3,1302 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SANARÉ – Salud Digital Colombia | Médicos certificados online</title>
-  <meta name="description" content="Pierde peso, recupera tu cabello y cuida tu piel con médicos colombianos certificados. Consulta online hoy. Garantía de resultados o te devolvemos el dinero." />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%231a3052'/><text x='50%25' y='58%25' text-anchor='middle' font-size='18' fill='white' font-family='serif'>S</text></svg>" />
+  <title>SANARÉ – Salud Digital Colombia | Pérdida de peso con médicos certificados</title>
+  <meta name="description" content="Pierde peso, recupera tu cabello y cuida tu piel con médicos colombianos certificados. Consulta hoy. Garantía de resultados o te devolvemos el 100%." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Red+Hat+Text:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ─── Reset ─────────────────────────────────── */
+    /* ── Reset ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
-    /* ─── Tokens ─────────────────────────────────── */
+    /* ── Tokens ───────────────────────────────────────────── */
     :root {
-      --navy:      #1a3052;
-      --navy-dk:   #0f1e33;
-      --navy-lt:   #243f68;
-      --orange:    #e8541a;
-      --orange-dk: #c44415;
-      --orange-lt: #fef3ee;
-      --cream:     #fdfaf6;
-      --cream-dk:  #f4efe6;
-      --beige:     #e5ddd3;
-      --text:      #1c1917;
-      --muted:     rgba(28,25,23,.55);
-      --green-ok:  #15803d;
-      --r: 16px;
+      --bg:       #f5f4f0;
+      --bg-w:     #ffffff;
+      --text:     #111827;
+      --muted:    #6b7280;
+      --navy:     #1a2d44;
+      --navy-lt:  #243d5e;
+      --green:    #15803d;
+      --green-lt: #dcfce7;
+      --green-dk: #166534;
+      --amber:    #d97706;
+      --border:   #e5e1da;
+      --hero-bg:  #0c1a2c;
+      --r:        14px;
     }
-
     body {
-      font-family: 'Red Hat Text', sans-serif;
-      background: var(--cream);
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
       color: var(--text);
       -webkit-font-smoothing: antialiased;
       line-height: 1.6;
     }
-
-    /* ─── Utilities ───────────────────────────────── */
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
-    img { display: block; max-width: 100%; }
     a { text-decoration: none; color: inherit; }
+    img { display: block; max-width: 100%; }
 
-    .tag {
-      display: inline-block; font-size: 10px; font-weight: 700;
-      letter-spacing: .16em; text-transform: uppercase;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 13px; border-radius: 99px;
-      font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-    }
-
+    /* ── Buttons ───────────────────────────────────────────── */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 14px 28px; border-radius: 99px;
-      font-family: 'Red Hat Text', sans-serif; font-size: 15px; font-weight: 700;
-      border: none; cursor: pointer; transition: transform .15s, opacity .15s, box-shadow .15s;
+      padding: 14px 30px; border-radius: 99px;
+      font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 700;
+      border: none; cursor: pointer;
+      transition: transform .15s, opacity .15s, box-shadow .15s;
       white-space: nowrap;
     }
-    .btn:hover { transform: translateY(-2px); opacity: .93; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
-    .btn-orange { background: var(--orange); color: #fff; }
-    .btn-navy   { background: var(--navy);   color: #fff; }
-    .btn-outline{ background: transparent; color: var(--navy); border: 2px solid var(--navy); }
-    .btn-outline-w { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.4); }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+    .btn-green   { background: var(--green); color: #fff; }
+    .btn-green:hover { background: var(--green-dk); }
+    .btn-navy    { background: var(--navy); color: #fff; }
+    .btn-ghost   { background: transparent; color: #fff; border: 2px solid rgba(255,255,255,.35); }
+    .btn-ghost:hover { border-color: rgba(255,255,255,.7); }
+    .btn-wa      { background: #25D366; color: #fff; }
+    .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
     .btn-sm { padding: 10px 22px; font-size: 13px; }
-    .btn-wa { background: #25D366; color: #fff; }
 
-    /* check bullet */
+    /* ── SVG icons (inline, reusable) ─────────────────────── */
+    .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .icon-circle {
+      width: 48px; height: 48px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    /* ── Check bullet ─────────────────────────────────────── */
     .ck {
-      display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center;
-      width: 22px; height: 22px; border-radius: 50%;
-      background: var(--orange);
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--green); display: inline-flex; align-items: center; justify-content: center;
     }
-    .ck::after {
-      content: '';
-      display: block; width: 11px; height: 11px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='2,6 5,9 10,3'/%3E%3C/svg%3E");
-      background-size: contain; background-repeat: no-repeat;
-    }
-    .ck-green { background: var(--green-ok); }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
        NAV
-    ═══════════════════════════════════ */
+    ══════════════════════════════════════════ */
     nav {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(253,250,246,.95);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(28,25,23,.08);
+      position: sticky; top: 0; z-index: 300;
+      background: rgba(245,244,240,.96);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      display: flex; align-items: center; height: 66px; gap: 8px;
+      max-width: 1120px; margin: 0 auto; padding: 0 28px;
+      display: flex; align-items: center; height: 64px; gap: 6px;
     }
-    .nav-brand {
-      display: flex; align-items: center; gap: 10px;
-      flex-shrink: 0;
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
     }
-    .nav-brand-logo {
-      width: 36px; height: 36px; border-radius: 10px;
+    .nav-logo-mark {
+      width: 34px; height: 34px; border-radius: 9px;
       background: var(--navy);
       display: flex; align-items: center; justify-content: center;
-      font-family: 'Onest', serif; font-weight: 800; font-size: 18px;
-      color: #fff; letter-spacing: -.02em;
     }
-    .nav-brand-name {
+    .nav-logo-name {
       font-family: 'Onest', sans-serif; font-weight: 800;
-      font-size: 20px; letter-spacing: -.02em; color: var(--navy);
+      font-size: 19px; letter-spacing: -.03em; color: var(--navy);
     }
-    .nav-brand-name span { color: var(--orange); }
-
+    .nav-logo-name span { color: var(--green); }
     .nav-links {
-      display: flex; align-items: center; gap: 2px;
+      display: flex; align-items: center; gap: 1px;
       list-style: none; margin-left: auto;
     }
     .nav-links a {
       font-size: 13px; font-weight: 500; color: var(--text);
-      padding: 7px 14px; border-radius: 99px;
+      padding: 7px 13px; border-radius: 99px;
       transition: background .15s;
     }
-    .nav-links a:hover { background: rgba(28,25,23,.07); }
+    .nav-links a:hover { background: rgba(17,24,39,.07); }
     .nav-links .nav-active { background: var(--navy); color: #fff; }
-    .nav-links .nav-cta { background: var(--orange); color: #fff; margin-left: 4px; font-weight: 700; }
-    .nav-links .nav-cta:hover { background: var(--orange-dk); opacity: 1; }
-    .nav-wa {
+    .nav-links .nav-cta { background: var(--green); color: #fff; font-weight: 700; margin-left: 4px; }
+    .nav-links .nav-cta:hover { background: var(--green-dk); }
+    .nav-links .nav-wa {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 13px; font-weight: 600; color: #25D366;
-      padding: 7px 14px; border-radius: 99px;
-      border: 1.5px solid #25D366; margin-left: 4px;
+      color: #16a34a; border: 1.5px solid #16a34a;
+      padding: 6px 13px; border-radius: 99px; font-weight: 600; margin-left: 4px;
       transition: background .15s;
     }
-    .nav-wa:hover { background: rgba(37,211,102,.1); }
+    .nav-links .nav-wa:hover { background: rgba(22,163,74,.08); }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
        HERO
-    ═══════════════════════════════════ */
+    ══════════════════════════════════════════ */
     .hero {
-      background: var(--navy-dk);
-      padding: 100px 28px 0;
-      overflow: hidden; position: relative;
+      background: var(--hero-bg);
+      padding: 80px 28px 0; overflow: hidden; position: relative;
     }
-    .hero-gradient {
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 70% 80% at 50% 0%, #1e4a7a 0%, transparent 70%),
-                  linear-gradient(180deg, var(--navy-dk) 0%, #0a1525 100%);
+    .hero::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 100%;
+      background: radial-gradient(ellipse 65% 60% at 50% -10%, #1e4a7a 0%, transparent 65%);
       pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; text-align: center; }
-
-    .hero-badge {
+    .hero-topline {
       display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(232,84,26,.15); border: 1px solid rgba(232,84,26,.3);
-      border-radius: 99px; padding: 6px 16px; margin-bottom: 28px;
-      font-size: 12px; font-weight: 600; color: #ffa07a;
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 99px; padding: 6px 14px; margin-bottom: 24px;
+      font-size: 12px; font-weight: 500; color: rgba(255,255,255,.7);
     }
-    .hero-badge-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--orange); flex-shrink: 0; animation: pulse 2s infinite; }
-    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
-
+    .hero-topline-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80; flex-shrink: 0;
+      box-shadow: 0 0 8px #4ade80;
+    }
     .hero h1 {
       font-family: 'Onest', sans-serif; font-weight: 800;
-      font-size: clamp(38px, 6.5vw, 72px);
-      line-height: 1.06; color: #fff; margin-bottom: 24px;
-      letter-spacing: -.02em;
+      font-size: clamp(34px, 5.5vw, 64px); line-height: 1.08;
+      color: #fff; margin-bottom: 22px; letter-spacing: -.03em;
+      max-width: 860px; margin-inline: auto;
     }
-    .hero h1 em { font-style: normal; color: #ffb347; }
-    .hero h1 strong { font-style: normal; color: #7ec8e3; }
-
+    .hero h1 em { font-style: normal; color: #86efac; }
     .hero-sub {
-      font-size: 18px; color: rgba(255,255,255,.65);
-      line-height: 1.7; max-width: 560px; margin: 0 auto 16px;
+      font-size: 17px; color: rgba(255,255,255,.6);
+      line-height: 1.7; max-width: 520px; margin: 0 auto 40px;
     }
-    .hero-doctors {
+    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ── Hero person grid ─────────────────────────────────── */
+    .hero-people {
+      margin-top: 60px;
+      display: flex; justify-content: center; align-items: flex-end;
+      gap: 12px; flex-wrap: wrap;
+    }
+    .hero-person {
+      border-radius: 20px 20px 0 0; overflow: hidden;
+      position: relative;
+      transition: transform .3s;
+    }
+    .hero-person:hover { transform: translateY(-6px); }
+    .hero-person img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .hp-1 { width: 180px; height: 260px; }
+    .hp-2 { width: 160px; height: 220px; }
+    .hp-3 { width: 200px; height: 300px; }
+    .hp-4 { width: 160px; height: 220px; }
+    .hp-5 { width: 180px; height: 260px; }
+
+    /* ══════════════════════════════════════════
+       ¿ESTOY CALIFICADO? SECTION
+    ══════════════════════════════════════════ */
+    .qualify-band {
+      background: var(--bg-w); padding: 70px 28px 80px; text-align: center;
+    }
+    .qualify-band h2 {
+      font-family: 'Onest', sans-serif; font-size: clamp(22px, 3.5vw, 40px);
+      font-weight: 800; color: var(--navy); letter-spacing: -.02em;
+      max-width: 700px; margin: 0 auto 14px;
+    }
+    .qualify-band p { font-size: 16px; color: var(--muted); max-width: 500px; margin: 0 auto 36px; }
+    .qualify-cta-btn {
       display: inline-flex; align-items: center; gap: 10px;
-      background: rgba(255,255,255,.07); border-radius: 99px;
-      padding: 8px 18px; margin-bottom: 44px;
-      font-size: 13px; font-weight: 600; color: rgba(255,255,255,.75);
+      background: var(--green); color: #fff;
+      font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 800;
+      padding: 18px 40px; border-radius: 99px; border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s;
+      letter-spacing: -.01em;
     }
-    .hero-doctors-avatars { display: flex; }
-    .hero-doctors-avatars span {
-      width: 28px; height: 28px; border-radius: 50%;
-      background: linear-gradient(135deg,#4a9eff,#7c3aed);
-      border: 2px solid var(--navy-dk); margin-left: -8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 11px; font-weight: 700; color: #fff;
+    .qualify-cta-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(21,128,61,.4);
     }
-    .hero-doctors-avatars span:first-child { margin-left: 0; }
+    .qualify-cta-btn svg { width: 22px; height: 22px; }
+    .qualify-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
 
-    .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 0; }
-
-    /* hero service tabs */
-    .hero-tabs {
-      display: flex; gap: 8px; justify-content: center;
-      flex-wrap: wrap; margin-top: 56px;
-    }
-    .hero-tab {
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.12); border-bottom: none;
-      border-radius: 14px 14px 0 0; padding: 16px 22px 20px;
-      display: flex; flex-direction: column; align-items: center; gap: 7px;
-      min-width: 148px; font-size: 13px; font-weight: 600; color: rgba(255,255,255,.7);
-      transition: background .18s;
-    }
-    .hero-tab:hover { background: rgba(255,255,255,.13); }
-    .hero-tab.active { background: var(--cream); color: var(--navy); border-color: var(--cream); }
-    .hero-tab-icon { font-size: 22px; }
-
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
        TRUST STRIP
-    ═══════════════════════════════════ */
-    .trust-strip {
-      background: var(--navy);
-      padding: 20px 28px;
-    }
-    .trust-strip-inner {
+    ══════════════════════════════════════════ */
+    .trust-strip { background: var(--navy); padding: 22px 28px; }
+    .trust-inner {
+      max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; justify-content: center;
       gap: 36px; flex-wrap: wrap;
     }
     .trust-item {
       display: flex; align-items: center; gap: 9px;
-      font-size: 13px; font-weight: 600; color: rgba(255,255,255,.8);
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75);
     }
-    .trust-item svg { color: #7ec8e3; flex-shrink: 0; }
+    .trust-item svg { color: #86efac; flex-shrink: 0; }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
+       STATS
+    ══════════════════════════════════════════ */
+    .stats { background: var(--bg); padding: 56px 28px; border-bottom: 1px solid var(--border); }
+    .stats-grid {
+      max-width: 900px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;
+    }
+    .stat-num {
+      font-family: 'Onest', sans-serif; font-size: clamp(32px, 4vw, 48px);
+      font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+    .stat-num span { color: var(--green); }
+    .stat-lbl { font-size: 13px; color: var(--muted); line-height: 1.4; }
+
+    /* ══════════════════════════════════════════
        SERVICE SECTIONS
-    ═══════════════════════════════════ */
+    ══════════════════════════════════════════ */
     .svc { padding: 90px 28px; }
-    .svc-alt { background: #fff; }
+    .svc-alt { background: var(--bg-w); }
     .svc-inner {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 64px; align-items: center;
+      gap: 68px; align-items: center;
       max-width: 1060px; margin: 0 auto;
     }
     .svc-inner.rev { direction: rtl; }
     .svc-inner.rev > * { direction: ltr; }
 
-    /* image col */
-    .svc-img-wrap { position: relative; }
+    /* image */
+    .svc-img-wrap { position: relative; border-radius: 22px; overflow: hidden; }
     .svc-img-wrap img {
-      width: 100%; height: 580px; object-fit: cover;
-      border-radius: 24px; display: block;
+      width: 100%; height: 560px; object-fit: cover; display: block;
     }
-    .svc-img-badge {
-      position: absolute; bottom: 20px; left: 20px; right: 20px;
-      background: rgba(15,30,51,.85); backdrop-filter: blur(10px);
-      border-radius: 16px; padding: 16px 18px;
+    .svc-img-card {
+      position: absolute; bottom: 20px; left: 16px; right: 16px;
+      background: rgba(12,26,44,.88); backdrop-filter: blur(12px);
+      border-radius: 14px; padding: 16px;
       display: flex; align-items: center; gap: 12px;
     }
-    .svc-img-badge-icon {
-      width: 40px; height: 40px; border-radius: 10px;
-      background: var(--orange); display: flex;
-      align-items: center; justify-content: center; flex-shrink: 0;
-      font-size: 20px;
+    .svc-img-card-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .svc-img-badge-text { flex: 1; }
-    .svc-img-badge-text strong { display: block; font-size: 14px; font-weight: 700; color: #fff; }
-    .svc-img-badge-text span   { font-size: 12px; color: rgba(255,255,255,.6); }
+    .svc-img-card-icon svg { width: 22px; height: 22px; }
+    .svc-img-card strong { display: block; font-size: 13px; font-weight: 700; color: #fff; }
+    .svc-img-card span   { font-size: 11px; color: rgba(255,255,255,.55); }
     .svc-coming {
-      position: absolute; top: 18px; right: 18px;
-      background: rgba(0,0,0,.55); backdrop-filter: blur(6px);
-      color: #fff; border-radius: 99px; padding: 5px 14px;
+      position: absolute; top: 16px; right: 16px;
+      background: rgba(0,0,0,.6); backdrop-filter: blur(6px); color: #fff;
+      border-radius: 99px; padding: 5px 13px;
       font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
     }
 
-    /* text col */
+    /* text */
     .svc-text { display: flex; flex-direction: column; gap: 20px; }
-    .svc-tag-line { color: var(--muted); font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    .svc-tag { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
     .svc-h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(26px, 3vw, 44px);
-      font-weight: 800; line-height: 1.14; color: var(--navy);
-      letter-spacing: -.02em;
+      font-family: 'Onest', sans-serif; font-size: clamp(24px, 2.8vw, 40px);
+      font-weight: 800; line-height: 1.15; color: var(--navy); letter-spacing: -.02em;
     }
-    .svc-h2 em { font-style: normal; color: var(--orange); }
-    .svc-lead { font-size: 16px; color: var(--muted); line-height: 1.75; }
+    .svc-h2 em { font-style: normal; color: var(--green); }
+    .svc-lead { font-size: 15px; color: var(--muted); line-height: 1.75; }
+
+    .price-box {
+      display: inline-flex; align-items: baseline; gap: 6px;
+      background: var(--green-lt); border: 1px solid #86efac;
+      border-radius: 12px; padding: 12px 18px;
+    }
+    .price-amt { font-family: 'Onest', sans-serif; font-size: 28px; font-weight: 800; color: var(--green); letter-spacing: -.02em; }
+    .price-per { font-size: 13px; color: var(--muted); }
 
     .benefits-hd { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
     .benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .benefits li { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 500; color: var(--text); }
+    .benefits li { display: flex; align-items: center; gap: 11px; font-size: 14px; font-weight: 500; }
 
-    /* price pill */
-    .price-pill {
-      display: inline-flex; align-items: baseline; gap: 6px;
-      background: var(--orange-lt); border-radius: 12px; padding: 12px 18px;
-    }
-    .price-amount { font-family: 'Onest', sans-serif; font-size: 28px; font-weight: 800; color: var(--orange); }
-    .price-period { font-size: 13px; color: var(--muted); font-weight: 500; }
-
-    /* guarantee pill */
-    .guarantee-pill {
+    .guarantee-tag {
       display: inline-flex; align-items: center; gap: 8px;
-      background: #dcfce7; border: 1px solid #86efac;
-      border-radius: 12px; padding: 10px 16px;
-      font-size: 13px; font-weight: 700; color: #15803d;
+      background: var(--green-lt); border: 1px solid #86efac;
+      border-radius: 10px; padding: 10px 14px;
+      font-size: 13px; font-weight: 700; color: var(--green-dk);
     }
+    .svc-disc { font-size: 11px; color: var(--muted); line-height: 1.6; }
 
-    .svc-disclaimer { font-size: 11px; color: var(--muted); line-height: 1.6; }
+    /* ══════════════════════════════════════════
+       GUARANTEE BAND
+    ══════════════════════════════════════════ */
+    .g-band {
+      background: linear-gradient(135deg, #0a2e18 0%, #15803d 60%, #0a2e18 100%);
+      padding: 80px 28px; text-align: center;
+    }
+    .g-band-inner { max-width: 760px; margin: 0 auto; }
+    .g-band h2 {
+      font-family: 'Onest', sans-serif; font-size: clamp(26px, 4vw, 50px);
+      font-weight: 800; color: #fff; line-height: 1.12; margin-bottom: 18px; letter-spacing: -.02em;
+    }
+    .g-band h2 em { font-style: normal; color: #86efac; }
+    .g-band p { font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 36px; }
+    .g-cards {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;
+    }
+    .g-card {
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+      border-radius: 16px; padding: 20px 24px; text-align: center; min-width: 160px;
+    }
+    .g-card .g-num {
+      font-family: 'Onest', sans-serif; font-size: 38px; font-weight: 800;
+      color: #86efac; display: block; line-height: 1;
+    }
+    .g-card .g-lbl { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 4px; display: block; }
 
-    /* ═══════════════════════════════════
-       GUARANTEE HERO BAND
-    ═══════════════════════════════════ */
-    .guarantee-band {
-      background: linear-gradient(135deg, #0f3d1f 0%, #1a5c2e 50%, #0f3d1f 100%);
-      padding: 72px 28px; text-align: center; position: relative; overflow: hidden;
-    }
-    .guarantee-band::before {
-      content: ''; position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 60% at 50% 50%, rgba(21,128,61,.3) 0%, transparent 70%);
-      pointer-events: none;
-    }
-    .guarantee-band-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
-    .guarantee-band h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(28px, 4.5vw, 52px);
-      font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px;
-      letter-spacing: -.02em;
-    }
-    .guarantee-band h2 em { font-style: normal; color: #86efac; }
-    .guarantee-band p { font-size: 17px; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 36px; }
-    .guarantee-items-row {
-      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;
-    }
-    .guarantee-item-card {
-      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
-      border-radius: 16px; padding: 18px 22px; text-align: center;
-      min-width: 180px;
-    }
-    .guarantee-item-card .num {
-      font-family: 'Onest', sans-serif; font-size: 36px; font-weight: 800; color: #86efac; display: block;
-    }
-    .guarantee-item-card .lbl { font-size: 12px; color: rgba(255,255,255,.65); font-weight: 500; }
-
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
        HOW IT WORKS
-    ═══════════════════════════════════ */
-    .how { padding: 90px 28px; background: var(--cream-dk); }
+    ══════════════════════════════════════════ */
+    .how { padding: 90px 28px; background: var(--bg-w); }
     .how-inner { max-width: 1060px; margin: 0 auto; }
-    .how-head { text-align: center; margin-bottom: 60px; }
-    .how-head h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800; color: var(--navy); letter-spacing: -.02em; margin-bottom: 14px;
-    }
-    .how-head h2 em { font-style: normal; color: var(--orange); }
-    .how-head p { font-size: 16px; color: var(--muted); max-width: 500px; margin: 0 auto; }
-    .how-steps {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 28px; position: relative;
-    }
-    .how-steps::before {
-      content: ''; position: absolute;
-      top: 32px; left: calc(16.6% + 28px); right: calc(16.6% + 28px);
-      height: 2px; background: var(--beige);
-      z-index: 0;
-    }
-    .step-card {
-      background: #fff; border-radius: 20px; padding: 32px 26px;
-      text-align: center; position: relative; z-index: 1;
-      border: 1px solid var(--beige);
-      transition: box-shadow .2s, transform .2s;
-    }
-    .step-card:hover { box-shadow: 0 12px 40px rgba(26,48,82,.12); transform: translateY(-4px); }
-    .step-num {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: var(--navy); color: #fff;
-      font-family: 'Onest', sans-serif; font-size: 24px; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 20px;
-    }
-    .step-card h3 { font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
-    .step-card p  { font-size: 14px; color: var(--muted); line-height: 1.65; }
-    .step-card .step-time { margin-top: 14px; display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--orange); }
-
-    /* ═══════════════════════════════════
-       STATS / CREDIBILITY
-    ═══════════════════════════════════ */
-    .stats-band { background: var(--navy); padding: 60px 28px; }
-    .stats-inner {
-      max-width: 1060px; margin: 0 auto;
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 28px;
-    }
-    .stat-item { text-align: center; }
-    .stat-num {
-      font-family: 'Onest', sans-serif; font-size: clamp(36px, 4vw, 52px);
-      font-weight: 800; color: #fff; line-height: 1; margin-bottom: 8px;
-    }
-    .stat-num em { font-style: normal; color: #ffb347; }
-    .stat-lbl { font-size: 13px; color: rgba(255,255,255,.6); font-weight: 500; }
-
-    /* ═══════════════════════════════════
-       DOCTORS SECTION
-    ═══════════════════════════════════ */
-    .doctors { padding: 90px 28px; background: #fff; }
-    .doctors-inner { max-width: 1060px; margin: 0 auto; }
-    .doctors-head { margin-bottom: 48px; }
-    .doctors-head h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(26px, 3.5vw, 44px);
+    .section-head { margin-bottom: 56px; }
+    .section-head h2 {
+      font-family: 'Onest', sans-serif; font-size: clamp(26px, 3.5vw, 46px);
       font-weight: 800; color: var(--navy); letter-spacing: -.02em; margin-bottom: 12px;
     }
-    .doctors-head h2 em { font-style: normal; color: var(--orange); }
-    .doctors-head p { font-size: 16px; color: var(--muted); max-width: 540px; line-height: 1.7; }
-    .doctors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .doctor-card {
-      background: var(--cream); border-radius: 20px; overflow: hidden;
-      border: 1px solid var(--beige);
-      transition: box-shadow .2s;
+    .section-head h2 em { font-style: normal; color: var(--green); }
+    .section-head p { font-size: 16px; color: var(--muted); max-width: 500px; line-height: 1.65; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .step {
+      background: var(--bg); border-radius: 20px; padding: 32px 26px;
+      border: 1px solid var(--border);
+      transition: box-shadow .2s, transform .2s;
     }
-    .doctor-card:hover { box-shadow: 0 12px 40px rgba(26,48,82,.12); }
-    .doctor-card-img {
-      height: 260px; object-fit: cover; object-position: top center;
-      width: 100%;
+    .step:hover { box-shadow: 0 12px 36px rgba(26,45,68,.1); transform: translateY(-4px); }
+    .step-num-badge {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: var(--navy); color: #fff;
+      font-family: 'Onest', sans-serif; font-size: 22px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .step h3 { font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+    .step p  { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .step-time { margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+
+    /* ══════════════════════════════════════════
+       DOCTORS
+    ══════════════════════════════════════════ */
+    .doctors { padding: 90px 28px; background: var(--bg); }
+    .doctors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 0; }
+    .doc-card {
+      background: var(--bg-w); border-radius: 20px; overflow: hidden;
+      border: 1px solid var(--border); transition: box-shadow .2s;
+    }
+    .doc-card:hover { box-shadow: 0 10px 32px rgba(26,45,68,.1); }
+    .doc-avatar {
+      height: 200px;
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
       display: flex; align-items: center; justify-content: center;
-      font-size: 64px;
     }
-    .doctor-card-body { padding: 22px 20px; }
-    .doctor-card-body h3 { font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
-    .doctor-card-body .spec { font-size: 12px; font-weight: 600; color: var(--orange); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; }
-    .doctor-card-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
-    .doctor-badge {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: #dcfce7; border-radius: 99px; padding: 4px 10px;
-      font-size: 11px; font-weight: 700; color: #15803d; margin-top: 12px;
+    .doc-avatar svg { width: 72px; height: 72px; opacity: .7; }
+    .doc-body { padding: 22px 20px; }
+    .doc-body h3 { font-family: 'Onest', sans-serif; font-size: 17px; font-weight: 700; color: var(--navy); margin-bottom: 4px; }
+    .doc-spec { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--green); margin-bottom: 10px; }
+    .doc-body p { font-size: 13px; color: var(--muted); line-height: 1.6; }
+    .doc-badge {
+      display: inline-flex; align-items: center; gap: 5px; margin-top: 12px;
+      background: var(--green-lt); border-radius: 99px; padding: 4px 10px;
+      font-size: 11px; font-weight: 700; color: var(--green-dk);
     }
+    .doc-badge svg { width: 11px; height: 11px; }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
        TESTIMONIALS
-    ═══════════════════════════════════ */
-    .testimonials { padding: 90px 28px; background: var(--cream); }
-    .test-head { text-align: center; margin-bottom: 56px; }
-    .test-head h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(28px, 4vw, 48px);
-      font-weight: 800; color: var(--navy); letter-spacing: -.02em;
-    }
-    .test-head h2 em { font-style: normal; color: var(--orange); }
-    .test-head p { font-size: 16px; color: var(--muted); margin-top: 14px; max-width: 480px; margin-inline: auto; }
+    ══════════════════════════════════════════ */
+    .testimonials { padding: 90px 28px; background: var(--bg-w); }
     .test-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 20px; max-width: 1060px; margin: 0 auto;
+      gap: 18px; max-width: 1060px; margin: 48px auto 0;
     }
     .test-card {
-      background: #fff; border-radius: 20px;
-      border: 1px solid var(--beige); padding: 28px 24px;
+      background: var(--bg); border-radius: 18px;
+      border: 1px solid var(--border); padding: 26px 22px;
       transition: box-shadow .2s;
     }
-    .test-card:hover { box-shadow: 0 8px 28px rgba(26,48,82,.1); }
-    .test-stars { color: #f59e0b; font-size: 14px; letter-spacing: 2px; margin-bottom: 14px; }
-    .test-card blockquote { font-size: 14px; color: var(--text); line-height: 1.75; font-style: italic; margin-bottom: 20px; }
+    .test-card:hover { box-shadow: 0 8px 24px rgba(26,45,68,.09); }
+    .test-stars { color: #f59e0b; letter-spacing: 2px; font-size: 14px; margin-bottom: 12px; }
+    .test-card blockquote { font-size: 14px; color: var(--text); line-height: 1.75; font-style: italic; margin-bottom: 18px; }
     .test-author { display: flex; align-items: center; gap: 10px; }
-    .test-avatar {
+    .test-av {
       width: 36px; height: 36px; border-radius: 50%;
       background: var(--navy); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 700; flex-shrink: 0;
+      font-family: 'Onest', sans-serif; font-size: 13px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
     }
-    .test-author-name { font-size: 13px; font-weight: 700; color: var(--navy); }
-    .test-author-city { font-size: 11px; color: var(--muted); }
+    .test-name { font-size: 13px; font-weight: 700; color: var(--navy); }
+    .test-city { font-size: 11px; color: var(--muted); }
     .test-result {
-      margin-top: 14px; padding-top: 14px;
-      border-top: 1px solid var(--beige);
-      font-size: 12px; font-weight: 700; color: var(--green-ok);
+      margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border);
+      font-size: 12px; font-weight: 700; color: var(--green);
       display: flex; align-items: center; gap: 6px;
     }
 
-    /* ═══════════════════════════════════
-       CTA BAND
-    ═══════════════════════════════════ */
-    .cta-band {
+    /* ══════════════════════════════════════════
+       FINAL CTA
+    ══════════════════════════════════════════ */
+    .final-cta {
       background: var(--navy); padding: 80px 28px; text-align: center;
       position: relative; overflow: hidden;
     }
-    .cta-band::before {
+    .final-cta::before {
       content: ''; position: absolute;
-      top: -60px; left: 50%; transform: translateX(-50%);
-      width: 600px; height: 300px; border-radius: 50%;
-      background: rgba(232,84,26,.15); pointer-events: none;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 120%, rgba(21,128,61,.25) 0%, transparent 70%);
+      pointer-events: none;
     }
-    .cta-band-inner { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; }
-    .cta-band h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(28px, 4.5vw, 52px);
-      font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 20px;
-      letter-spacing: -.02em;
+    .final-cta-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+    .final-cta h2 {
+      font-family: 'Onest', sans-serif; font-size: clamp(26px, 4vw, 48px);
+      font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 18px; letter-spacing: -.02em;
     }
-    .cta-band h2 em { font-style: normal; color: #ffb347; }
-    .cta-band p { font-size: 17px; color: rgba(255,255,255,.65); line-height: 1.7; margin-bottom: 36px; }
-    .cta-band-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .final-cta h2 em { font-style: normal; color: #86efac; }
+    .final-cta p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 34px; }
+    .final-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    /* ═══════════════════════════════════
+    /* ══════════════════════════════════════════
+       MULTI-STEP FORM SECTION
+    ══════════════════════════════════════════ */
+    .form-section {
+      padding: 90px 28px; background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .form-section-inner { max-width: 680px; margin: 0 auto; }
+    .form-header { text-align: center; margin-bottom: 40px; }
+    .form-header h2 {
+      font-family: 'Onest', sans-serif; font-size: clamp(24px, 3.5vw, 38px);
+      font-weight: 800; color: var(--navy); letter-spacing: -.02em; margin-bottom: 10px;
+    }
+    .form-header p { font-size: 15px; color: var(--muted); }
+
+    /* Progress bar */
+    .form-progress {
+      display: flex; align-items: center; gap: 0; margin-bottom: 36px;
+    }
+    .form-step-dot {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--border); border: 2px solid var(--border);
+      font-size: 12px; font-weight: 700; color: var(--muted);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      transition: all .3s;
+    }
+    .form-step-dot.active  { background: var(--navy); border-color: var(--navy); color: #fff; }
+    .form-step-dot.done    { background: var(--green); border-color: var(--green); color: #fff; }
+    .form-step-line {
+      flex: 1; height: 2px; background: var(--border); transition: background .3s;
+    }
+    .form-step-line.done { background: var(--green); }
+
+    /* Form box */
+    .form-box {
+      background: var(--bg-w); border-radius: 20px;
+      border: 1px solid var(--border); padding: 36px 32px;
+      box-shadow: 0 4px 20px rgba(26,45,68,.07);
+    }
+    .form-step { display: none; }
+    .form-step.active { display: block; }
+    .form-step-title {
+      font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700;
+      color: var(--navy); margin-bottom: 24px;
+    }
+
+    .field-group { margin-bottom: 20px; }
+    .field-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+    .field-group input,
+    .field-group select,
+    .field-group textarea {
+      width: 100%; padding: 11px 14px; border-radius: 10px;
+      border: 1.5px solid var(--border); background: var(--bg);
+      font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text);
+      transition: border-color .15s;
+    }
+    .field-group input:focus,
+    .field-group select:focus { outline: none; border-color: var(--navy); }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+
+    .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .checkbox-item {
+      display: flex; align-items: flex-start; gap: 9px;
+      background: var(--bg); border: 1.5px solid var(--border); border-radius: 10px;
+      padding: 11px 12px; cursor: pointer; transition: border-color .15s, background .15s;
+    }
+    .checkbox-item:hover { border-color: var(--navy); background: #f0f4f8; }
+    .checkbox-item input[type="checkbox"] { margin-top: 2px; accent-color: var(--navy); flex-shrink: 0; }
+    .checkbox-item span { font-size: 13px; color: var(--text); line-height: 1.4; }
+
+    .radio-group { display: flex; gap: 12px; flex-wrap: wrap; }
+    .radio-item {
+      display: flex; align-items: center; gap: 8px;
+      background: var(--bg); border: 1.5px solid var(--border); border-radius: 99px;
+      padding: 9px 16px; cursor: pointer; transition: all .15s;
+    }
+    .radio-item:hover { border-color: var(--navy); }
+    .radio-item input[type="radio"] { accent-color: var(--navy); }
+    .radio-item span { font-size: 13px; font-weight: 500; }
+
+    .yn-group { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .yn-item {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--bg); border: 2px solid var(--border); border-radius: 12px;
+      padding: 12px; cursor: pointer; transition: all .15s; text-align: center;
+    }
+    .yn-item:hover { border-color: var(--navy); background: #f0f4f8; }
+    .yn-item input { display: none; }
+    .yn-item span { font-size: 14px; font-weight: 600; }
+
+    .form-nav {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-top: 32px; gap: 12px;
+    }
+    .btn-form-next, .btn-form-back {
+      padding: 12px 28px; border-radius: 99px;
+      font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
+      cursor: pointer; border: none; transition: all .15s;
+    }
+    .btn-form-next { background: var(--navy); color: #fff; }
+    .btn-form-next:hover { background: var(--navy-lt); }
+    .btn-form-back { background: transparent; color: var(--muted); border: 1.5px solid var(--border); }
+    .btn-form-back:hover { border-color: var(--navy); color: var(--navy); }
+    .btn-form-submit { background: var(--green); color: #fff; width: 100%; padding: 15px; border-radius: 99px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all .15s; }
+    .btn-form-submit:hover { background: var(--green-dk); }
+
+    .field-note { font-size: 11px; color: var(--muted); margin-top: 5px; }
+
+    /* ══════════════════════════════════════════
        FOOTER
-    ═══════════════════════════════════ */
-    footer { background: var(--navy-dk); color: rgba(255,255,255,.5); padding: 64px 28px 32px; }
+    ══════════════════════════════════════════ */
+    footer {
+      background: #0c1a2c; color: rgba(255,255,255,.45);
+      padding: 60px 28px 32px;
+    }
     .footer-grid {
-      display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr;
+      display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr;
       gap: 36px; max-width: 1060px; margin: 0 auto;
-      padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,.08);
+      padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.08);
       margin-bottom: 28px;
     }
-    .footer-brand .brand-name {
-      font-family: 'Onest', sans-serif; font-size: 22px; font-weight: 800;
-      color: #fff; letter-spacing: -.02em; margin-bottom: 14px;
+    .footer-brand-name {
+      font-family: 'Onest', sans-serif; font-weight: 800; font-size: 20px;
+      color: #fff; letter-spacing: -.02em; margin-bottom: 12px;
     }
-    .footer-brand .brand-name span { color: var(--orange); }
-    .footer-brand p { font-size: 13px; line-height: 1.8; max-width: 280px; }
-    .footer-brand .footer-legal-badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .footer-badge-pill {
-      display: inline-flex; align-items: center; gap: 5px;
-      background: rgba(255,255,255,.08); border-radius: 99px;
-      padding: 4px 10px; font-size: 11px; font-weight: 600; color: rgba(255,255,255,.55);
+    .footer-brand-name span { color: #86efac; }
+    .footer-brand p { font-size: 13px; line-height: 1.75; max-width: 260px; }
+    .footer-trust { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .footer-trust span {
+      background: rgba(255,255,255,.07); border-radius: 99px;
+      padding: 4px 10px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,.5);
     }
-    .footer-col h4 { font-size: 11px; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 14px; }
-    .footer-col a  { display: block; font-size: 13px; color: rgba(255,255,255,.4); margin-bottom: 9px; transition: color .15s; }
+    .footer-col h4 {
+      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
+      color: rgba(255,255,255,.8); margin-bottom: 14px;
+    }
+    .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.35); margin-bottom: 8px; transition: color .15s; }
     .footer-col a:hover { color: #fff; }
     .footer-contact p { font-size: 13px; line-height: 2.1; }
-    .footer-contact a { color: rgba(255,255,255,.4); }
+    .footer-contact a { color: rgba(255,255,255,.35); }
     .footer-contact a:hover { color: #fff; }
     .footer-bottom {
       display: flex; align-items: center; justify-content: space-between;
-      gap: 14px; flex-wrap: wrap; max-width: 1060px; margin: 0 auto; font-size: 12px;
+      gap: 14px; flex-wrap: wrap;
+      max-width: 1060px; margin: 0 auto; font-size: 12px;
     }
-    .footer-legal-links { display: flex; flex-wrap: wrap; gap: 16px; }
-    .footer-legal-links a { color: rgba(255,255,255,.3); }
-    .footer-legal-links a:hover { color: rgba(255,255,255,.7); }
+    .footer-legal-links { display: flex; flex-wrap: wrap; gap: 14px; }
+    .footer-legal-links a { color: rgba(255,255,255,.25); }
+    .footer-legal-links a:hover { color: rgba(255,255,255,.65); }
     .footer-disclaimer {
-      max-width: 1060px; margin: 28px auto 0;
-      font-size: 11px; line-height: 1.75; color: rgba(255,255,255,.25);
-      border-top: 1px solid rgba(255,255,255,.07); padding-top: 24px;
+      max-width: 1060px; margin: 24px auto 0;
+      font-size: 11px; line-height: 1.75; color: rgba(255,255,255,.2);
+      border-top: 1px solid rgba(255,255,255,.06); padding-top: 22px;
     }
 
-    /* WhatsApp floating button */
+    /* WhatsApp float */
     .wa-float {
       position: fixed; bottom: 28px; right: 28px; z-index: 500;
-      width: 56px; height: 56px; border-radius: 50%;
+      width: 54px; height: 54px; border-radius: 50%;
       background: #25D366; color: #fff;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,.5);
-      transition: transform .2s; cursor: pointer;
-      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(37,211,102,.55);
+      transition: transform .2s;
     }
     .wa-float:hover { transform: scale(1.1); }
-    .wa-float svg { width: 28px; height: 28px; }
+    .wa-float svg { width: 26px; height: 26px; }
 
-    /* ═══════════════════════════════════
-       RESPONSIVE
-    ═══════════════════════════════════ */
+    /* ── Responsive ───────────────────────────────────────── */
     @media (max-width: 1020px) {
-      .svc-inner { grid-template-columns: 1fr; gap: 40px; }
+      .svc-inner { grid-template-columns: 1fr; gap: 36px; }
       .svc-inner.rev { direction: ltr; }
-      .svc-img-wrap img { height: 440px; }
+      .svc-img-wrap img { height: 400px; }
       .doctors-grid { grid-template-columns: 1fr 1fr; }
       .test-grid { grid-template-columns: 1fr 1fr; }
-      .stats-inner { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
+      .steps { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
-      .how-steps { grid-template-columns: 1fr; gap: 20px; }
-      .how-steps::before { display: none; }
+      .hp-1,.hp-2,.hp-3,.hp-4,.hp-5 { display: none; }
     }
     @media (max-width: 720px) {
       .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
-      .trust-strip-inner { gap: 18px; }
       .test-grid { grid-template-columns: 1fr; }
       .doctors-grid { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
-      .guarantee-items-row { gap: 14px; }
-      .guarantee-item-card { min-width: 140px; }
+      .checkbox-group { grid-template-columns: 1fr; }
+      .field-row, .field-row-3 { grid-template-columns: 1fr; }
+      .g-cards { flex-direction: column; align-items: center; }
     }
     @media (max-width: 480px) {
-      .hero { padding-top: 64px; }
-      .svc { padding: 60px 20px; }
-      .svc-img-wrap img { height: 340px; }
-      footer, .testimonials, .how, .guarantee-band, .cta-band, .stats-band, .doctors { padding-left: 20px; padding-right: 20px; }
-      .hero-tabs .hero-tab { min-width: 130px; padding: 14px 16px 18px; }
-      .stats-inner { grid-template-columns: 1fr 1fr; }
+      .hero { padding-top: 60px; }
+      .svc, .how, .doctors, .testimonials, .form-section { padding: 60px 18px; }
+      footer { padding-left: 18px; padding-right: 18px; }
+      .form-box { padding: 24px 18px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════
-     WHATSAPP FLOAT
-══════════════════════════════════════ -->
-<a href="https://wa.me/573001234567?text=Hola%2C+quiero+información+sobre+los+planes+de+SANARÉ" class="wa-float" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+<!-- WhatsApp float -->
+<a href="https://wa.me/573162881161?text=Hola%2C+quiero+información+sobre+SANARÉ" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- ══════════════════════════════════════
-     NAV
-══════════════════════════════════════ -->
+<!-- ═══ NAV ═══════════════════════════════════════════════════ -->
 <nav>
-  <div class="nav-inner wrap">
-    <div class="nav-brand">
-      <div class="nav-brand-logo">S</div>
-      <span class="nav-brand-name">SANA<span>RÉ</span></span>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <span class="nav-logo-name">SANA<span>RÉ</span></span>
     </div>
     <ul class="nav-links">
       <li><a href="#perdida-de-peso" class="nav-active">Pérdida de peso</a></li>
       <li><a href="#cabello">Cabello</a></li>
       <li><a href="#piel">Piel</a></li>
-      <li><a href="https://wa.me/573001234567" class="nav-wa" target="_blank">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <li><a href="https://wa.me/573162881161" class="nav-wa" target="_blank">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         WhatsApp
       </a></li>
-      <li><a href="#comenzar" class="nav-cta">Comenzar ahora →</a></li>
+      <li><a href="#calificacion" class="nav-cta">¿Estoy calificado?</a></li>
     </ul>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
+<!-- ═══ HERO ══════════════════════════════════════════════════ -->
 <header class="hero">
-  <div class="hero-gradient" aria-hidden="true"></div>
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Médicos colombianos certificados · Atención 100% online
+    <div class="hero-topline">
+      <span class="hero-topline-dot"></span>
+      Médicos colombianos certificados · Resultados garantizados
     </div>
-
-    <h1>
-      Tu cuerpo merece<br />
-      <em>resultados reales.</em><br />
-      <strong>Médicos que te escuchan.</strong>
-    </h1>
-
+    <h1>¿Finalmente te tomas en serio tu salud?<br /><em>Nosotros también.</em></h1>
     <p class="hero-sub">
-      Pierde peso, recupera tu cabello y cuida tu piel con médicos especialistas colombianos.
-      Consulta hoy. Sin filas. Sin esperas. Desde tu casa.
+      Perder peso, recuperar tu cabello y cuidar tu piel es más fácil con atención médica personalizada.
+      Sin filas. Sin esperas. Desde casa.
     </p>
-
-    <div class="hero-doctors">
-      <div class="hero-doctors-avatars">
-        <span>DR</span>
-        <span>DI</span>
-        <span>ME</span>
-      </div>
-      Equipo de médicos internistas y especialistas certificados en Colombia
-    </div>
-
     <div class="hero-btns">
-      <a href="#comenzar" class="btn btn-orange">Empieza hoy &rarr;</a>
-      <a href="https://wa.me/573001234567" class="btn btn-outline-w" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Escríbenos
+      <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 32px;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        ¿Estoy calificado?
+      </a>
+      <a href="https://wa.me/573162881161?text=Hola%2C+quiero+información+sobre+SANARÉ" class="btn btn-ghost" target="_blank">
+        Hablar con un médico
       </a>
     </div>
 
-    <div class="hero-tabs">
-      <a href="#perdida-de-peso" class="hero-tab active">
-        <span class="hero-tab-icon">⚖️</span>
-        Pérdida de peso
-      </a>
-      <a href="#salud-femenina" class="hero-tab">
-        <span class="hero-tab-icon">🌸</span>
-        Salud femenina
-      </a>
-      <a href="#cabello" class="hero-tab">
-        <span class="hero-tab-icon">💆</span>
-        Caída del cabello
-      </a>
-      <a href="#piel" class="hero-tab">
-        <span class="hero-tab-icon">✨</span>
-        Cuidado de la piel
-      </a>
+    <!-- People grid -->
+    <div class="hero-people">
+      <div class="hero-person hp-1">
+        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&h=260&q=80" alt="Paciente 1" />
+      </div>
+      <div class="hero-person hp-2">
+        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=180&h=220&q=80" alt="Paciente 2" />
+      </div>
+      <div class="hero-person hp-3">
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=220&h=300&q=80" alt="Paciente 3" />
+      </div>
+      <div class="hero-person hp-4">
+        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=180&h=220&q=80" alt="Paciente 4" />
+      </div>
+      <div class="hero-person hp-5">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&h=260&q=80" alt="Paciente 5" />
+      </div>
     </div>
   </div>
 </header>
 
-<!-- ══════════════════════════════════════
-     TRUST STRIP
-══════════════════════════════════════ -->
+<!-- ═══ ¿ESTOY CALIFICADO? BAND ═══════════════════════════════ -->
+<div class="qualify-band" id="qualify-top">
+  <h2>Alcanza tu peso ideal sin dietas extremas ni ejercicio excesivo</h2>
+  <p>Responde las siguientes preguntas para saber si calificas para nuestro programa de pérdida de peso con supervisión médica.</p>
+  <button class="qualify-cta-btn" onclick="document.getElementById('calificacion').scrollIntoView({behavior:'smooth'})">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+    ¿ESTOY CALIFICADO?
+  </button>
+  <p class="qualify-note">Completarlo toma menos de 3 minutos · 100% confidencial</p>
+</div>
+
+<!-- ═══ TRUST STRIP ═══════════════════════════════════════════ -->
 <div class="trust-strip">
-  <div class="trust-strip-inner">
+  <div class="trust-inner">
     <div class="trust-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      Médicos con tarjeta profesional colombiana
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Médicos con tarjeta profesional
     </div>
     <div class="trust-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-      Videollamada en menos de 24 horas
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Videollamada en &lt;24 horas
     </div>
     <div class="trust-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
       Pagos en pesos colombianos
     </div>
     <div class="trust-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v3h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
       Envío a todo Colombia
     </div>
     <div class="trust-item">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      Garantía o devolución total
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Garantía 100% devolución
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     STATS
-══════════════════════════════════════ -->
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <div class="stat-num">98<em>%</em></div>
+<!-- ═══ STATS ══════════════════════════════════════════════════ -->
+<div class="stats">
+  <div class="stats-grid">
+    <div>
+      <div class="stat-num">98<span>%</span></div>
       <div class="stat-lbl">de pacientes satisfechos</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">&lt;24<em>h</em></div>
-      <div class="stat-lbl">para tu primera consulta</div>
+    <div>
+      <div class="stat-num">&lt;24<span>h</span></div>
+      <div class="stat-lbl">primera consulta médica</div>
     </div>
-    <div class="stat-item">
+    <div>
       <div class="stat-num">3</div>
       <div class="stat-lbl">especialistas en tu equipo</div>
     </div>
-    <div class="stat-item">
-      <div class="stat-num">100<em>%</em></div>
+    <div>
+      <div class="stat-num">100<span>%</span></div>
       <div class="stat-lbl">garantía de devolución</div>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     PÉRDIDA DE PESO
-══════════════════════════════════════ -->
+<!-- ═══ PÉRDIDA DE PESO ═══════════════════════════════════════ -->
 <section id="perdida-de-peso" class="svc">
   <div class="svc-inner">
     <div class="svc-img-wrap">
-      <img
-        src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&h=580&q=85"
-        alt="Mujer saludable, pérdida de peso"
-      />
-      <div class="svc-img-badge">
-        <div class="svc-img-badge-icon">⚖️</div>
-        <div class="svc-img-badge-text">
-          <strong>Medicamentos GLP-1 aprobados</strong>
+      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&h=560&q=85" alt="Pérdida de peso" />
+      <div class="svc-img-card">
+        <div class="svc-img-card-icon" style="background:var(--green)">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <strong>GLP-1 con respaldo médico</strong>
           <span>Ozempic · Saxenda · disponibles en Colombia</span>
         </div>
       </div>
     </div>
-
     <div class="svc-text">
-      <span class="svc-tag-line">Pérdida de peso guiada por médicos</span>
-      <h2 class="svc-h2">Llevas años intentándolo. <em>Esta vez, con apoyo médico real.</em></h2>
-      <p class="svc-lead">
-        Los medicamentos GLP-1 como Ozempic y Saxenda, disponibles con receta médica en Colombia, ayudan a controlar el apetito y acelerar la pérdida de peso de forma sostenida. Nuestros médicos te evalúan, prescriben y acompañan en todo momento.
-      </p>
-
-      <div class="price-pill">
-        <span class="price-amount">$299.000</span>
-        <span class="price-period">/ mes · plan completo</span>
+      <span class="svc-tag">Pérdida de peso · GLP-1 con médico</span>
+      <h2 class="svc-h2">Llevas años intentándolo.<br /><em>Esta vez, con apoyo médico real.</em></h2>
+      <p class="svc-lead">Los medicamentos GLP-1 como Ozempic y Saxenda, disponibles con receta en Colombia, controlan el apetito y generan pérdida de peso sostenida. Nuestros médicos te evalúan, prescriben y acompañan en todo momento.</p>
+      <div class="price-box">
+        <span class="price-amt">$299.000</span>
+        <span class="price-per">/ mes · plan completo</span>
       </div>
-
-      <p class="benefits-hd">Todo incluido en tu plan:</p>
+      <p class="benefits-hd">Todo incluido:</p>
       <ul class="benefits">
-        <li><span class="ck"></span>Consulta médica inicial (videollamada)</li>
-        <li><span class="ck"></span>Prescripción de GLP-1 (Ozempic / Saxenda)</li>
-        <li><span class="ck"></span>Seguimiento mensual con tu médico</li>
-        <li><span class="ck"></span>Plan nutricional personalizado</li>
-        <li><span class="ck"></span>Soporte ilimitado por WhatsApp</li>
-        <li><span class="ck"></span>Envío del medicamento a domicilio*</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Consulta médica inicial por videollamada</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Prescripción de GLP-1 (Ozempic / Saxenda)</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Seguimiento mensual con tu médico</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Plan nutricional personalizado</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Soporte ilimitado por WhatsApp</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Envío del tratamiento a domicilio*</li>
       </ul>
-
-      <div class="guarantee-pill">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Garantía 60 días: resultados visibles o te devolvemos el 100%
+      <div class="guarantee-tag">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Garantía 60 días: resultados visibles o 100% devolución
       </div>
-
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="#comenzar" class="btn btn-orange">Quiero empezar →</a>
-        <a href="https://wa.me/573001234567?text=Quiero+información+sobre+el+plan+de+pérdida+de+peso" class="btn btn-wa" target="_blank">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#calificacion" class="btn btn-green">Verificar si califico</a>
+        <a href="https://wa.me/573162881161?text=Quiero+información+sobre+pérdida+de+peso" class="btn btn-wa" target="_blank">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consulta gratis
         </a>
       </div>
-
-      <p class="svc-disclaimer">
-        *Los medicamentos GLP-1 requieren prescripción médica. Nuestros médicos evalúan cada caso antes de emitir receta.
-        Los precios del medicamento en farmacia pueden variar (COP 350.000–600.000 adicionales).
-        Resultados individuales pueden variar.
-      </p>
+      <p class="svc-disc">*Medicamentos GLP-1 requieren receta médica. El precio del medicamento en farmacia es adicional (aprox. COP 350.000–600.000/mes).</p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     SALUD FEMENINA
-══════════════════════════════════════ -->
+<!-- ═══ SALUD FEMENINA ════════════════════════════════════════ -->
 <section id="salud-femenina" class="svc svc-alt">
   <div class="svc-inner rev">
     <div class="svc-img-wrap">
-      <img
-        src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&h=580&q=85"
-        alt="Salud femenina Colombia"
-      />
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&h=560&q=85" alt="Salud femenina" />
       <span class="svc-coming">Próximamente</span>
-      <div class="svc-img-badge">
-        <div class="svc-img-badge-icon">🌸</div>
-        <div class="svc-img-badge-text">
-          <strong>Atención integral femenina</strong>
-          <span>Hormonas · Bienestar · Control de peso</span>
-        </div>
-      </div>
     </div>
-
     <div class="svc-text">
-      <span class="svc-tag-line">Salud Femenina</span>
-      <h2 class="svc-h2">Atención médica <em>diseñada para la mujer</em> colombiana.</h2>
-      <p class="svc-lead">
-        Tu cuerpo cambia. Tu tratamiento también debería. Nuestras médicas internistas te atienden con la especialización que mereces: hormonas, peso, piel y cabello en un solo lugar.
-      </p>
-
-      <p class="benefits-hd">Lo que incluye:</p>
+      <span class="svc-tag">Salud Femenina</span>
+      <h2 class="svc-h2">Atención médica <em>diseñada para la mujer.</em></h2>
+      <p class="svc-lead">Hormonas, bienestar y control de peso en un solo lugar. Nuestras médicas internistas te atienden con la especialización y la sensibilidad que mereces.</p>
       <ul class="benefits">
-        <li><span class="ck"></span>Evaluación hormonal completa</li>
-        <li><span class="ck"></span>Control de peso personalizado</li>
-        <li><span class="ck"></span>Salud capilar y cutánea</li>
-        <li><span class="ck"></span>Apoyo en cada etapa de la vida</li>
-        <li><span class="ck"></span>Medicamentos con entrega a domicilio</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Evaluación hormonal completa</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Control de peso personalizado</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Salud capilar y cutánea femenina</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Apoyo en cada etapa de tu vida</li>
       </ul>
-
-      <a href="https://wa.me/573001234567?text=Quiero+información+sobre+salud+femenina" class="btn btn-navy" target="_blank">Avísame cuando esté disponible</a>
+      <a href="https://wa.me/573162881161?text=Quiero+información+sobre+salud+femenina" class="btn btn-navy" target="_blank">Avísame cuando esté disponible</a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     GARANTÍA HERO BAND
-══════════════════════════════════════ -->
-<div class="guarantee-band">
-  <div class="guarantee-band-inner">
-    <h2>Si en 90 días no ves resultados,<br /><em>te devolvemos el 100% de tu dinero.</em></h2>
-    <p>
-      Estamos tan seguros de nuestros tratamientos que respaldamos cada plan con una garantía completa.
-      Sin letras pequeñas. Sin excusas. Si cumples el plan y no ves cambios, recuperas tu inversión.
-    </p>
-    <div class="guarantee-items-row">
-      <div class="guarantee-item-card">
-        <span class="num">60</span>
-        <span class="lbl">días para pérdida de peso</span>
-      </div>
-      <div class="guarantee-item-card">
-        <span class="num">90</span>
-        <span class="lbl">días para caída del cabello</span>
-      </div>
-      <div class="guarantee-item-card">
-        <span class="num">100<small style="font-size:.5em">%</small></span>
-        <span class="lbl">devolución garantizada</span>
-      </div>
+<!-- ═══ GARANTÍA BAND ═════════════════════════════════════════ -->
+<div class="g-band">
+  <div class="g-band-inner">
+    <h2>Si no ves resultados,<br /><em>te devolvemos el 100% de tu dinero.</em></h2>
+    <p>Tan seguros estamos de nuestros tratamientos que los respaldamos por completo. Sin letras pequeñas. Sin excusas. Cumples el plan, ves los resultados — o recuperas tu inversión.</p>
+    <div class="g-cards">
+      <div class="g-card"><span class="g-num">60</span><span class="g-lbl">días para pérdida de peso</span></div>
+      <div class="g-card"><span class="g-num">90</span><span class="g-lbl">días para caída del cabello</span></div>
+      <div class="g-card"><span class="g-num">100<small style="font-size:.5em">%</small></span><span class="g-lbl">devolución garantizada</span></div>
     </div>
-    <a href="#comenzar" class="btn btn-orange">Quiero mi garantía →</a>
+    <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 34px;">Quiero mi garantía →</a>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     CAÍDA DEL CABELLO
-══════════════════════════════════════ -->
+<!-- ═══ CAÍDA DEL CABELLO ══════════════════════════════════════ -->
 <section id="cabello" class="svc">
   <div class="svc-inner">
     <div class="svc-img-wrap">
-      <img
-        src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&h=580&q=85"
-        alt="Tratamiento caída cabello Colombia"
-      />
-      <div class="svc-img-badge">
-        <div class="svc-img-badge-icon">💆</div>
-        <div class="svc-img-badge-text">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&h=560&q=85" alt="Tratamiento capilar" />
+      <div class="svc-img-card">
+        <div class="svc-img-card-icon" style="background:#d97706">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
           <strong>Garantía 90 días · 100% devolución</strong>
-          <span>Dermatología online · Minoxidil · Finasterida</span>
+          <span>Minoxidil · Finasterida · con receta médica</span>
         </div>
       </div>
     </div>
-
     <div class="svc-text">
-      <span class="svc-tag-line">Caída del Cabello · Dermatología Online</span>
+      <span class="svc-tag">Caída del Cabello · Experto Capilar Certificado</span>
       <h2 class="svc-h2">Cada pelo que cae es <em>una oportunidad que todavía tienes.</em></h2>
-      <p class="svc-lead">
-        La alopecia tiene tratamiento. Agenda hoy con nuestro dermatólogo, recibe tu diagnóstico personalizado y empieza un plan con Minoxidil o Finasterida (con receta). Para hombres y mujeres.
-      </p>
-
-      <div class="price-pill">
-        <span class="price-amount">$189.000</span>
-        <span class="price-period">/ mes · incluye consulta y seguimiento</span>
+      <p class="svc-lead">La alopecia tiene tratamiento efectivo. Agenda con nuestro experto capilar certificado, recibe tu diagnóstico personalizado y empieza un plan con Minoxidil o Finasterida. Aplica para hombres y mujeres.</p>
+      <div class="price-box">
+        <span class="price-amt">$189.000</span>
+        <span class="price-per">/ mes · consulta + seguimiento</span>
       </div>
-
       <p class="benefits-hd">Tu plan capilar incluye:</p>
       <ul class="benefits">
-        <li><span class="ck"></span>Videollamada con dermatólogo certificado</li>
-        <li><span class="ck"></span>Diagnóstico personalizado de alopecia</li>
-        <li><span class="ck"></span>Prescripción de Minoxidil y/o Finasterida</li>
-        <li><span class="ck"></span>Seguimiento mensual de resultados</li>
-        <li><span class="ck"></span>Envío del tratamiento a domicilio</li>
-        <li><span class="ck"></span>Soporte continuo por WhatsApp</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Videollamada con experto capilar certificado</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Diagnóstico personalizado de alopecia</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Prescripción de Minoxidil y/o Finasterida</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Seguimiento mensual de resultados</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Envío del tratamiento a domicilio</li>
       </ul>
-
-      <div class="guarantee-pill">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="guarantee-tag">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         Garantía 90 días: sin resultados = 100% devolución. Sin preguntas.
       </div>
-
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="#comenzar" class="btn btn-orange">Agendar con dermatología →</a>
-        <a href="https://wa.me/573001234567?text=Quiero+consulta+para+caída+del+cabello" class="btn btn-wa" target="_blank">WhatsApp</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#calificacion" class="btn btn-green">Agendar con experto capilar</a>
+        <a href="https://wa.me/573162881161?text=Quiero+consulta+para+caída+del+cabello" class="btn btn-wa" target="_blank">WhatsApp</a>
       </div>
-
-      <p class="svc-disclaimer">
-        La Finasterida requiere prescripción médica. Aplica solo para mayores de 18 años.
-        La garantía aplica cuando el paciente sigue el tratamiento indicado durante el período completo.
-        Para hombres y mujeres con diagnóstico de alopecia androgénica u otras condiciones capilares.
-      </p>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     CUIDADO DE LA PIEL
-══════════════════════════════════════ -->
+<!-- ═══ CUIDADO DE LA PIEL ════════════════════════════════════ -->
 <section id="piel" class="svc svc-alt">
   <div class="svc-inner rev">
     <div class="svc-img-wrap">
-      <img
-        src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=700&h=580&q=85"
-        alt="Cuidado de la piel Colombia"
-      />
-      <div class="svc-img-badge">
-        <div class="svc-img-badge-icon">✨</div>
-        <div class="svc-img-badge-text">
+      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&h=560&q=85" alt="Cuidado de la piel" />
+      <div class="svc-img-card">
+        <div class="svc-img-card-icon" style="background:#0e7490">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
+        </div>
+        <div>
           <strong>Dermatología personalizada</strong>
-          <span>Acné · Envejecimiento · Manchas · Rosácea</span>
+          <span>Tretinoin · Ácido azelaico · Receta médica</span>
         </div>
       </div>
     </div>
-
     <div class="svc-text">
-      <span class="svc-tag-line">Cuidado de la Piel · Dermatología</span>
-      <h2 class="svc-h2">Tu piel merece más que <em>cremas genéricas de droguería.</em></h2>
-      <p class="svc-lead">
-        Acné, manchas, envejecimiento, rosácea — cada piel es diferente y merece un diagnóstico médico real.
-        Nuestros dermatólogos te prescriben tratamientos con ingredientes como Tretinoin, ácido azelaico y más, disponibles en Colombia.
-      </p>
-
-      <div class="price-pill">
-        <span class="price-amount">$219.000</span>
-        <span class="price-period">/ mes · plan dermatológico completo</span>
+      <span class="svc-tag">Cuidado de la Piel · Dermatología Online</span>
+      <h2 class="svc-h2">Tu piel merece más que <em>cremas de droguería.</em></h2>
+      <p class="svc-lead">Acné, manchas, envejecimiento, rosácea — cada piel es diferente y merece un diagnóstico médico real. Nuestros médicos prescriben tratamientos con Tretinoin, ácido azelaico y más, disponibles en Colombia.</p>
+      <div class="price-box">
+        <span class="price-amt">$219.000</span>
+        <span class="price-per">/ mes · plan dermatológico</span>
       </div>
-
-      <p class="benefits-hd">Por qué nuestro cuidado funciona:</p>
       <ul class="benefits">
-        <li><span class="ck"></span>Consulta con dermatólogo certificado</li>
-        <li><span class="ck"></span>Diagnóstico personalizado por videollamada</li>
-        <li><span class="ck"></span>Receta de ingredientes clínicos (Tretinoin, AHA, etc.)</li>
-        <li><span class="ck"></span>Rutina simple de 2 pasos</li>
-        <li><span class="ck"></span>Seguimiento de resultados mensual</li>
-        <li><span class="ck"></span>Envío de productos a domicilio</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Diagnóstico personalizado por videollamada</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Receta de ingredientes clínicos (Tretinoin, AHA)</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Rutina personalizada de 2 pasos</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Seguimiento mensual de resultados</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Productos enviados a domicilio</li>
       </ul>
-
-      <div style="display:flex; gap:12px; flex-wrap:wrap;">
-        <a href="#comenzar" class="btn btn-orange">Agendar consulta →</a>
-        <a href="https://wa.me/573001234567?text=Quiero+información+sobre+cuidado+de+la+piel" class="btn btn-wa" target="_blank">WhatsApp</a>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#calificacion" class="btn btn-green">Agendar consulta</a>
+        <a href="https://wa.me/573162881161?text=Quiero+información+sobre+cuidado+de+la+piel" class="btn btn-wa" target="_blank">WhatsApp</a>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     CÓMO FUNCIONA
-══════════════════════════════════════ -->
+<!-- ═══ CÓMO FUNCIONA ═════════════════════════════════════════ -->
 <section class="how">
   <div class="how-inner">
-    <div class="how-head">
+    <div class="section-head">
       <h2>Así de fácil es <em>empezar.</em></h2>
-      <p>Desde hoy hasta tu primera receta, en menos de 24 horas.</p>
+      <p>Desde hoy hasta tu primera consulta médica, en menos de 24 horas.</p>
     </div>
-    <div class="how-steps">
-      <div class="step-card">
-        <div class="step-num">1</div>
-        <h3>Llena tu perfil</h3>
-        <p>Responde un cuestionario de salud en 10 minutos desde tu celular. Sin desplazarte a ninguna parte.</p>
-        <span class="step-time">⏱ 10 minutos</span>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num-badge">1</div>
+        <h3>Verifica si calificas</h3>
+        <p>Responde nuestro cuestionario de salud en 3 minutos. Completamente confidencial y desde tu celular.</p>
+        <div class="step-time">3 minutos</div>
       </div>
-      <div class="step-card">
-        <div class="step-num">2</div>
+      <div class="step">
+        <div class="step-num-badge">2</div>
         <h3>Videollamada con tu médico</h3>
         <p>Un médico internista o especialista colombiano te atiende por videollamada y evalúa tu caso personalmente.</p>
-        <span class="step-time">⏱ en menos de 24 horas</span>
+        <div class="step-time">En menos de 24 horas</div>
       </div>
-      <div class="step-card">
-        <div class="step-num">3</div>
+      <div class="step">
+        <div class="step-num-badge">3</div>
         <h3>Recibe y empieza</h3>
-        <p>Tu receta digital llega al instante. Tu tratamiento se envía a la puerta de tu casa en todo Colombia.</p>
-        <span class="step-time">🚚 Envío a todo el país</span>
+        <p>Tu receta digital llega de inmediato. Tu tratamiento se envía a la puerta de tu casa en cualquier ciudad de Colombia.</p>
+        <div class="step-time">Envío a todo el país</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     EQUIPO MÉDICO
-══════════════════════════════════════ -->
+<!-- ═══ EQUIPO MÉDICO ══════════════════════════════════════════ -->
 <section class="doctors">
-  <div class="doctors-inner">
-    <div class="doctors-head">
+  <div style="max-width:1060px;margin:0 auto;">
+    <div class="section-head">
       <h2>Médicos reales.<br /><em>Resultados reales.</em></h2>
-      <p>Nuestro equipo está formado por médicos internistas y especialistas con tarjeta profesional colombiana, entrenados para tratar las condiciones más comunes que afectan tu calidad de vida.</p>
+      <p>Nuestro equipo está formado por médicos con tarjeta profesional colombiana vigente, especializados en las condiciones que más afectan tu calidad de vida.</p>
     </div>
     <div class="doctors-grid">
-      <div class="doctor-card">
-        <div class="doctor-card-img">👨‍⚕️</div>
-        <div class="doctor-card-body">
-          <h3>Dr. Médico Fundador</h3>
-          <div class="spec">Medicina Interna · Metabolismo</div>
-          <p>Médico con experiencia en endocrinología, manejo de peso y enfermedades metabólicas. Apasionado por la medicina preventiva y el bienestar integral.</p>
-          <span class="doctor-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Tarjeta profesional vigente
-          </span>
+      <div class="doc-card">
+        <div class="doc-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/><path d="M12 14v3m-1.5 0h3"/></svg>
+        </div>
+        <div class="doc-body">
+          <h3>Médico Fundador</h3>
+          <div class="doc-spec">Médico General · Metabolismo</div>
+          <p>Médico con experiencia en endocrinología clínica y manejo integral del peso. Apasionado por la medicina preventiva y la telemedicina de calidad.</p>
+          <span class="doc-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tarjeta profesional vigente</span>
         </div>
       </div>
-      <div class="doctor-card">
-        <div class="doctor-card-img">👨‍⚕️</div>
-        <div class="doctor-card-body">
+      <div class="doc-card">
+        <div class="doc-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/><path d="M12 14v3m-1.5 0h3"/></svg>
+        </div>
+        <div class="doc-body">
           <h3>Dr. Internista</h3>
-          <div class="spec">Medicina Interna · GLP-1 Specialist</div>
-          <p>Internista con especialización en el manejo clínico de obesidad y síndrome metabólico. Más de 500 pacientes acompañados en su proceso de pérdida de peso.</p>
-          <span class="doctor-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Tarjeta profesional vigente
-          </span>
+          <div class="doc-spec">Medicina Interna · GLP-1 Specialist</div>
+          <p>Internista especializado en el manejo clínico de obesidad y síndrome metabólico. Más de 500 pacientes acompañados en su proceso de pérdida de peso.</p>
+          <span class="doc-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tarjeta profesional vigente</span>
         </div>
       </div>
-      <div class="doctor-card">
-        <div class="doctor-card-img">👩‍⚕️</div>
-        <div class="doctor-card-body">
+      <div class="doc-card">
+        <div class="doc-avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/><path d="M12 14v3m-1.5 0h3"/></svg>
+        </div>
+        <div class="doc-body">
           <h3>Dra. Internista</h3>
-          <div class="spec">Medicina Interna · Salud Femenina</div>
+          <div class="doc-spec">Medicina Interna · Salud Femenina</div>
           <p>Médica internista con énfasis en salud femenina, tratamientos hormonales y dermatología clínica. Atiende con calidez y rigor médico.</p>
-          <span class="doctor-badge">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-            Tarjeta profesional vigente
-          </span>
+          <span class="doc-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tarjeta profesional vigente</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     TESTIMONIALS
-══════════════════════════════════════ -->
+<!-- ═══ TESTIMONIALS ══════════════════════════════════════════ -->
 <section class="testimonials">
-  <div class="wrap">
-    <div class="test-head">
+  <div style="max-width:1060px;margin:0 auto;">
+    <div class="section-head">
       <h2>Colombianos que ya <em>están cambiando.</em></h2>
-      <p>Historias reales de personas que decidieron tomar el control de su salud.</p>
+      <p>Historias reales de personas que decidieron actuar.</p>
     </div>
     <div class="test-grid">
       <div class="test-card">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"Llevaba 5 años intentando bajar de peso sin resultado. Con SANARÉ y la orientación del médico empecé con Ozempic y en 3 meses bajé 11 kilos. ¡Todo desde mi casa!"</blockquote>
-        <div class="test-author">
-          <div class="test-avatar">MR</div>
-          <div>
-            <div class="test-author-name">María R.</div>
-            <div class="test-author-city">Bogotá, Cundinamarca</div>
-          </div>
-        </div>
+        <blockquote>"Llevaba 5 años intentando bajar de peso sin resultado. Con SANARÉ y la guía del médico empecé con Ozempic y en 3 meses bajé 11 kilos. ¡Todo desde mi casa!"</blockquote>
+        <div class="test-author"><div class="test-av">MR</div><div><div class="test-name">María R.</div><div class="test-city">Bogotá, Cundinamarca</div></div></div>
         <div class="test-result">✓ −11 kg en 3 meses</div>
       </div>
       <div class="test-card">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"La caída del cabello me tenía muy angustiado. El dermatólogo me atendió por videollamada, me recetó Finasterida y Minoxidil, y a los 4 meses ya vi resultados claros."</blockquote>
-        <div class="test-author">
-          <div class="test-avatar">AC</div>
-          <div>
-            <div class="test-author-name">Andrés C.</div>
-            <div class="test-author-city">Medellín, Antioquia</div>
-          </div>
-        </div>
+        <blockquote>"La caída del cabello me tenía muy angustiado. El experto capilar me atendió por videollamada, me recetó Finasterida y Minoxidil, y a los 4 meses ya noté resultados claros."</blockquote>
+        <div class="test-author"><div class="test-av">AC</div><div><div class="test-name">Andrés C.</div><div class="test-city">Medellín, Antioquia</div></div></div>
         <div class="test-result">✓ Crecimiento visible en 4 meses</div>
       </div>
       <div class="test-card">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"El acné me afectaba emocionalmente. El médico me recetó Tretinoin y ácido azelaico. En 2 meses mi piel cambió completamente. El servicio es excelente, muy profesional."</blockquote>
-        <div class="test-author">
-          <div class="test-avatar">LP</div>
-          <div>
-            <div class="test-author-name">Laura P.</div>
-            <div class="test-author-city">Cali, Valle del Cauca</div>
-          </div>
-        </div>
+        <blockquote>"El acné me afectaba emocionalmente. Me recetaron Tretinoin y en 2 meses mi piel cambió completamente. El servicio es muy profesional y el seguimiento es real."</blockquote>
+        <div class="test-author"><div class="test-av">LP</div><div><div class="test-name">Laura P.</div><div class="test-city">Cali, Valle del Cauca</div></div></div>
         <div class="test-result">✓ Piel clara en 60 días</div>
       </div>
       <div class="test-card">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"Pensé que el proceso iba a ser complicado pero fue facilísimo. Llené el formulario, a las 6 horas me llamó el médico, y al otro día ya tenía mi receta. Increíble."</blockquote>
-        <div class="test-author">
-          <div class="test-avatar">CF</div>
-          <div>
-            <div class="test-author-name">Carlos F.</div>
-            <div class="test-author-city">Barranquilla, Atlántico</div>
-          </div>
-        </div>
+        <blockquote>"Pensé que el proceso iba a ser complicado pero fue facilísimo. Llené el formulario, a las 6 horas me llamó el médico, y al otro día ya tenía mi receta."</blockquote>
+        <div class="test-author"><div class="test-av">CF</div><div><div class="test-name">Carlos F.</div><div class="test-city">Barranquilla, Atlántico</div></div></div>
         <div class="test-result">✓ Consulta en menos de 24 h</div>
       </div>
       <div class="test-card">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"Por fin un médico que me escucha y no me manda a una sala de espera de 3 horas. Me explicó todo con calma, el plan nutricional es muy práctico y los resultados son reales."</blockquote>
-        <div class="test-author">
-          <div class="test-avatar">SV</div>
-          <div>
-            <div class="test-author-name">Sandra V.</div>
-            <div class="test-author-city">Bucaramanga, Santander</div>
-          </div>
-        </div>
+        <blockquote>"Por fin un médico que me escucha y no me hace esperar 3 horas. El plan nutricional es muy práctico y los resultados son reales. ¡100% lo recomiendo!"</blockquote>
+        <div class="test-author"><div class="test-av">SV</div><div><div class="test-name">Sandra V.</div><div class="test-city">Bucaramanga, Santander</div></div></div>
         <div class="test-result">✓ −7 kg en 6 semanas</div>
       </div>
       <div class="test-card">
         <div class="test-stars">★★★★★</div>
-        <blockquote>"El seguimiento mensual hace toda la diferencia. No te dejan solo. Si tienes una duda a las 10 pm, escribes al WhatsApp y te responden. Eso no lo encuentras en ninguna clínica normal."</blockquote>
-        <div class="test-author">
-          <div class="test-avatar">JM</div>
-          <div>
-            <div class="test-author-name">Jorge M.</div>
-            <div class="test-author-city">Pereira, Risaralda</div>
-          </div>
-        </div>
+        <blockquote>"El seguimiento mensual hace toda la diferencia. Si tienes una duda a las 10 pm escribes al WhatsApp y te responden. Eso no lo encuentras en ninguna clínica."</blockquote>
+        <div class="test-author"><div class="test-av">JM</div><div><div class="test-name">Jorge M.</div><div class="test-city">Pereira, Risaralda</div></div></div>
         <div class="test-result">✓ 5 meses en tratamiento</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     CTA BAND
-══════════════════════════════════════ -->
-<div id="comenzar" class="cta-band">
-  <div class="cta-band-inner">
+<!-- ═══ FINAL CTA ══════════════════════════════════════════════ -->
+<div class="final-cta">
+  <div class="final-cta-inner">
     <h2>¿Listo para <em>empezar hoy?</em></h2>
-    <p>
-      Miles de colombianos ya están viendo resultados reales.
-      Tu primera consulta puede ser hoy. Sin compromisos. Sin salir de casa.
-    </p>
-    <div class="cta-band-btns">
-      <a href="https://wa.me/573001234567?text=Hola%2C+quiero+empezar+con+SANARÉ" class="btn btn-orange" target="_blank" rel="noopener">
-        Hablar con un médico →
-      </a>
-      <a href="https://wa.me/573001234567" class="btn btn-outline-w" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        WhatsApp directo
-      </a>
+    <p>Tu primera consulta puede ser hoy. Sin compromisos. Sin salir de casa. Con la garantía de que si no ves resultados, recuperas tu dinero.</p>
+    <div class="final-btns">
+      <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 32px;">¿Estoy calificado? →</a>
+      <a href="https://wa.me/573162881161?text=Hola%2C+quiero+hablar+con+un+médico+de+SANARÉ" class="btn btn-ghost" target="_blank">Hablar con un médico</a>
     </div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════
-     FOOTER
-══════════════════════════════════════ -->
+<!-- ═══ FORMULARIO DE CALIFICACIÓN ════════════════════════════ -->
+<section id="calificacion" class="form-section">
+  <div class="form-section-inner">
+    <div class="form-header">
+      <h2>¿Califico para el programa?</h2>
+      <p>Responde estas preguntas para que nuestros médicos puedan evaluar tu caso. Es confidencial y toma menos de 3 minutos.</p>
+    </div>
+
+    <!-- Progress -->
+    <div class="form-progress" id="formProgress">
+      <div class="form-step-dot active" id="dot1">1</div>
+      <div class="form-step-line" id="line1"></div>
+      <div class="form-step-dot" id="dot2">2</div>
+      <div class="form-step-line" id="line2"></div>
+      <div class="form-step-dot" id="dot3">3</div>
+      <div class="form-step-line" id="line3"></div>
+      <div class="form-step-dot" id="dot4">4</div>
+      <div class="form-step-line" id="line4"></div>
+      <div class="form-step-dot" id="dot5">5</div>
+    </div>
+
+    <form id="qualifyForm" action="https://formsubmit.co/cram1711@gmail.com" method="POST">
+      <!-- FormSubmit hidden fields -->
+      <input type="hidden" name="_subject" value="Nueva consulta SANARÉ – Formulario de calificación" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://wa.me/573162881161?text=Hola%2C+acabo+de+completar+el+formulario+de+calificación+en+SANARÉ.+Quiero+saber+si+califico." />
+      <input type="hidden" name="_template" value="table" />
+
+      <div class="form-box">
+
+        <!-- STEP 1: Datos físicos -->
+        <div class="form-step active" id="step1">
+          <div class="form-step-title">Paso 1 de 5 — Información básica</div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Estatura (cm)</label>
+              <input type="number" name="estatura_cm" placeholder="Ej: 165" min="130" max="220" required />
+            </div>
+            <div class="field-group">
+              <label>Peso actual (kg)</label>
+              <input type="number" name="peso_kg" placeholder="Ej: 90" min="40" max="300" required />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Peso ideal que deseas alcanzar (kg)</label>
+            <input type="number" name="peso_ideal_kg" placeholder="Ej: 70" min="40" max="200" required />
+          </div>
+          <div class="field-group">
+            <label>Sexo biológico</label>
+            <div class="radio-group">
+              <label class="radio-item"><input type="radio" name="sexo" value="Hombre" required /><span>Hombre</span></label>
+              <label class="radio-item"><input type="radio" name="sexo" value="Mujer" /><span>Mujer</span></label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Fecha de nacimiento</label>
+            <input type="date" name="fecha_nacimiento" required />
+          </div>
+          <div class="form-nav">
+            <span></span>
+            <button type="button" class="btn-form-next" onclick="nextStep(1)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- STEP 2: Condiciones de salud 1 -->
+        <div class="form-step" id="step2">
+          <div class="form-step-title">Paso 2 de 5 — Condiciones de salud</div>
+          <div class="field-group">
+            <label>¿Te identificas con alguna de estas situaciones? (puedes marcar varias)</label>
+            <div class="checkbox-group" style="margin-top:10px;">
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Prediabetes o diabetes tipo 2" /><span>Prediabetes o diabetes tipo 2</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Presión arterial alta" /><span>Presión arterial alta</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Colesterol alto" /><span>Colesterol alto</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Apnea del sueño" /><span>Apnea del sueño</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Dolor de rodillas o caderas" /><span>Dolor de rodillas o caderas</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Síndrome de ovario poliquístico" /><span>Síndrome de ovario poliquístico</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Reflujo gastroesofágico" /><span>Reflujo gastroesofágico</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_1[]" value="Depresión o ansiedad" /><span>Depresión o ansiedad</span></label>
+            </div>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn-form-back" onclick="prevStep(2)">← Atrás</button>
+            <button type="button" class="btn-form-next" onclick="nextStep(2)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- STEP 3: Condiciones de salud 2 -->
+        <div class="form-step" id="step3">
+          <div class="form-step-title">Paso 3 de 5 — Historial médico</div>
+          <div class="field-group">
+            <label>¿Tienes o has tenido alguna de estas condiciones?</label>
+            <div class="checkbox-group" style="margin-top:10px;">
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Enfermedad cardíaca grave" /><span>Enfermedad cardíaca grave</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Pancreatitis" /><span>Pancreatitis</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Enfermedad renal crónica" /><span>Enfermedad renal crónica</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Enfermedad hepática" /><span>Enfermedad hepática</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Cáncer activo" /><span>Cáncer activo</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Embarazo o lactancia" /><span>Embarazo o lactancia</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Trastorno alimenticio" /><span>Trastorno alimenticio</span></label>
+              <label class="checkbox-item"><input type="checkbox" name="cond_salud_2[]" value="Ninguna de las anteriores" /><span>Ninguna de las anteriores</span></label>
+            </div>
+          </div>
+          <div class="field-group" style="margin-top:16px;">
+            <label>¿Ha tomado opiáceos o drogas opiáceas en los últimos 3 meses?</label>
+            <div class="yn-group">
+              <label class="yn-item"><input type="radio" name="opiaceos" value="Sí" /><span>Sí</span></label>
+              <label class="yn-item"><input type="radio" name="opiaceos" value="No" /><span>No</span></label>
+            </div>
+          </div>
+          <div class="field-group">
+            <label>¿Se ha sometido a cirugía para bajar de peso anteriormente?</label>
+            <div class="yn-group">
+              <label class="yn-item"><input type="radio" name="cirugia_peso" value="Sí" /><span>Sí</span></label>
+              <label class="yn-item"><input type="radio" name="cirugia_peso" value="No" /><span>No</span></label>
+            </div>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn-form-back" onclick="prevStep(3)">← Atrás</button>
+            <button type="button" class="btn-form-next" onclick="nextStep(3)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- STEP 4: Signos vitales -->
+        <div class="form-step" id="step4">
+          <div class="form-step-title">Paso 4 de 5 — Signos vitales</div>
+          <div class="field-group">
+            <label>¿Actualmente toma algún medicamento con receta?</label>
+            <div class="yn-group">
+              <label class="yn-item"><input type="radio" name="medicamentos_receta" value="Sí" /><span>Sí</span></label>
+              <label class="yn-item"><input type="radio" name="medicamentos_receta" value="No" /><span>No</span></label>
+            </div>
+          </div>
+          <div class="field-group" id="med_detail_group" style="display:none;">
+            <label>¿Cuáles medicamentos? (opcional)</label>
+            <input type="text" name="cuales_medicamentos" placeholder="Ej: Metformina, Losartán..." />
+          </div>
+          <div class="field-group">
+            <label>¿Cuál es su rango de presión arterial?</label>
+            <select name="presion_arterial">
+              <option value="">Selecciona una opción</option>
+              <option>Normal (menor de 120/80 mmHg)</option>
+              <option>Elevada (120–129 / menor de 80)</option>
+              <option>Alta etapa 1 (130–139 / 80–89)</option>
+              <option>Alta etapa 2 (140+ / 90+)</option>
+              <option>No lo sé</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label>¿Cuál es su frecuencia cardíaca promedio en reposo?</label>
+            <select name="frecuencia_cardiaca">
+              <option value="">Selecciona una opción</option>
+              <option>Menos de 60 lpm (bradicardia)</option>
+              <option>60–80 lpm (normal)</option>
+              <option>81–100 lpm (normal-alta)</option>
+              <option>Más de 100 lpm (taquicardia)</option>
+              <option>No lo sé</option>
+            </select>
+          </div>
+          <div class="form-nav">
+            <button type="button" class="btn-form-back" onclick="prevStep(4)">← Atrás</button>
+            <button type="button" class="btn-form-next" onclick="nextStep(4)">Siguiente →</button>
+          </div>
+        </div>
+
+        <!-- STEP 5: Contacto -->
+        <div class="form-step" id="step5">
+          <div class="form-step-title">Paso 5 de 5 — Tus datos de contacto</div>
+          <div class="field-group">
+            <label>Nombre completo</label>
+            <input type="text" name="nombre" placeholder="Tu nombre y apellido" required />
+          </div>
+          <div class="field-row">
+            <div class="field-group">
+              <label>Teléfono / WhatsApp</label>
+              <input type="tel" name="telefono" placeholder="Ej: 316 288 1161" required />
+            </div>
+            <div class="field-group">
+              <label>Ciudad</label>
+              <input type="text" name="ciudad" placeholder="Ej: Bogotá" required />
+            </div>
+          </div>
+          <div class="field-group">
+            <label>Correo electrónico</label>
+            <input type="email" name="email" placeholder="tucorreo@email.com" />
+            <div class="field-note">Opcional — para enviarte tu plan personalizado</div>
+          </div>
+          <div class="field-group">
+            <label>¿Qué servicio te interesa principalmente?</label>
+            <select name="servicio_interes" required>
+              <option value="">Selecciona</option>
+              <option>Pérdida de peso (GLP-1)</option>
+              <option>Caída del cabello</option>
+              <option>Cuidado de la piel</option>
+              <option>Salud femenina</option>
+              <option>Varios servicios</option>
+            </select>
+          </div>
+          <div class="field-group" style="margin-top:8px;">
+            <label style="display:flex;align-items:flex-start;gap:10px;font-weight:400;cursor:pointer;">
+              <input type="checkbox" name="acepta_terminos" value="Sí" required style="margin-top:3px;accent-color:var(--navy);" />
+              <span style="font-size:13px;color:var(--muted);line-height:1.5;">Acepto que SANARÉ contacte el número y correo proporcionados para hacer seguimiento a mi consulta.</span>
+            </label>
+          </div>
+          <div style="margin-top:20px;">
+            <button type="submit" class="btn-form-submit">
+              Enviar mi consulta y verificar si califico
+            </button>
+            <p style="text-align:center;font-size:11px;color:var(--muted);margin-top:10px;">
+              Un médico se comunicará contigo en menos de 24 horas · 100% confidencial
+            </p>
+          </div>
+          <div style="margin-top:10px;">
+            <button type="button" class="btn-form-back" onclick="prevStep(5)" style="display:block;text-align:center;width:100%;">← Atrás</button>
+          </div>
+        </div>
+
+      </div><!-- /form-box -->
+    </form>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
 <footer>
   <div class="footer-grid">
-    <div class="footer-brand">
-      <div class="brand-name">SANA<span>RÉ</span></div>
-      <p>Salud digital para colombianos. Médicos certificados, tratamientos reales y resultados garantizados — desde la comodidad de tu hogar.</p>
-      <div class="footer-legal-badges">
-        <span class="footer-badge-pill">🇨🇴 Médicos colombianos</span>
-        <span class="footer-badge-pill">🔒 Datos protegidos</span>
-        <span class="footer-badge-pill">✓ Garantía total</span>
+    <div>
+      <div class="footer-brand-name">SANA<span>RÉ</span></div>
+      <p>Salud digital para colombianos. Médicos certificados, tratamientos reales y resultados garantizados desde la comodidad de tu hogar.</p>
+      <div class="footer-trust">
+        <span>Médicos colombianos</span>
+        <span>Datos protegidos</span>
+        <span>Garantía total</span>
       </div>
     </div>
     <div class="footer-col">
@@ -1174,11 +1311,11 @@
     <div class="footer-col footer-contact">
       <h4>Contacto</h4>
       <p>
-        <a href="mailto:hola@sanareco.com">hola@sanareco.com</a><br />
-        <a href="https://wa.me/573001234567" target="_blank">WhatsApp: +57 300 123 4567</a><br />
+        <a href="mailto:cram1711@gmail.com">cram1711@gmail.com</a><br />
+        <a href="https://wa.me/573162881161" target="_blank">WhatsApp: +57 316 288 1161</a><br />
         Colombia<br />
-        Lun–Vie 7:00–20:00<br />
-        Sáb 8:00–14:00
+        Lun–Vie 7:00 – 20:00<br />
+        Sáb 8:00 – 14:00
       </p>
     </div>
     <div class="footer-col">
@@ -1187,25 +1324,86 @@
       <a href="#">Nuestros médicos</a>
       <a href="#">Cómo funciona</a>
       <a href="#">Blog de salud</a>
-      <a href="#">Para profesionales</a>
     </div>
   </div>
-
   <div class="footer-bottom">
-    <span>© 2025 SANARÉ Salud Digital S.A.S. · NIT: [Por asignar] · Colombia</span>
+    <span>© 2025 SANARÉ Salud Digital · Colombia</span>
     <div class="footer-legal-links">
       <a href="#">Términos y condiciones</a>
       <a href="#">Política de privacidad</a>
-      <a href="#">Política de datos</a>
       <a href="#">Garantías y devoluciones</a>
       <a href="#">Consentimiento informado</a>
     </div>
   </div>
-
   <div class="footer-disclaimer">
-    SANARÉ es una plataforma de telemedicina que conecta pacientes con médicos colombianos con tarjeta profesional vigente, registrados ante el Tribunal Ético de Medicina. Los tratamientos se prescriben únicamente tras evaluación médica por videollamada. Los medicamentos GLP-1 (Ozempic®, Saxenda®) son marcas registradas de sus respectivos laboratorios; SANARÉ no los produce ni los distribuye directamente — son dispensados por farmacias autorizadas. La Finasterida y demás medicamentos de prescripción requieren evaluación médica previa. Los resultados individuales pueden variar. La garantía de devolución aplica cuando el paciente cumple el plan de tratamiento indicado durante el período completo establecido. Servicio regulado por la Resolución 2654 de 2019 del Ministerio de Salud de Colombia.
+    SANARÉ es una plataforma de telemedicina que conecta pacientes con médicos colombianos con tarjeta profesional vigente, registrados ante el Tribunal Ético de Medicina. Los tratamientos se prescriben únicamente tras evaluación médica por videollamada. Los medicamentos GLP-1 (Ozempic®, Saxenda®) son marcas registradas de sus respectivos propietarios y requieren prescripción médica en Colombia. La garantía de devolución aplica cuando el paciente cumple el plan de tratamiento completo durante el período establecido. Servicio regulado por la Resolución 2654 de 2019 del Ministerio de Salud de Colombia.
   </div>
 </footer>
+
+<script>
+  // ── Multi-step form logic ──────────────────────────────────
+  var currentStep = 1;
+  var totalSteps = 5;
+
+  function updateProgress(from, to) {
+    // Deactivate from
+    var fromDot = document.getElementById('dot' + from);
+    if (fromDot) { fromDot.classList.remove('active'); fromDot.classList.add('done'); fromDot.textContent = '✓'; }
+    if (from < totalSteps) {
+      var line = document.getElementById('line' + from);
+      if (line) line.classList.add('done');
+    }
+    // Activate to
+    var toDot = document.getElementById('dot' + to);
+    if (toDot) toDot.classList.add('active');
+  }
+
+  function revertProgress(from, to) {
+    var fromDot = document.getElementById('dot' + from);
+    if (fromDot) { fromDot.classList.remove('active'); }
+    var prevDot = document.getElementById('dot' + to);
+    if (prevDot) { prevDot.classList.remove('done'); prevDot.classList.add('active'); prevDot.textContent = to; }
+    if (to < totalSteps) {
+      var line = document.getElementById('line' + to);
+      if (line) line.classList.remove('done');
+    }
+  }
+
+  function nextStep(step) {
+    document.getElementById('step' + step).classList.remove('active');
+    document.getElementById('step' + (step + 1)).classList.add('active');
+    updateProgress(step, step + 1);
+    currentStep = step + 1;
+    document.getElementById('calificacion').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function prevStep(step) {
+    document.getElementById('step' + step).classList.remove('active');
+    document.getElementById('step' + (step - 1)).classList.add('active');
+    revertProgress(step, step - 1);
+    currentStep = step - 1;
+    document.getElementById('calificacion').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Show/hide medication detail
+  document.querySelectorAll('input[name="medicamentos_receta"]').forEach(function(r) {
+    r.addEventListener('change', function() {
+      var g = document.getElementById('med_detail_group');
+      if (g) g.style.display = this.value === 'Sí' ? 'block' : 'none';
+    });
+  });
+
+  // Highlight selected radio/yn items
+  document.querySelectorAll('.yn-item input[type="radio"], .radio-item input[type="radio"]').forEach(function(r) {
+    r.addEventListener('change', function() {
+      var name = this.name;
+      document.querySelectorAll('input[name="' + name + '"]').forEach(function(i) {
+        var p = i.closest('.yn-item') || i.closest('.radio-item');
+        if (p) p.style.borderColor = i.checked ? 'var(--navy)' : '';
+      });
+    });
+  });
+</script>
 
 </body>
 </html>
