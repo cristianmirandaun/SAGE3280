@@ -4,15 +4,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SANARÉ – Salud Digital Colombia | Pérdida de peso con médicos certificados</title>
-  <meta name="description" content="Pierde peso, recupera tu cabello y cuida tu piel con médicos colombianos certificados. Consulta hoy. Garantía de resultados o te devolvemos el 100%." />
+  <meta name="description" content="Pierde peso con GLP-1 (Ozempic · Saxenda), recupera tu cabello y cuida tu piel con médicos colombianos certificados. Garantía 100% o te devolvemos tu dinero." />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ── Reset ───────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
-    /* ── Tokens ───────────────────────────────────────────── */
     :root {
       --bg:       #f5f4f0;
       --bg-w:     #ffffff;
@@ -38,7 +36,7 @@
     a { text-decoration: none; color: inherit; }
     img { display: block; max-width: 100%; }
 
-    /* ── Buttons ───────────────────────────────────────────── */
+    /* ── Buttons ── */
     .btn {
       display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 14px 30px; border-radius: 99px;
@@ -57,22 +55,25 @@
     .btn-outline { background: transparent; color: var(--navy); border: 2px solid var(--navy); }
     .btn-sm { padding: 10px 22px; font-size: 13px; }
 
-    /* ── SVG icons (inline, reusable) ─────────────────────── */
     .icon { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .icon-circle {
-      width: 48px; height: 48px; border-radius: 50%;
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-    }
-
-    /* ── Check bullet ─────────────────────────────────────── */
     .ck {
       flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
       background: var(--green); display: inline-flex; align-items: center; justify-content: center;
     }
 
-    /* ══════════════════════════════════════════
-       NAV
-    ══════════════════════════════════════════ */
+    /* ── Scroll animations ── */
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: none; }
+    .fade-up[data-d="1"] { transition-delay: .08s; }
+    .fade-up[data-d="2"] { transition-delay: .16s; }
+    .fade-up[data-d="3"] { transition-delay: .24s; }
+    .fade-up[data-d="4"] { transition-delay: .32s; }
+    .fade-up[data-d="5"] { transition-delay: .40s; }
+
+    /* ══ NAV ══ */
     nav {
       position: sticky; top: 0; z-index: 300;
       background: rgba(245,244,240,.96);
@@ -83,11 +84,9 @@
       max-width: 1120px; margin: 0 auto; padding: 0 28px;
       display: flex; align-items: center; height: 64px; gap: 6px;
     }
-    .nav-logo {
-      display: flex; align-items: center; gap: 10px; flex-shrink: 0;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
     .nav-logo-mark {
-      width: 34px; height: 34px; border-radius: 9px;
+      width: 36px; height: 36px; border-radius: 10px;
       background: var(--navy);
       display: flex; align-items: center; justify-content: center;
     }
@@ -96,17 +95,12 @@
       font-size: 19px; letter-spacing: -.03em; color: var(--navy);
     }
     .nav-logo-name span { color: var(--green); }
-    .nav-links {
-      display: flex; align-items: center; gap: 1px;
-      list-style: none; margin-left: auto;
-    }
+    .nav-links { display: flex; align-items: center; gap: 1px; list-style: none; margin-left: auto; }
     .nav-links a {
       font-size: 13px; font-weight: 500; color: var(--text);
-      padding: 7px 13px; border-radius: 99px;
-      transition: background .15s;
+      padding: 7px 13px; border-radius: 99px; transition: background .15s;
     }
     .nav-links a:hover { background: rgba(17,24,39,.07); }
-    .nav-links .nav-active { background: var(--navy); color: #fff; }
     .nav-links .nav-cta { background: var(--green); color: #fff; font-weight: 700; margin-left: 4px; }
     .nav-links .nav-cta:hover { background: var(--green-dk); }
     .nav-links .nav-wa {
@@ -117,36 +111,29 @@
     }
     .nav-links .nav-wa:hover { background: rgba(22,163,74,.08); }
 
-    /* ══════════════════════════════════════════
-       HERO
-    ══════════════════════════════════════════ */
-    .hero {
-      background: var(--hero-bg);
-      padding: 80px 28px 0; overflow: hidden; position: relative;
-    }
+    /* ══ HERO ══ */
+    .hero { background: var(--hero-bg); padding: 88px 28px 0; overflow: hidden; position: relative; }
     .hero::before {
-      content: ''; position: absolute;
-      top: 0; left: 0; right: 0; height: 100%;
-      background: radial-gradient(ellipse 65% 60% at 50% -10%, #1e4a7a 0%, transparent 65%);
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 100%;
+      background: radial-gradient(ellipse 70% 55% at 50% -5%, #1e4a7a 0%, transparent 65%);
       pointer-events: none;
     }
     .hero-inner { position: relative; z-index: 1; text-align: center; }
     .hero-topline {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
-      border-radius: 99px; padding: 6px 14px; margin-bottom: 24px;
+      border-radius: 99px; padding: 6px 14px; margin-bottom: 28px;
       font-size: 12px; font-weight: 500; color: rgba(255,255,255,.7);
     }
     .hero-topline-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: #4ade80; flex-shrink: 0;
+      width: 7px; height: 7px; border-radius: 50%; background: #4ade80; flex-shrink: 0;
       box-shadow: 0 0 8px #4ade80;
     }
     .hero h1 {
       font-family: 'Onest', sans-serif; font-weight: 800;
-      font-size: clamp(34px, 5.5vw, 64px); line-height: 1.08;
+      font-size: clamp(34px, 5.5vw, 66px); line-height: 1.07;
       color: #fff; margin-bottom: 22px; letter-spacing: -.03em;
-      max-width: 860px; margin-inline: auto;
+      max-width: 880px; margin-inline: auto;
     }
     .hero h1 em { font-style: normal; color: #86efac; }
     .hero-sub {
@@ -155,35 +142,35 @@
     }
     .hero-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    /* ── Hero person grid ─────────────────────────────────── */
+    /* hero people grid */
     .hero-people {
-      margin-top: 60px;
+      margin-top: 64px;
       display: flex; justify-content: center; align-items: flex-end;
-      gap: 12px; flex-wrap: wrap;
+      gap: 10px;
     }
     .hero-person {
-      border-radius: 20px 20px 0 0; overflow: hidden;
-      position: relative;
+      border-radius: 18px 18px 0 0; overflow: hidden; position: relative;
       transition: transform .3s;
     }
-    .hero-person:hover { transform: translateY(-6px); }
-    .hero-person img {
-      width: 100%; height: 100%; object-fit: cover; display: block;
+    .hero-person:hover { transform: translateY(-8px); }
+    .hero-person img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+    .hp-1 { width: 168px; height: 252px; }
+    .hp-2 { width: 148px; height: 210px; }
+    .hp-3 { width: 196px; height: 308px; }
+    .hp-4 { width: 148px; height: 210px; }
+    .hp-5 { width: 168px; height: 252px; }
+    /* subtle bottom gradient to blend with page */
+    .hero-people::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+      background: linear-gradient(to top, var(--hero-bg), transparent);
+      pointer-events: none;
     }
-    .hp-1 { width: 180px; height: 260px; }
-    .hp-2 { width: 160px; height: 220px; }
-    .hp-3 { width: 200px; height: 300px; }
-    .hp-4 { width: 160px; height: 220px; }
-    .hp-5 { width: 180px; height: 260px; }
+    .hero-people { position: relative; }
 
-    /* ══════════════════════════════════════════
-       ¿ESTOY CALIFICADO? SECTION
-    ══════════════════════════════════════════ */
-    .qualify-band {
-      background: var(--bg-w); padding: 70px 28px 80px; text-align: center;
-    }
+    /* ══ QUALIFY BAND ══ */
+    .qualify-band { background: var(--bg-w); padding: 72px 28px 80px; text-align: center; }
     .qualify-band h2 {
-      font-family: 'Onest', sans-serif; font-size: clamp(22px, 3.5vw, 40px);
+      font-family: 'Onest', sans-serif; font-size: clamp(22px, 3.5vw, 42px);
       font-weight: 800; color: var(--navy); letter-spacing: -.02em;
       max-width: 700px; margin: 0 auto 14px;
     }
@@ -192,51 +179,82 @@
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--green); color: #fff;
       font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 800;
-      padding: 18px 40px; border-radius: 99px; border: none; cursor: pointer;
-      transition: transform .15s, box-shadow .15s;
-      letter-spacing: -.01em;
+      padding: 18px 42px; border-radius: 99px; border: none; cursor: pointer;
+      transition: transform .15s, box-shadow .15s; letter-spacing: -.01em;
     }
-    .qualify-cta-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 14px 40px rgba(21,128,61,.4);
-    }
+    .qualify-cta-btn:hover { transform: translateY(-3px); box-shadow: 0 14px 40px rgba(21,128,61,.4); }
     .qualify-cta-btn svg { width: 22px; height: 22px; }
     .qualify-note { font-size: 12px; color: var(--muted); margin-top: 14px; }
 
-    /* ══════════════════════════════════════════
-       TRUST STRIP
-    ══════════════════════════════════════════ */
-    .trust-strip { background: var(--navy); padding: 22px 28px; }
+    /* ══ TRUST STRIP ══ */
+    .trust-strip { background: var(--navy); padding: 20px 28px; }
     .trust-inner {
       max-width: 1100px; margin: 0 auto;
       display: flex; align-items: center; justify-content: center;
-      gap: 36px; flex-wrap: wrap;
+      gap: 40px; flex-wrap: wrap;
     }
     .trust-item {
       display: flex; align-items: center; gap: 9px;
-      font-size: 13px; font-weight: 500; color: rgba(255,255,255,.75);
+      font-size: 13px; font-weight: 500; color: rgba(255,255,255,.7);
     }
     .trust-item svg { color: #86efac; flex-shrink: 0; }
 
-    /* ══════════════════════════════════════════
-       STATS
-    ══════════════════════════════════════════ */
-    .stats { background: var(--bg); padding: 56px 28px; border-bottom: 1px solid var(--border); }
+    /* ══ STATS ══ */
+    .stats { background: var(--bg); padding: 64px 28px; border-bottom: 1px solid var(--border); }
     .stats-grid {
-      max-width: 900px; margin: 0 auto;
+      max-width: 860px; margin: 0 auto;
       display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center;
     }
     .stat-num {
-      font-family: 'Onest', sans-serif; font-size: clamp(32px, 4vw, 48px);
+      font-family: 'Onest', sans-serif; font-size: clamp(34px, 4.5vw, 52px);
       font-weight: 800; color: var(--navy); line-height: 1; margin-bottom: 8px;
-      letter-spacing: -.02em;
+      letter-spacing: -.025em;
     }
     .stat-num span { color: var(--green); }
     .stat-lbl { font-size: 13px; color: var(--muted); line-height: 1.4; }
 
-    /* ══════════════════════════════════════════
-       SERVICE SECTIONS
-    ══════════════════════════════════════════ */
+    /* ══ WHY SANARÉ ══ */
+    .why { background: var(--navy); padding: 90px 28px; overflow: hidden; position: relative; }
+    .why::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 60% 50% at 80% 50%, rgba(21,128,61,.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .why-inner {
+      max-width: 1060px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .why-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase;
+      color: #86efac; margin-bottom: 18px;
+    }
+    .why h2 {
+      font-family: 'Onest', sans-serif; font-size: clamp(26px, 3.5vw, 44px);
+      font-weight: 800; color: #fff; line-height: 1.13; letter-spacing: -.025em;
+      margin-bottom: 18px;
+    }
+    .why h2 em { font-style: normal; color: #86efac; }
+    .why p { font-size: 15px; color: rgba(255,255,255,.6); line-height: 1.75; margin-bottom: 32px; }
+    .why-nums {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .why-num-box {
+      background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+      padding: 28px 24px;
+    }
+    .why-num-box:nth-child(1) { border-radius: 16px 0 0 0; }
+    .why-num-box:nth-child(2) { border-radius: 0 16px 0 0; }
+    .why-num-box:nth-child(3) { border-radius: 0 0 0 16px; }
+    .why-num-box:nth-child(4) { border-radius: 0 0 16px 0; }
+    .why-count {
+      font-family: 'Onest', sans-serif; font-size: clamp(36px, 4vw, 52px);
+      font-weight: 800; color: #86efac; line-height: 1; margin-bottom: 8px;
+      letter-spacing: -.02em;
+    }
+    .why-count-lbl { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.4; }
+
+    /* ══ SERVICE SECTIONS ══ */
     .svc { padding: 90px 28px; }
     .svc-alt { background: var(--bg-w); }
     .svc-inner {
@@ -247,14 +265,11 @@
     .svc-inner.rev { direction: rtl; }
     .svc-inner.rev > * { direction: ltr; }
 
-    /* image */
     .svc-img-wrap { position: relative; border-radius: 22px; overflow: hidden; }
-    .svc-img-wrap img {
-      width: 100%; height: 560px; object-fit: cover; display: block;
-    }
+    .svc-img-wrap img { width: 100%; height: 560px; object-fit: cover; display: block; }
     .svc-img-card {
       position: absolute; bottom: 20px; left: 16px; right: 16px;
-      background: rgba(12,26,44,.88); backdrop-filter: blur(12px);
+      background: rgba(12,26,44,.9); backdrop-filter: blur(16px);
       border-radius: 14px; padding: 16px;
       display: flex; align-items: center; gap: 12px;
     }
@@ -271,8 +286,6 @@
       border-radius: 99px; padding: 5px 13px;
       font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
     }
-
-    /* text */
     .svc-text { display: flex; flex-direction: column; gap: 20px; }
     .svc-tag { font-size: 10px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
     .svc-h2 {
@@ -282,6 +295,7 @@
     .svc-h2 em { font-style: normal; color: var(--green); }
     .svc-lead { font-size: 15px; color: var(--muted); line-height: 1.75; }
 
+    /* Price box – standard */
     .price-box {
       display: inline-flex; align-items: baseline; gap: 6px;
       background: var(--green-lt); border: 1px solid #86efac;
@@ -289,6 +303,32 @@
     }
     .price-amt { font-family: 'Onest', sans-serif; font-size: 28px; font-weight: 800; color: var(--green); letter-spacing: -.02em; }
     .price-per { font-size: 13px; color: var(--muted); }
+
+    /* Price box – GLP-1 dual (weekly + monthly) */
+    .price-box-dual {
+      background: var(--green-lt); border: 1px solid #86efac;
+      border-radius: 14px; padding: 16px 20px;
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .price-box-dual .price-week {
+      display: flex; align-items: baseline; gap: 5px;
+    }
+    .price-box-dual .price-week-amt {
+      font-family: 'Onest', sans-serif; font-size: 32px; font-weight: 800;
+      color: var(--green); letter-spacing: -.025em; line-height: 1;
+    }
+    .price-box-dual .price-week-lbl { font-size: 14px; color: var(--muted); font-weight: 500; }
+    .price-box-dual .price-month-row {
+      display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    }
+    .price-box-dual .price-month-val {
+      font-size: 13px; color: var(--green-dk); font-weight: 700;
+    }
+    .price-box-dual .price-incl-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      background: var(--green); color: #fff;
+      border-radius: 99px; padding: 3px 10px; font-size: 11px; font-weight: 700;
+    }
 
     .benefits-hd { font-size: 10px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
     .benefits { list-style: none; display: flex; flex-direction: column; gap: 10px; }
@@ -302,9 +342,7 @@
     }
     .svc-disc { font-size: 11px; color: var(--muted); line-height: 1.6; }
 
-    /* ══════════════════════════════════════════
-       GUARANTEE BAND
-    ══════════════════════════════════════════ */
+    /* ══ GUARANTEE BAND ══ */
     .g-band {
       background: linear-gradient(135deg, #0a2e18 0%, #15803d 60%, #0a2e18 100%);
       padding: 80px 28px; text-align: center;
@@ -316,22 +354,18 @@
     }
     .g-band h2 em { font-style: normal; color: #86efac; }
     .g-band p { font-size: 16px; color: rgba(255,255,255,.7); line-height: 1.7; margin-bottom: 36px; }
-    .g-cards {
-      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px;
-    }
+    .g-cards { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 36px; }
     .g-card {
       background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
-      border-radius: 16px; padding: 20px 24px; text-align: center; min-width: 160px;
+      border-radius: 16px; padding: 20px 28px; text-align: center; min-width: 160px;
     }
     .g-card .g-num {
-      font-family: 'Onest', sans-serif; font-size: 38px; font-weight: 800;
+      font-family: 'Onest', sans-serif; font-size: 40px; font-weight: 800;
       color: #86efac; display: block; line-height: 1;
     }
     .g-card .g-lbl { font-size: 12px; color: rgba(255,255,255,.6); margin-top: 4px; display: block; }
 
-    /* ══════════════════════════════════════════
-       HOW IT WORKS
-    ══════════════════════════════════════════ */
+    /* ══ HOW IT WORKS ══ */
     .how { padding: 90px 28px; background: var(--bg-w); }
     .how-inner { max-width: 1060px; margin: 0 auto; }
     .section-head { margin-bottom: 56px; }
@@ -344,8 +378,7 @@
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .step {
       background: var(--bg); border-radius: 20px; padding: 32px 26px;
-      border: 1px solid var(--border);
-      transition: box-shadow .2s, transform .2s;
+      border: 1px solid var(--border); transition: box-shadow .2s, transform .2s;
     }
     .step:hover { box-shadow: 0 12px 36px rgba(26,45,68,.1); transform: translateY(-4px); }
     .step-num-badge {
@@ -358,11 +391,9 @@
     .step p  { font-size: 14px; color: var(--muted); line-height: 1.65; }
     .step-time { margin-top: 14px; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
 
-    /* ══════════════════════════════════════════
-       DOCTORS
-    ══════════════════════════════════════════ */
+    /* ══ DOCTORS ══ */
     .doctors { padding: 90px 28px; background: var(--bg); }
-    .doctors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 0; }
+    .doctors-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .doc-card {
       background: var(--bg-w); border-radius: 20px; overflow: hidden;
       border: 1px solid var(--border); transition: box-shadow .2s;
@@ -385,9 +416,7 @@
     }
     .doc-badge svg { width: 11px; height: 11px; }
 
-    /* ══════════════════════════════════════════
-       TESTIMONIALS
-    ══════════════════════════════════════════ */
+    /* ══ TESTIMONIALS ══ */
     .testimonials { padding: 90px 28px; background: var(--bg-w); }
     .test-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
@@ -416,16 +445,10 @@
       display: flex; align-items: center; gap: 6px;
     }
 
-    /* ══════════════════════════════════════════
-       FINAL CTA
-    ══════════════════════════════════════════ */
-    .final-cta {
-      background: var(--navy); padding: 80px 28px; text-align: center;
-      position: relative; overflow: hidden;
-    }
+    /* ══ FINAL CTA ══ */
+    .final-cta { background: var(--navy); padding: 80px 28px; text-align: center; position: relative; overflow: hidden; }
     .final-cta::before {
-      content: ''; position: absolute;
-      inset: 0;
+      content: ''; position: absolute; inset: 0;
       background: radial-gradient(ellipse 70% 50% at 50% 120%, rgba(21,128,61,.25) 0%, transparent 70%);
       pointer-events: none;
     }
@@ -438,13 +461,8 @@
     .final-cta p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.7; margin-bottom: 34px; }
     .final-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
-    /* ══════════════════════════════════════════
-       MULTI-STEP FORM SECTION
-    ══════════════════════════════════════════ */
-    .form-section {
-      padding: 90px 28px; background: var(--bg);
-      border-top: 1px solid var(--border);
-    }
+    /* ══ MULTI-STEP FORM ══ */
+    .form-section { padding: 90px 28px; background: var(--bg); border-top: 1px solid var(--border); }
     .form-section-inner { max-width: 680px; margin: 0 auto; }
     .form-header { text-align: center; margin-bottom: 40px; }
     .form-header h2 {
@@ -453,10 +471,7 @@
     }
     .form-header p { font-size: 15px; color: var(--muted); }
 
-    /* Progress bar */
-    .form-progress {
-      display: flex; align-items: center; gap: 0; margin-bottom: 36px;
-    }
+    .form-progress { display: flex; align-items: center; gap: 0; margin-bottom: 36px; }
     .form-step-dot {
       width: 32px; height: 32px; border-radius: 50%;
       background: var(--border); border: 2px solid var(--border);
@@ -466,12 +481,9 @@
     }
     .form-step-dot.active  { background: var(--navy); border-color: var(--navy); color: #fff; }
     .form-step-dot.done    { background: var(--green); border-color: var(--green); color: #fff; }
-    .form-step-line {
-      flex: 1; height: 2px; background: var(--border); transition: background .3s;
-    }
+    .form-step-line { flex: 1; height: 2px; background: var(--border); transition: background .3s; }
     .form-step-line.done { background: var(--green); }
 
-    /* Form box */
     .form-box {
       background: var(--bg-w); border-radius: 20px;
       border: 1px solid var(--border); padding: 36px 32px;
@@ -479,26 +491,18 @@
     }
     .form-step { display: none; }
     .form-step.active { display: block; }
-    .form-step-title {
-      font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700;
-      color: var(--navy); margin-bottom: 24px;
-    }
+    .form-step-title { font-family: 'Onest', sans-serif; font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 24px; }
 
     .field-group { margin-bottom: 20px; }
     .field-group label { display: block; font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 7px; }
-    .field-group input,
-    .field-group select,
-    .field-group textarea {
+    .field-group input, .field-group select, .field-group textarea {
       width: 100%; padding: 11px 14px; border-radius: 10px;
       border: 1.5px solid var(--border); background: var(--bg);
       font-family: 'Inter', sans-serif; font-size: 14px; color: var(--text);
       transition: border-color .15s;
     }
-    .field-group input:focus,
-    .field-group select:focus { outline: none; border-color: var(--navy); }
-
+    .field-group input:focus, .field-group select:focus { outline: none; border-color: var(--navy); }
     .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .field-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
 
     .checkbox-group { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .checkbox-item {
@@ -530,10 +534,7 @@
     .yn-item input { display: none; }
     .yn-item span { font-size: 14px; font-weight: 600; }
 
-    .form-nav {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 32px; gap: 12px;
-    }
+    .form-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; gap: 12px; }
     .btn-form-next, .btn-form-back {
       padding: 12px 28px; border-radius: 99px;
       font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 700;
@@ -545,55 +546,31 @@
     .btn-form-back:hover { border-color: var(--navy); color: var(--navy); }
     .btn-form-submit { background: var(--green); color: #fff; width: 100%; padding: 15px; border-radius: 99px; font-size: 15px; font-weight: 700; cursor: pointer; border: none; transition: all .15s; }
     .btn-form-submit:hover { background: var(--green-dk); }
-
     .field-note { font-size: 11px; color: var(--muted); margin-top: 5px; }
 
-    /* ══════════════════════════════════════════
-       FOOTER
-    ══════════════════════════════════════════ */
-    footer {
-      background: #0c1a2c; color: rgba(255,255,255,.45);
-      padding: 60px 28px 32px;
-    }
+    /* ══ FOOTER ══ */
+    footer { background: #0c1a2c; color: rgba(255,255,255,.45); padding: 60px 28px 32px; }
     .footer-grid {
       display: grid; grid-template-columns: 1.7fr 1fr 1fr 1fr;
       gap: 36px; max-width: 1060px; margin: 0 auto;
-      padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.08);
-      margin-bottom: 28px;
+      padding-bottom: 44px; border-bottom: 1px solid rgba(255,255,255,.08); margin-bottom: 28px;
     }
-    .footer-brand-name {
-      font-family: 'Onest', sans-serif; font-weight: 800; font-size: 20px;
-      color: #fff; letter-spacing: -.02em; margin-bottom: 12px;
-    }
+    .footer-brand-name { font-family: 'Onest', sans-serif; font-weight: 800; font-size: 20px; color: #fff; letter-spacing: -.02em; margin-bottom: 12px; }
     .footer-brand-name span { color: #86efac; }
     .footer-brand p { font-size: 13px; line-height: 1.75; max-width: 260px; }
     .footer-trust { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
-    .footer-trust span {
-      background: rgba(255,255,255,.07); border-radius: 99px;
-      padding: 4px 10px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,.5);
-    }
-    .footer-col h4 {
-      font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em;
-      color: rgba(255,255,255,.8); margin-bottom: 14px;
-    }
+    .footer-trust span { background: rgba(255,255,255,.07); border-radius: 99px; padding: 4px 10px; font-size: 11px; font-weight: 500; color: rgba(255,255,255,.5); }
+    .footer-col h4 { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; color: rgba(255,255,255,.8); margin-bottom: 14px; }
     .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.35); margin-bottom: 8px; transition: color .15s; }
     .footer-col a:hover { color: #fff; }
     .footer-contact p { font-size: 13px; line-height: 2.1; }
     .footer-contact a { color: rgba(255,255,255,.35); }
     .footer-contact a:hover { color: #fff; }
-    .footer-bottom {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 14px; flex-wrap: wrap;
-      max-width: 1060px; margin: 0 auto; font-size: 12px;
-    }
+    .footer-bottom { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; max-width: 1060px; margin: 0 auto; font-size: 12px; }
     .footer-legal-links { display: flex; flex-wrap: wrap; gap: 14px; }
     .footer-legal-links a { color: rgba(255,255,255,.25); }
     .footer-legal-links a:hover { color: rgba(255,255,255,.65); }
-    .footer-disclaimer {
-      max-width: 1060px; margin: 24px auto 0;
-      font-size: 11px; line-height: 1.75; color: rgba(255,255,255,.2);
-      border-top: 1px solid rgba(255,255,255,.06); padding-top: 22px;
-    }
+    .footer-disclaimer { max-width: 1060px; margin: 24px auto 0; font-size: 11px; line-height: 1.75; color: rgba(255,255,255,.2); border-top: 1px solid rgba(255,255,255,.06); padding-top: 22px; }
 
     /* WhatsApp float */
     .wa-float {
@@ -601,13 +578,12 @@
       width: 54px; height: 54px; border-radius: 50%;
       background: #25D366; color: #fff;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 18px rgba(37,211,102,.55);
-      transition: transform .2s;
+      box-shadow: 0 4px 18px rgba(37,211,102,.55); transition: transform .2s;
     }
     .wa-float:hover { transform: scale(1.1); }
     .wa-float svg { width: 26px; height: 26px; }
 
-    /* ── Responsive ───────────────────────────────────────── */
+    /* ── Responsive ── */
     @media (max-width: 1020px) {
       .svc-inner { grid-template-columns: 1fr; gap: 36px; }
       .svc-inner.rev { direction: ltr; }
@@ -617,6 +593,7 @@
       .stats-grid { grid-template-columns: 1fr 1fr; gap: 18px; }
       .steps { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+      .why-inner { grid-template-columns: 1fr; gap: 40px; }
       .hp-1,.hp-2,.hp-3,.hp-4,.hp-5 { display: none; }
     }
     @media (max-width: 720px) {
@@ -626,8 +603,9 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; align-items: flex-start; }
       .checkbox-group { grid-template-columns: 1fr; }
-      .field-row, .field-row-3 { grid-template-columns: 1fr; }
+      .field-row { grid-template-columns: 1fr; }
       .g-cards { flex-direction: column; align-items: center; }
+      .why-nums { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 480px) {
       .hero { padding-top: 60px; }
@@ -644,17 +622,22 @@
   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
-<!-- ═══ NAV ═══════════════════════════════════════════════════ -->
+<!-- ═══ NAV ═══ -->
 <nav>
   <div class="nav-inner">
-    <div class="nav-logo">
+    <a href="#" class="nav-logo">
       <div class="nav-logo-mark">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <!-- Leaf + cross logo mark -->
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+          <path d="M12 3C8.1 3 5 6.1 5 10c0 2.9 1.6 5.5 4 7l3 2 3-2c2.4-1.5 4-4.1 4-7 0-3.9-3.1-7-7-7z" fill="white" opacity="0.93"/>
+          <line x1="12" y1="7.5" x2="12" y2="16.5" stroke="#1a2d44" stroke-width="2" stroke-linecap="round"/>
+          <line x1="8.5" y1="12" x2="15.5" y2="12" stroke="#1a2d44" stroke-width="2" stroke-linecap="round"/>
+        </svg>
       </div>
       <span class="nav-logo-name">SANA<span>RÉ</span></span>
-    </div>
+    </a>
     <ul class="nav-links">
-      <li><a href="#perdida-de-peso" class="nav-active">Pérdida de peso</a></li>
+      <li><a href="#perdida-de-peso">Pérdida de peso</a></li>
       <li><a href="#cabello">Cabello</a></li>
       <li><a href="#piel">Piel</a></li>
       <li><a href="https://wa.me/573162881161" class="nav-wa" target="_blank">
@@ -666,20 +649,19 @@
   </div>
 </nav>
 
-<!-- ═══ HERO ══════════════════════════════════════════════════ -->
+<!-- ═══ HERO ═══ -->
 <header class="hero">
   <div class="hero-inner">
     <div class="hero-topline">
       <span class="hero-topline-dot"></span>
       Médicos colombianos certificados · Resultados garantizados
     </div>
-    <h1>¿Finalmente te tomas en serio tu salud?<br /><em>Nosotros también.</em></h1>
+    <h1>¿Llevas años intentándolo<br />y nada funciona?<br /><em>Esta vez sí.</em></h1>
     <p class="hero-sub">
-      Perder peso, recuperar tu cabello y cuidar tu piel es más fácil con atención médica personalizada.
-      Sin filas. Sin esperas. Desde casa.
+      Con supervisión médica real, GLP-1 (Ozempic · Saxenda) y seguimiento mensual con internistas colombianos. Sin filas. Sin esperas. Desde casa.
     </p>
     <div class="hero-btns">
-      <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 32px;">
+      <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 34px;">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         ¿Estoy calificado?
       </a>
@@ -687,40 +669,39 @@
         Hablar con un médico
       </a>
     </div>
-
     <!-- People grid -->
     <div class="hero-people">
       <div class="hero-person hp-1">
-        <img src="https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=200&h=260&q=80" alt="Paciente 1" />
+        <img src="https://images.unsplash.com/photo-1500917293891-ef795e70e1f6?auto=format&fit=crop&w=200&h=280&q=90" alt="Paciente" loading="eager" />
       </div>
       <div class="hero-person hp-2">
-        <img src="https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=180&h=220&q=80" alt="Paciente 2" />
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=180&h=240&q=90" alt="Paciente" loading="eager" />
       </div>
       <div class="hero-person hp-3">
-        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=220&h=300&q=80" alt="Paciente 3" />
+        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=240&h=340&q=90" alt="Paciente" loading="eager" />
       </div>
       <div class="hero-person hp-4">
-        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=180&h=220&q=80" alt="Paciente 4" />
+        <img src="https://images.unsplash.com/photo-1552058544-f2b08422138a?auto=format&fit=crop&w=180&h=240&q=90" alt="Paciente" loading="eager" />
       </div>
       <div class="hero-person hp-5">
-        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&h=260&q=80" alt="Paciente 5" />
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&h=280&q=90" alt="Paciente" loading="eager" />
       </div>
     </div>
   </div>
 </header>
 
-<!-- ═══ ¿ESTOY CALIFICADO? BAND ═══════════════════════════════ -->
+<!-- ═══ ¿ESTOY CALIFICADO? ═══ -->
 <div class="qualify-band" id="qualify-top">
-  <h2>Alcanza tu peso ideal sin dietas extremas ni ejercicio excesivo</h2>
-  <p>Responde las siguientes preguntas para saber si calificas para nuestro programa de pérdida de peso con supervisión médica.</p>
-  <button class="qualify-cta-btn" onclick="document.getElementById('calificacion').scrollIntoView({behavior:'smooth'})">
+  <h2 class="fade-up">Alcanza tu peso ideal <em style="font-style:normal;color:var(--green);">sin dietas extremas</em> ni ejercicio excesivo</h2>
+  <p class="fade-up" data-d="1">Responde las siguientes preguntas — toma 3 minutos — para saber si calificas para nuestro programa de pérdida de peso con supervisión médica.</p>
+  <button class="qualify-cta-btn fade-up" data-d="2" onclick="document.getElementById('calificacion').scrollIntoView({behavior:'smooth'})">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     ¿ESTOY CALIFICADO?
   </button>
-  <p class="qualify-note">Completarlo toma menos de 3 minutos · 100% confidencial</p>
+  <p class="qualify-note fade-up" data-d="3">Completarlo toma menos de 3 minutos · 100% confidencial</p>
 </div>
 
-<!-- ═══ TRUST STRIP ═══════════════════════════════════════════ -->
+<!-- ═══ TRUST STRIP ═══ -->
 <div class="trust-strip">
   <div class="trust-inner">
     <div class="trust-item">
@@ -746,62 +727,100 @@
   </div>
 </div>
 
-<!-- ═══ STATS ══════════════════════════════════════════════════ -->
+<!-- ═══ STATS ═══ -->
 <div class="stats">
   <div class="stats-grid">
-    <div>
-      <div class="stat-num">98<span>%</span></div>
+    <div class="fade-up">
+      <div class="stat-num js-count" data-target="98" data-suffix="%">0%</div>
       <div class="stat-lbl">de pacientes satisfechos</div>
     </div>
-    <div>
+    <div class="fade-up" data-d="1">
       <div class="stat-num">&lt;24<span>h</span></div>
       <div class="stat-lbl">primera consulta médica</div>
     </div>
-    <div>
-      <div class="stat-num">3</div>
+    <div class="fade-up" data-d="2">
+      <div class="stat-num js-count" data-target="3" data-suffix="">0</div>
       <div class="stat-lbl">especialistas en tu equipo</div>
     </div>
-    <div>
-      <div class="stat-num">100<span>%</span></div>
+    <div class="fade-up" data-d="3">
+      <div class="stat-num js-count" data-target="100" data-suffix="%">0%</div>
       <div class="stat-lbl">garantía de devolución</div>
     </div>
   </div>
 </div>
 
-<!-- ═══ PÉRDIDA DE PESO ═══════════════════════════════════════ -->
+<!-- ═══ ¿POR QUÉ SANARÉ? ═══ -->
+<section class="why">
+  <div class="why-inner">
+    <div class="fade-up">
+      <div class="why-tag">Por qué elegirnos</div>
+      <h2>¿Por qué más de <em>600 colombianos</em> ya confían en SANARÉ?</h2>
+      <p>No somos una app de bienestar. Somos médicos colombianos con especialización real que prescriben, acompañan y garantizan resultados. Eso marca la diferencia entre intentarlo solo y lograrlo con apoyo médico de verdad.</p>
+      <a href="#calificacion" class="btn btn-green" style="font-size:15px;">Verificar si califico →</a>
+    </div>
+    <div class="why-nums fade-up" data-d="1">
+      <div class="why-num-box">
+        <div class="why-count js-count" data-target="847" data-suffix="kg">0kg</div>
+        <div class="why-count-lbl">de peso perdido por nuestros pacientes</div>
+      </div>
+      <div class="why-num-box">
+        <div class="why-count js-count" data-target="94" data-suffix="%">0%</div>
+        <div class="why-count-lbl">ven resultados antes de 60 días</div>
+      </div>
+      <div class="why-num-box">
+        <div class="why-count" style="font-size:clamp(28px,3.5vw,44px);">&lt;18h</div>
+        <div class="why-count-lbl">tiempo promedio primera consulta</div>
+      </div>
+      <div class="why-num-box">
+        <div class="why-count js-count" data-target="100" data-suffix="%">0%</div>
+        <div class="why-count-lbl">devolución si no hay resultados</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PÉRDIDA DE PESO ═══ -->
 <section id="perdida-de-peso" class="svc">
   <div class="svc-inner">
-    <div class="svc-img-wrap">
-      <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=700&h=560&q=85" alt="Pérdida de peso" />
+    <div class="svc-img-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=700&h=560&q=88" alt="Pérdida de peso — persona en báscula" />
       <div class="svc-img-card">
         <div class="svc-img-card-icon" style="background:var(--green)">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
-          <strong>GLP-1 con respaldo médico</strong>
-          <span>Ozempic · Saxenda · disponibles en Colombia</span>
+          <strong>Medicamento + médico internista</strong>
+          <span>Ozempic · Saxenda · todo incluido en el plan</span>
         </div>
       </div>
     </div>
-    <div class="svc-text">
-      <span class="svc-tag">Pérdida de peso · GLP-1 con médico</span>
-      <h2 class="svc-h2">Llevas años intentándolo.<br /><em>Esta vez, con apoyo médico real.</em></h2>
-      <p class="svc-lead">Los medicamentos GLP-1 como Ozempic y Saxenda, disponibles con receta en Colombia, controlan el apetito y generan pérdida de peso sostenida. Nuestros médicos te evalúan, prescriben y acompañan en todo momento.</p>
-      <div class="price-box" style="flex-direction:column;align-items:flex-start;gap:4px;">
-        <span style="font-size:12px;color:var(--muted);text-decoration:line-through;">Valor consulta privada: $600.000</span>
-        <div style="display:flex;align-items:baseline;gap:6px;">
-          <span class="price-amt">$429.000</span>
-          <span class="price-per">/ mes · con médico internista</span>
+    <div class="svc-text fade-up" data-d="1">
+      <span class="svc-tag">Pérdida de peso · Plan GLP-1 completo</span>
+      <h2 class="svc-h2">Ya lo intentaste solo.<br /><em>Ahora con un internista y el medicamento incluido.</em></h2>
+      <p class="svc-lead">Los GLP-1 como Ozempic y Saxenda reducen el apetito y generan pérdida de peso sostenida. Nuestro plan incluye consulta con médico internista, prescripción y el medicamento enviado a tu casa.</p>
+
+      <div class="price-box-dual">
+        <div class="price-week">
+          <span class="price-week-amt">$162.000</span>
+          <span class="price-week-lbl">/ semana</span>
+        </div>
+        <div class="price-month-row">
+          <span class="price-month-val">= $699.000 / mes · todo incluido</span>
+          <span class="price-incl-badge">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg>
+            Incluye Ozempic o Saxenda
+          </span>
         </div>
       </div>
-      <p class="benefits-hd">Todo incluido:</p>
+
+      <p class="benefits-hd">Todo incluido en tu plan:</p>
       <ul class="benefits">
-        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Consulta médica inicial por videollamada</li>
-        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Prescripción de GLP-1 (Ozempic / Saxenda)</li>
-        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Seguimiento mensual con tu médico</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Consulta médica inicial por videollamada con internista</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Medicamento GLP-1 (Ozempic o Saxenda) enviado a domicilio</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Prescripción y ajuste de dosis mensual</li>
         <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Plan nutricional personalizado</li>
+        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Seguimiento mensual con tu médico internista</li>
         <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Soporte ilimitado por WhatsApp</li>
-        <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Envío del tratamiento a domicilio*</li>
       </ul>
       <div class="guarantee-tag">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -809,24 +828,24 @@
       </div>
       <div style="display:flex;gap:12px;flex-wrap:wrap;">
         <a href="#calificacion" class="btn btn-green">Verificar si califico</a>
-        <a href="https://wa.me/573162881161?text=Quiero+información+sobre+pérdida+de+peso" class="btn btn-wa" target="_blank">
+        <a href="https://wa.me/573162881161?text=Quiero+información+sobre+pérdida+de+peso+GLP-1" class="btn btn-wa" target="_blank">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           Consulta gratis
         </a>
       </div>
-      <p class="svc-disc">*Medicamentos GLP-1 requieren receta médica y se adquieren directamente en farmacia (aprox. COP 350.000–600.000/mes). El plan SANARÉ cubre la consulta médica, prescripción y seguimiento mensual con internista — lo que equivale a 2–3 consultas privadas por el mismo precio.</p>
+      <p class="svc-disc">El plan incluye medicamento GLP-1 genérico. Si se prescribe Ozempic® o Saxenda® de marca, puede haber diferencia de precio. Medicamentos requieren evaluación médica previa.</p>
     </div>
   </div>
 </section>
 
-<!-- ═══ SALUD FEMENINA ════════════════════════════════════════ -->
+<!-- ═══ SALUD FEMENINA ═══ -->
 <section id="salud-femenina" class="svc svc-alt">
   <div class="svc-inner rev">
-    <div class="svc-img-wrap">
-      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&h=560&q=85" alt="Salud femenina" />
+    <div class="svc-img-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&h=560&q=88" alt="Salud femenina" />
       <span class="svc-coming">Próximamente</span>
     </div>
-    <div class="svc-text">
+    <div class="svc-text fade-up" data-d="1">
       <span class="svc-tag">Salud Femenina</span>
       <h2 class="svc-h2">Atención médica <em>diseñada para la mujer.</em></h2>
       <p class="svc-lead">Hormonas, bienestar y control de peso en un solo lugar. Nuestras médicas internistas te atienden con la especialización y la sensibilidad que mereces.</p>
@@ -836,50 +855,47 @@
         <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Salud capilar y cutánea femenina</li>
         <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Apoyo en cada etapa de tu vida</li>
       </ul>
-      <a href="https://wa.me/573162881161?text=Quiero+información+sobre+salud+femenina" class="btn btn-navy" target="_blank">Avísame cuando esté disponible</a>
+      <a href="https://wa.me/573162881161?text=Quiero+información+sobre+salud+femenina+en+SANARÉ" class="btn btn-navy" target="_blank">Avísame cuando esté disponible</a>
     </div>
   </div>
 </section>
 
-<!-- ═══ GARANTÍA BAND ═════════════════════════════════════════ -->
+<!-- ═══ GARANTÍA ═══ -->
 <div class="g-band">
   <div class="g-band-inner">
-    <h2>Si no ves resultados,<br /><em>te devolvemos el 100% de tu dinero.</em></h2>
-    <p>Tan seguros estamos de nuestros tratamientos que los respaldamos por completo. Sin letras pequeñas. Sin excusas. Cumples el plan, ves los resultados — o recuperas tu inversión.</p>
+    <h2 class="fade-up">Si no ves resultados,<br /><em>te devolvemos el 100% de tu dinero.</em></h2>
+    <p class="fade-up" data-d="1">Tan seguros estamos de nuestros tratamientos que los respaldamos por completo. Sin letras pequeñas. Sin excusas. Cumples el plan, ves los resultados — o recuperas tu inversión.</p>
     <div class="g-cards">
-      <div class="g-card"><span class="g-num">60</span><span class="g-lbl">días para pérdida de peso</span></div>
-      <div class="g-card"><span class="g-num">90</span><span class="g-lbl">días para caída del cabello</span></div>
-      <div class="g-card"><span class="g-num">100<small style="font-size:.5em">%</small></span><span class="g-lbl">devolución garantizada</span></div>
+      <div class="g-card fade-up"><span class="g-num">60</span><span class="g-lbl">días para pérdida de peso</span></div>
+      <div class="g-card fade-up" data-d="1"><span class="g-num">90</span><span class="g-lbl">días para caída del cabello</span></div>
+      <div class="g-card fade-up" data-d="2"><span class="g-num">100<small style="font-size:.5em">%</small></span><span class="g-lbl">devolución garantizada</span></div>
     </div>
     <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 34px;">Quiero mi garantía →</a>
   </div>
 </div>
 
-<!-- ═══ CAÍDA DEL CABELLO ══════════════════════════════════════ -->
+<!-- ═══ CAÍDA DEL CABELLO ═══ -->
 <section id="cabello" class="svc">
   <div class="svc-inner">
-    <div class="svc-img-wrap">
-      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&h=560&q=85" alt="Tratamiento capilar" />
+    <div class="svc-img-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=700&h=560&q=88" alt="Tratamiento capilar" />
       <div class="svc-img-card">
         <div class="svc-img-card-icon" style="background:#d97706">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
         </div>
         <div>
           <strong>Garantía 90 días · 100% devolución</strong>
-          <span>Minoxidil · Finasterida · con receta médica</span>
+          <span>Minoxidil · Finasterida · receta médica</span>
         </div>
       </div>
     </div>
-    <div class="svc-text">
+    <div class="svc-text fade-up" data-d="1">
       <span class="svc-tag">Caída del Cabello · Experto Capilar Certificado</span>
       <h2 class="svc-h2">Cada pelo que cae es <em>una oportunidad que todavía tienes.</em></h2>
       <p class="svc-lead">La alopecia tiene tratamiento efectivo. Agenda con nuestro experto capilar certificado, recibe tu diagnóstico personalizado y empieza un plan con Minoxidil o Finasterida. Aplica para hombres y mujeres.</p>
-      <div class="price-box" style="flex-direction:column;align-items:flex-start;gap:4px;">
-        <span style="font-size:12px;color:var(--muted);text-decoration:line-through;">Valor consulta privada: $400.000</span>
-        <div style="display:flex;align-items:baseline;gap:6px;">
-          <span class="price-amt">$269.000</span>
-          <span class="price-per">/ mes · con experto capilar</span>
-        </div>
+      <div class="price-box">
+        <span class="price-amt">$199.000</span>
+        <span class="price-per">/ mes · consulta + seguimiento</span>
       </div>
       <p class="benefits-hd">Tu plan capilar incluye:</p>
       <ul class="benefits">
@@ -901,11 +917,11 @@
   </div>
 </section>
 
-<!-- ═══ CUIDADO DE LA PIEL ════════════════════════════════════ -->
+<!-- ═══ CUIDADO DE LA PIEL ═══ -->
 <section id="piel" class="svc svc-alt">
   <div class="svc-inner rev">
-    <div class="svc-img-wrap">
-      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&h=560&q=85" alt="Cuidado de la piel" />
+    <div class="svc-img-wrap fade-up">
+      <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=700&h=560&q=88" alt="Cuidado de la piel" />
       <div class="svc-img-card">
         <div class="svc-img-card-icon" style="background:#0e7490">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0 1 12 0v2"/></svg>
@@ -916,16 +932,13 @@
         </div>
       </div>
     </div>
-    <div class="svc-text">
+    <div class="svc-text fade-up" data-d="1">
       <span class="svc-tag">Cuidado de la Piel · Dermatología Online</span>
       <h2 class="svc-h2">Tu piel merece más que <em>cremas de droguería.</em></h2>
-      <p class="svc-lead">Acné, manchas, envejecimiento, rosácea — cada piel es diferente y merece un diagnóstico médico real. Nuestros médicos prescriben tratamientos con Tretinoin, ácido azelaico y más, disponibles en Colombia.</p>
-      <div class="price-box" style="flex-direction:column;align-items:flex-start;gap:4px;">
-        <span style="font-size:12px;color:var(--muted);text-decoration:line-through;">Valor consulta privada: $450.000</span>
-        <div style="display:flex;align-items:baseline;gap:6px;">
-          <span class="price-amt">$319.000</span>
-          <span class="price-per">/ mes · plan dermatológico</span>
-        </div>
+      <p class="svc-lead">Acné, manchas, envejecimiento, rosácea — cada piel es diferente y merece un diagnóstico médico real. Nuestros médicos prescriben Tretinoin, ácido azelaico y más, disponibles en Colombia.</p>
+      <div class="price-box">
+        <span class="price-amt">$229.000</span>
+        <span class="price-per">/ mes · plan dermatológico</span>
       </div>
       <ul class="benefits">
         <li><span class="ck"><svg width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><polyline points="2,6 5,9 10,3"/></svg></span>Diagnóstico personalizado por videollamada</li>
@@ -942,27 +955,27 @@
   </div>
 </section>
 
-<!-- ═══ CÓMO FUNCIONA ═════════════════════════════════════════ -->
+<!-- ═══ CÓMO FUNCIONA ═══ -->
 <section class="how">
   <div class="how-inner">
-    <div class="section-head">
+    <div class="section-head fade-up">
       <h2>Así de fácil es <em>empezar.</em></h2>
       <p>Desde hoy hasta tu primera consulta médica, en menos de 24 horas.</p>
     </div>
     <div class="steps">
-      <div class="step">
+      <div class="step fade-up">
         <div class="step-num-badge">1</div>
         <h3>Verifica si calificas</h3>
         <p>Responde nuestro cuestionario de salud en 3 minutos. Completamente confidencial y desde tu celular.</p>
         <div class="step-time">3 minutos</div>
       </div>
-      <div class="step">
+      <div class="step fade-up" data-d="1">
         <div class="step-num-badge">2</div>
         <h3>Videollamada con tu médico</h3>
-        <p>Un médico internista o especialista colombiano te atiende por videollamada y evalúa tu caso personalmente.</p>
+        <p>Un médico internista colombiano te atiende por videollamada, evalúa tu caso y prescribe tu tratamiento.</p>
         <div class="step-time">En menos de 24 horas</div>
       </div>
-      <div class="step">
+      <div class="step fade-up" data-d="2">
         <div class="step-num-badge">3</div>
         <h3>Recibe y empieza</h3>
         <p>Tu receta digital llega de inmediato. Tu tratamiento se envía a la puerta de tu casa en cualquier ciudad de Colombia.</p>
@@ -972,15 +985,15 @@
   </div>
 </section>
 
-<!-- ═══ EQUIPO MÉDICO ══════════════════════════════════════════ -->
+<!-- ═══ EQUIPO MÉDICO ═══ -->
 <section class="doctors">
   <div style="max-width:1060px;margin:0 auto;">
-    <div class="section-head">
+    <div class="section-head fade-up">
       <h2>Médicos reales.<br /><em>Resultados reales.</em></h2>
       <p>Nuestro equipo está formado por médicos con tarjeta profesional colombiana vigente, especializados en las condiciones que más afectan tu calidad de vida.</p>
     </div>
     <div class="doctors-grid">
-      <div class="doc-card">
+      <div class="doc-card fade-up">
         <div class="doc-avatar">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/><path d="M12 14v3m-1.5 0h3"/></svg>
         </div>
@@ -991,7 +1004,7 @@
           <span class="doc-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tarjeta profesional vigente</span>
         </div>
       </div>
-      <div class="doc-card">
+      <div class="doc-card fade-up" data-d="1">
         <div class="doc-avatar">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/><path d="M12 14v3m-1.5 0h3"/></svg>
         </div>
@@ -1002,7 +1015,7 @@
           <span class="doc-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Tarjeta profesional vigente</span>
         </div>
       </div>
-      <div class="doc-card">
+      <div class="doc-card fade-up" data-d="2">
         <div class="doc-avatar">
           <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 20a6.5 6.5 0 0113 0"/><path d="M12 14v3m-1.5 0h3"/></svg>
         </div>
@@ -1017,45 +1030,45 @@
   </div>
 </section>
 
-<!-- ═══ TESTIMONIALS ══════════════════════════════════════════ -->
+<!-- ═══ TESTIMONIALES ═══ -->
 <section class="testimonials">
   <div style="max-width:1060px;margin:0 auto;">
-    <div class="section-head">
+    <div class="section-head fade-up">
       <h2>Colombianos que ya <em>están cambiando.</em></h2>
       <p>Historias reales de personas que decidieron actuar.</p>
     </div>
     <div class="test-grid">
-      <div class="test-card">
+      <div class="test-card fade-up">
         <div class="test-stars">★★★★★</div>
         <blockquote>"Llevaba 5 años intentando bajar de peso sin resultado. Con SANARÉ y la guía del médico empecé con Ozempic y en 3 meses bajé 11 kilos. ¡Todo desde mi casa!"</blockquote>
         <div class="test-author"><div class="test-av">MR</div><div><div class="test-name">María R.</div><div class="test-city">Bogotá, Cundinamarca</div></div></div>
         <div class="test-result">✓ −11 kg en 3 meses</div>
       </div>
-      <div class="test-card">
+      <div class="test-card fade-up" data-d="1">
         <div class="test-stars">★★★★★</div>
         <blockquote>"La caída del cabello me tenía muy angustiado. El experto capilar me atendió por videollamada, me recetó Finasterida y Minoxidil, y a los 4 meses ya noté resultados claros."</blockquote>
         <div class="test-author"><div class="test-av">AC</div><div><div class="test-name">Andrés C.</div><div class="test-city">Medellín, Antioquia</div></div></div>
         <div class="test-result">✓ Crecimiento visible en 4 meses</div>
       </div>
-      <div class="test-card">
+      <div class="test-card fade-up" data-d="2">
         <div class="test-stars">★★★★★</div>
         <blockquote>"El acné me afectaba emocionalmente. Me recetaron Tretinoin y en 2 meses mi piel cambió completamente. El servicio es muy profesional y el seguimiento es real."</blockquote>
         <div class="test-author"><div class="test-av">LP</div><div><div class="test-name">Laura P.</div><div class="test-city">Cali, Valle del Cauca</div></div></div>
         <div class="test-result">✓ Piel clara en 60 días</div>
       </div>
-      <div class="test-card">
+      <div class="test-card fade-up">
         <div class="test-stars">★★★★★</div>
         <blockquote>"Pensé que el proceso iba a ser complicado pero fue facilísimo. Llené el formulario, a las 6 horas me llamó el médico, y al otro día ya tenía mi receta."</blockquote>
         <div class="test-author"><div class="test-av">CF</div><div><div class="test-name">Carlos F.</div><div class="test-city">Barranquilla, Atlántico</div></div></div>
         <div class="test-result">✓ Consulta en menos de 24 h</div>
       </div>
-      <div class="test-card">
+      <div class="test-card fade-up" data-d="1">
         <div class="test-stars">★★★★★</div>
         <blockquote>"Por fin un médico que me escucha y no me hace esperar 3 horas. El plan nutricional es muy práctico y los resultados son reales. ¡100% lo recomiendo!"</blockquote>
         <div class="test-author"><div class="test-av">SV</div><div><div class="test-name">Sandra V.</div><div class="test-city">Bucaramanga, Santander</div></div></div>
         <div class="test-result">✓ −7 kg en 6 semanas</div>
       </div>
-      <div class="test-card">
+      <div class="test-card fade-up" data-d="2">
         <div class="test-stars">★★★★★</div>
         <blockquote>"El seguimiento mensual hace toda la diferencia. Si tienes una duda a las 10 pm escribes al WhatsApp y te responden. Eso no lo encuentras en ninguna clínica."</blockquote>
         <div class="test-author"><div class="test-av">JM</div><div><div class="test-name">Jorge M.</div><div class="test-city">Pereira, Risaralda</div></div></div>
@@ -1065,19 +1078,19 @@
   </div>
 </section>
 
-<!-- ═══ FINAL CTA ══════════════════════════════════════════════ -->
+<!-- ═══ FINAL CTA ═══ -->
 <div class="final-cta">
   <div class="final-cta-inner">
-    <h2>¿Listo para <em>empezar hoy?</em></h2>
-    <p>Tu primera consulta puede ser hoy. Sin compromisos. Sin salir de casa. Con la garantía de que si no ves resultados, recuperas tu dinero.</p>
-    <div class="final-btns">
+    <h2 class="fade-up">¿Listo para <em>empezar hoy?</em></h2>
+    <p class="fade-up" data-d="1">Tu primera consulta puede ser hoy. Sin compromisos. Sin salir de casa. Con la garantía de que si no ves resultados, recuperas tu dinero.</p>
+    <div class="final-btns fade-up" data-d="2">
       <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 32px;">¿Estoy calificado? →</a>
       <a href="https://wa.me/573162881161?text=Hola%2C+quiero+hablar+con+un+médico+de+SANARÉ" class="btn btn-ghost" target="_blank">Hablar con un médico</a>
     </div>
   </div>
 </div>
 
-<!-- ═══ FORMULARIO DE CALIFICACIÓN ════════════════════════════ -->
+<!-- ═══ FORMULARIO DE CALIFICACIÓN ═══ -->
 <section id="calificacion" class="form-section">
   <div class="form-section-inner">
     <div class="form-header">
@@ -1085,7 +1098,6 @@
       <p>Responde estas preguntas para que nuestros médicos puedan evaluar tu caso. Es confidencial y toma menos de 3 minutos.</p>
     </div>
 
-    <!-- Progress -->
     <div class="form-progress" id="formProgress">
       <div class="form-step-dot active" id="dot1">1</div>
       <div class="form-step-line" id="line1"></div>
@@ -1099,7 +1111,6 @@
     </div>
 
     <form id="qualifyForm" action="https://formsubmit.co/cram1711@gmail.com" method="POST">
-      <!-- FormSubmit hidden fields -->
       <input type="hidden" name="_subject" value="Nueva consulta SANARÉ – Formulario de calificación" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://wa.me/573162881161?text=Hola%2C+acabo+de+completar+el+formulario+de+calificación+en+SANARÉ.+Quiero+saber+si+califico." />
@@ -1107,7 +1118,7 @@
 
       <div class="form-box">
 
-        <!-- STEP 1: Datos físicos -->
+        <!-- STEP 1 -->
         <div class="form-step active" id="step1">
           <div class="form-step-title">Paso 1 de 5 — Información básica</div>
           <div class="field-row">
@@ -1141,7 +1152,7 @@
           </div>
         </div>
 
-        <!-- STEP 2: Condiciones de salud 1 -->
+        <!-- STEP 2 -->
         <div class="form-step" id="step2">
           <div class="form-step-title">Paso 2 de 5 — Condiciones de salud</div>
           <div class="field-group">
@@ -1163,7 +1174,7 @@
           </div>
         </div>
 
-        <!-- STEP 3: Condiciones de salud 2 -->
+        <!-- STEP 3 -->
         <div class="form-step" id="step3">
           <div class="form-step-title">Paso 3 de 5 — Historial médico</div>
           <div class="field-group">
@@ -1180,7 +1191,7 @@
             </div>
           </div>
           <div class="field-group" style="margin-top:16px;">
-            <label>¿Ha tomado opiáceos o drogas opiáceas en los últimos 3 meses?</label>
+            <label>¿Ha tomado opiáceos en los últimos 3 meses?</label>
             <div class="yn-group">
               <label class="yn-item"><input type="radio" name="opiaceos" value="Sí" /><span>Sí</span></label>
               <label class="yn-item"><input type="radio" name="opiaceos" value="No" /><span>No</span></label>
@@ -1199,7 +1210,7 @@
           </div>
         </div>
 
-        <!-- STEP 4: Signos vitales -->
+        <!-- STEP 4 -->
         <div class="form-step" id="step4">
           <div class="form-step-title">Paso 4 de 5 — Signos vitales</div>
           <div class="field-group">
@@ -1241,7 +1252,7 @@
           </div>
         </div>
 
-        <!-- STEP 5: Contacto -->
+        <!-- STEP 5 -->
         <div class="form-step" id="step5">
           <div class="form-step-title">Paso 5 de 5 — Tus datos de contacto</div>
           <div class="field-group">
@@ -1267,9 +1278,9 @@
             <label>¿Qué servicio te interesa principalmente?</label>
             <select name="servicio_interes" required>
               <option value="">Selecciona</option>
-              <option>Pérdida de peso GLP-1 — $429.000/mes</option>
-              <option>Caída del cabello — $269.000/mes</option>
-              <option>Cuidado de la piel — $319.000/mes</option>
+              <option>Pérdida de peso GLP-1 — $699.000/mes (todo incluido)</option>
+              <option>Caída del cabello — $199.000/mes</option>
+              <option>Cuidado de la piel — $229.000/mes</option>
               <option>Salud femenina (próximamente)</option>
               <option>Varios servicios</option>
             </select>
@@ -1293,12 +1304,12 @@
           </div>
         </div>
 
-      </div><!-- /form-box -->
+      </div>
     </form>
   </div>
 </section>
 
-<!-- ═══ FOOTER ════════════════════════════════════════════════ -->
+<!-- ═══ FOOTER ═══ -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -1350,34 +1361,25 @@
 </footer>
 
 <script>
-  // ── Multi-step form logic ──────────────────────────────────
-  var currentStep = 1;
-  var totalSteps = 5;
+  // ── Multi-step form ────────────────────────────────────────
+  var currentStep = 1, totalSteps = 5;
 
   function updateProgress(from, to) {
-    // Deactivate from
-    var fromDot = document.getElementById('dot' + from);
-    if (fromDot) { fromDot.classList.remove('active'); fromDot.classList.add('done'); fromDot.textContent = '✓'; }
-    if (from < totalSteps) {
-      var line = document.getElementById('line' + from);
-      if (line) line.classList.add('done');
-    }
-    // Activate to
-    var toDot = document.getElementById('dot' + to);
-    if (toDot) toDot.classList.add('active');
+    var fd = document.getElementById('dot' + from);
+    if (fd) { fd.classList.remove('active'); fd.classList.add('done'); fd.textContent = '✓'; }
+    var fl = document.getElementById('line' + from);
+    if (fl) fl.classList.add('done');
+    var td = document.getElementById('dot' + to);
+    if (td) td.classList.add('active');
   }
-
   function revertProgress(from, to) {
-    var fromDot = document.getElementById('dot' + from);
-    if (fromDot) { fromDot.classList.remove('active'); }
-    var prevDot = document.getElementById('dot' + to);
-    if (prevDot) { prevDot.classList.remove('done'); prevDot.classList.add('active'); prevDot.textContent = to; }
-    if (to < totalSteps) {
-      var line = document.getElementById('line' + to);
-      if (line) line.classList.remove('done');
-    }
+    var fd = document.getElementById('dot' + from);
+    if (fd) fd.classList.remove('active');
+    var pd = document.getElementById('dot' + to);
+    if (pd) { pd.classList.remove('done'); pd.classList.add('active'); pd.textContent = to; }
+    var pl = document.getElementById('line' + to);
+    if (pl) pl.classList.remove('done');
   }
-
   function nextStep(step) {
     document.getElementById('step' + step).classList.remove('active');
     document.getElementById('step' + (step + 1)).classList.add('active');
@@ -1385,7 +1387,6 @@
     currentStep = step + 1;
     document.getElementById('calificacion').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-
   function prevStep(step) {
     document.getElementById('step' + step).classList.remove('active');
     document.getElementById('step' + (step - 1)).classList.add('active');
@@ -1411,6 +1412,50 @@
         if (p) p.style.borderColor = i.checked ? 'var(--navy)' : '';
       });
     });
+  });
+
+  // ── Scroll animations (IntersectionObserver) ──────────────
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(function(el) {
+    fadeObserver.observe(el);
+  });
+
+  // ── Animated counters ─────────────────────────────────────
+  function animateCount(el) {
+    var target  = parseInt(el.dataset.target, 10);
+    var suffix  = el.dataset.suffix || '';
+    var duration = 1600;
+    var start   = Date.now();
+
+    (function tick() {
+      var elapsed  = Date.now() - start;
+      var progress = Math.min(elapsed / duration, 1);
+      var eased    = 1 - Math.pow(1 - progress, 3);
+      var val      = Math.round(eased * target);
+      el.textContent = val.toLocaleString('es-CO') + suffix;
+      if (progress < 1) requestAnimationFrame(tick);
+    })();
+  }
+
+  var countObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.4 });
+
+  document.querySelectorAll('.js-count').forEach(function(el) {
+    countObserver.observe(el);
   });
 </script>
 
