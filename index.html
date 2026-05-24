@@ -572,6 +572,75 @@
     .footer-legal-links a:hover { color: rgba(255,255,255,.65); }
     .footer-disclaimer { max-width: 1060px; margin: 24px auto 0; font-size: 11px; line-height: 1.75; color: rgba(255,255,255,.2); border-top: 1px solid rgba(255,255,255,.06); padding-top: 22px; }
 
+    /* ══ GLP-1 EDUCATIONAL SECTION ══ */
+    .glp-edu { padding: 90px 28px; background: var(--bg); border-top: 4px solid var(--green-lt); }
+    .glp-inner { max-width: 1060px; margin: 0 auto; }
+    .glp-intro { display: grid; grid-template-columns: 1.1fr 1fr; gap: 60px; align-items: center; margin-bottom: 64px; }
+    .glp-intro-text h2 { font-family: 'Onest', sans-serif; font-size: clamp(26px, 3.5vw, 42px); font-weight: 800; color: var(--navy); letter-spacing: -.02em; margin-bottom: 16px; }
+    .glp-intro-text h2 em { font-style: normal; color: var(--green); }
+    .glp-intro-text p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+    .glp-stat-box { background: var(--navy); border-radius: 20px; padding: 32px 28px; color: white; }
+    .glp-stat-row { display: flex; align-items: center; gap: 16px; padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,.1); }
+    .glp-stat-row:last-child { border-bottom: none; }
+    .glp-stat-pct { font-family: 'Onest', sans-serif; font-size: 28px; font-weight: 800; color: #86efac; min-width: 68px; line-height: 1; }
+    .glp-stat-desc { font-size: 13px; color: rgba(255,255,255,.7); line-height: 1.45; }
+    .glp-stat-drug { display: block; font-size: 11px; font-weight: 700; color: rgba(255,255,255,.4); text-transform: uppercase; letter-spacing: .06em; margin-top: 3px; }
+
+    /* Medication comparison cards */
+    .med-compare-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 64px; }
+    .med-card { border-radius: 18px; padding: 26px 22px; border: 2px solid var(--border); position: relative; background: var(--bg-w); transition: box-shadow .2s; }
+    .med-card:hover { box-shadow: 0 10px 32px rgba(26,45,68,.1); }
+    .med-card.best { border-color: var(--green); background: #f0fdf4; }
+    .med-badge-top { position: absolute; top: -13px; left: 50%; transform: translateX(-50%); background: var(--green); color: white; font-size: 11px; font-weight: 800; padding: 4px 14px; border-radius: 99px; white-space: nowrap; letter-spacing: .04em; }
+    .med-name { font-family: 'Onest', sans-serif; font-size: 20px; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
+    .med-molecule { font-size: 12px; color: var(--muted); margin-bottom: 18px; font-weight: 500; }
+    .med-pct { font-family: 'Onest', sans-serif; font-size: 44px; font-weight: 800; color: var(--green); line-height: 1; }
+    .med-pct-lbl { font-size: 12px; color: var(--muted); margin-top: 4px; margin-bottom: 16px; line-height: 1.45; }
+    .med-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .med-pill { background: var(--bg); border: 1px solid var(--border); border-radius: 99px; padding: 4px 11px; font-size: 11px; font-weight: 600; color: var(--navy); }
+    .med-pill.green { background: var(--green-lt); border-color: #86efac; color: var(--green-dk); }
+
+    /* How it works */
+    .glp-section-title { font-family: 'Onest', sans-serif; font-size: clamp(20px, 2.5vw, 30px); font-weight: 800; color: var(--navy); letter-spacing: -.02em; margin-bottom: 24px; }
+    .glp-section-title em { font-style: normal; color: var(--green); }
+    .glp-mech-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 56px; }
+    .glp-mech { background: var(--bg-w); border: 1px solid var(--border); border-radius: 16px; padding: 24px 20px; }
+    .glp-mech-icon { width: 44px; height: 44px; border-radius: 12px; background: var(--navy); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .glp-mech-icon svg { width: 22px; height: 22px; }
+    .glp-mech h4 { font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+    .glp-mech p { font-size: 13px; color: var(--muted); line-height: 1.65; }
+
+    /* Side effects */
+    .se-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 56px; }
+    .se-col h4 { font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); margin-bottom: 14px; }
+    .se-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .se-item { display: flex; align-items: flex-start; gap: 9px; font-size: 13px; color: var(--text); line-height: 1.5; }
+    .se-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+    .se-dot.common { background: #f59e0b; }
+    .se-dot.rare { background: #ef4444; }
+    .se-tip { background: #fefce8; border: 1px solid #fde68a; border-radius: 14px; padding: 18px 20px; grid-column: 1 / -1; }
+    .se-tip h4 { font-family: 'Onest', sans-serif; font-size: 14px; font-weight: 700; color: #92400e; margin-bottom: 10px; }
+    .se-tip ul { padding-left: 18px; }
+    .se-tip li { font-size: 13px; color: #78350f; line-height: 1.65; margin-bottom: 4px; }
+
+    /* FAQ Accordion */
+    .glp-faq { margin-top: 8px; }
+    .acc-item { border-bottom: 1px solid var(--border); }
+    .acc-trigger {
+      width: 100%; text-align: left; background: none; border: none;
+      padding: 18px 0; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    }
+    .acc-trigger span { font-family: 'Onest', sans-serif; font-size: 15px; font-weight: 700; color: var(--navy); }
+    .acc-arrow { flex-shrink: 0; transition: transform .25s; color: var(--muted); }
+    .acc-trigger.open .acc-arrow { transform: rotate(180deg); color: var(--green); }
+    .acc-body { display: none; padding-bottom: 18px; }
+    .acc-body.open { display: block; }
+    .acc-body p, .acc-body li { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .acc-body ul { padding-left: 20px; margin-top: 8px; }
+    .acc-body li { margin-bottom: 5px; }
+    .acc-body strong { color: var(--navy); }
+
     /* WhatsApp float */
     .wa-float {
       position: fixed; bottom: 28px; right: 28px; z-index: 500;
@@ -585,6 +654,11 @@
 
     /* ── Responsive ── */
     @media (max-width: 1020px) {
+      .glp-intro { grid-template-columns: 1fr; gap: 36px; }
+      .med-compare-grid { grid-template-columns: 1fr; }
+      .glp-mech-grid { grid-template-columns: 1fr 1fr; }
+      .se-grid { grid-template-columns: 1fr; }
+      .se-tip { grid-column: 1; }
       .svc-inner { grid-template-columns: 1fr; gap: 36px; }
       .svc-inner.rev { direction: ltr; }
       .svc-img-wrap img { height: 400px; }
@@ -597,6 +671,7 @@
       .hp-1,.hp-2,.hp-3,.hp-4,.hp-5 { display: none; }
     }
     @media (max-width: 720px) {
+      .glp-mech-grid { grid-template-columns: 1fr; }
       .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
       .test-grid { grid-template-columns: 1fr; }
       .doctors-grid { grid-template-columns: 1fr; }
@@ -638,6 +713,7 @@
     </a>
     <ul class="nav-links">
       <li><a href="#perdida-de-peso">Pérdida de peso</a></li>
+      <li><a href="#glp1">¿Qué son los GLP-1?</a></li>
       <li><a href="#cabello">Cabello</a></li>
       <li><a href="#piel">Piel</a></li>
       <li><a href="https://wa.me/573162881161" class="nav-wa" target="_blank">
@@ -835,6 +911,286 @@
       </div>
       <p class="svc-disc">El plan incluye medicamento GLP-1 genérico. Si se prescribe Ozempic® o Saxenda® de marca, puede haber diferencia de precio. Medicamentos requieren evaluación médica previa.</p>
     </div>
+  </div>
+</section>
+
+<!-- ═══ GLP-1: TODO LO QUE NECESITAS SABER ═══ -->
+<section id="glp1" class="glp-edu">
+  <div class="glp-inner">
+
+    <!-- Intro split -->
+    <div class="glp-intro fade-up">
+      <div class="glp-intro-text">
+        <p style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Medicamentos GLP-1 · Guía completa</p>
+        <h2>¿Qué son los <em>GLP-1</em> y por qué son la revolución del peso?</h2>
+        <p style="margin-top:0;">Los agonistas GLP-1 son medicamentos que imitan una hormona intestinal natural que regula el apetito, la saciedad y el azúcar en sangre. No son "pastillas milagrosas": son moléculas desarrolladas durante más de 20 años de investigación clínica que, bajo supervisión médica, producen pérdidas de peso que antes solo se conseguían con cirugía.</p>
+        <p>Nuestros médicos internistas evalúan tu caso, prescriben el medicamento adecuado para ti y te acompañan durante todo el tratamiento.</p>
+      </div>
+      <div class="glp-stat-box">
+        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.4);margin-bottom:16px;">Pérdida de peso promedio en estudios clínicos</div>
+        <div class="glp-stat-row">
+          <div class="glp-stat-pct">22,5%</div>
+          <div class="glp-stat-desc">
+            del peso inicial en 72 semanas
+            <span class="glp-stat-drug">Tirzepatida (Mounjaro) · dosis 15 mg</span>
+          </div>
+        </div>
+        <div class="glp-stat-row">
+          <div class="glp-stat-pct">21%</div>
+          <div class="glp-stat-desc">
+            del peso inicial en 68 semanas
+            <span class="glp-stat-drug">Semaglutida (Ozempic/Wegovy) · dosis 2,4 mg</span>
+          </div>
+        </div>
+        <div class="glp-stat-row">
+          <div class="glp-stat-pct">8%</div>
+          <div class="glp-stat-desc">
+            del peso inicial en 56 semanas
+            <span class="glp-stat-drug">Liraglutida (Saxenda) · dosis 3,0 mg</span>
+          </div>
+        </div>
+        <p style="font-size:11px;color:rgba(255,255,255,.3);margin-top:14px;line-height:1.6;">Fuente: ensayos SURMOUNT-1, STEP-1 y SCALE Obesity. Resultados varían según el paciente.</p>
+      </div>
+    </div>
+
+    <!-- Medication comparison -->
+    <h3 class="glp-section-title fade-up">Compara los <em>medicamentos disponibles</em></h3>
+    <div class="med-compare-grid">
+      <div class="med-card best fade-up">
+        <div class="med-badge-top">MÁS POTENTE</div>
+        <div class="med-name">Mounjaro</div>
+        <div class="med-molecule">Tirzepatida · GIP + GLP-1</div>
+        <div class="med-pct">22,5%</div>
+        <div class="med-pct-lbl">pérdida promedio del peso inicial<br />en 72 semanas (dosis 15 mg)</div>
+        <div class="med-pills">
+          <span class="med-pill green">1 inyección / semana</span>
+          <span class="med-pill">Doble mecanismo</span>
+          <span class="med-pill">Dosis: 2,5 → 15 mg</span>
+        </div>
+      </div>
+      <div class="med-card fade-up" data-d="1">
+        <div class="med-name">Ozempic</div>
+        <div class="med-molecule">Semaglutida · GLP-1</div>
+        <div class="med-pct">21%</div>
+        <div class="med-pct-lbl">pérdida promedio del peso inicial<br />en 68 semanas (dosis 2,4 mg)</div>
+        <div class="med-pills">
+          <span class="med-pill green">1 inyección / semana</span>
+          <span class="med-pill">GLP-1 agonista</span>
+          <span class="med-pill">Dosis: 0,25 → 2,4 mg</span>
+        </div>
+      </div>
+      <div class="med-card fade-up" data-d="2">
+        <div class="med-name">Saxenda</div>
+        <div class="med-molecule">Liraglutida · GLP-1</div>
+        <div class="med-pct">8%</div>
+        <div class="med-pct-lbl">pérdida promedio del peso inicial<br />en 56 semanas (dosis 3,0 mg)</div>
+        <div class="med-pills">
+          <span class="med-pill">1 inyección / día</span>
+          <span class="med-pill">GLP-1 agonista</span>
+          <span class="med-pill">Dosis: 0,6 → 3,0 mg</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- How they work -->
+    <h3 class="glp-section-title fade-up">¿Cómo <em>funcionan</em>?</h3>
+    <div class="glp-mech-grid">
+      <div class="glp-mech fade-up">
+        <div class="glp-mech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M9 12l2 2 4-4"/><path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9c1.51 0 2.93.37 4.18 1.03"/></svg>
+        </div>
+        <h4>Reducen el apetito</h4>
+        <p>Imitan la hormona GLP-1 que se libera después de comer. El cerebro recibe la señal de saciedad antes, con menor cantidad de alimento. Comes menos sin sentir privación.</p>
+      </div>
+      <div class="glp-mech fade-up" data-d="1">
+        <div class="glp-mech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <h4>Ralentizan el vaciado gástrico</h4>
+        <p>El estómago tarda más en vaciarse, lo que mantiene la sensación de saciedad por horas. También estabiliza el azúcar en sangre después de las comidas, reduciendo los picos de glucosa.</p>
+      </div>
+      <div class="glp-mech fade-up" data-d="2">
+        <div class="glp-mech-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <h4>Regulan la insulina y el glucagón</h4>
+        <p>Estimulan la producción de insulina cuando el azúcar está alto y reducen el glucagón para evitar bajadas. Ideal para pacientes con prediabetes o diabetes tipo 2 asociada al sobrepeso.</p>
+      </div>
+    </div>
+
+    <!-- Who qualifies -->
+    <div style="background:var(--navy);border-radius:20px;padding:36px 32px;margin-bottom:56px;" class="fade-up">
+      <h3 style="font-family:'Onest',sans-serif;font-size:clamp(18px,2.5vw,26px);font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:18px;">¿Quién puede usar estos medicamentos?</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
+        <div>
+          <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#86efac;margin-bottom:12px;">Puedes calificar si tienes:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#86efac;font-size:16px;line-height:1.2;">✓</span> IMC ≥ 30 kg/m² (obesidad)
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#86efac;font-size:16px;line-height:1.2;">✓</span> IMC ≥ 27 kg/m² + hipertensión, prediabetes, colesterol alto o apnea del sueño
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#86efac;font-size:16px;line-height:1.2;">✓</span> Has intentado perder peso con dieta y ejercicio sin resultados suficientes
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#86efac;font-size:16px;line-height:1.2;">✓</span> Mayores de 18 años
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#fca5a5;margin-bottom:12px;">No es adecuado si tienes:</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;">
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#fca5a5;font-size:16px;line-height:1.2;">✕</span> Pancreatitis activa o reciente
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#fca5a5;font-size:16px;line-height:1.2;">✕</span> Embarazo o lactancia
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#fca5a5;font-size:16px;line-height:1.2;">✕</span> Cáncer medular de tiroides en historia personal o familiar
+            </li>
+            <li style="display:flex;gap:10px;align-items:flex-start;font-size:13px;color:rgba(255,255,255,.75);">
+              <span style="color:#fca5a5;font-size:16px;line-height:1.2;">✕</span> Enfermedad renal o hepática grave
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:12px;color:rgba(255,255,255,.35);margin-top:20px;">Nuestros médicos evalúan tu caso individual antes de cualquier prescripción. El cuestionario de calificación determina si eres candidato.</p>
+    </div>
+
+    <!-- Side effects -->
+    <h3 class="glp-section-title fade-up">Efectos secundarios <em>y cómo manejarlos</em></h3>
+    <div class="se-grid fade-up">
+      <div class="se-col">
+        <h4>Frecuentes (1 de cada 10 personas)</h4>
+        <ul class="se-list">
+          <li class="se-item"><span class="se-dot common"></span>Náuseas — especialmente al inicio y al aumentar la dosis</li>
+          <li class="se-item"><span class="se-dot common"></span>Diarrea o estreñimiento</li>
+          <li class="se-item"><span class="se-dot common"></span>Dolor abdominal leve</li>
+          <li class="se-item"><span class="se-dot common"></span>Fatiga en las primeras semanas</li>
+          <li class="se-item"><span class="se-dot common"></span>Pérdida temporal del cabello (resuelve sola)</li>
+          <li class="se-item"><span class="se-dot common"></span>Reacción leve en el sitio de inyección</li>
+        </ul>
+      </div>
+      <div class="se-col">
+        <h4>Poco frecuentes — consulta a tu médico</h4>
+        <ul class="se-list">
+          <li class="se-item"><span class="se-dot rare"></span>Dolor intenso en el abdomen o espalda baja (puede indicar pancreatitis)</li>
+          <li class="se-item"><span class="se-dot rare"></span>Hipoglucemia si se combina con insulina o sulfonilureas</li>
+          <li class="se-item"><span class="se-dot rare"></span>Cálculos biliares</li>
+          <li class="se-item"><span class="se-dot rare"></span>Reacción alérgica grave (muy raro): dificultad respiratoria, hinchazón</li>
+        </ul>
+      </div>
+      <div class="se-tip">
+        <h4>Consejos para reducir los efectos secundarios</h4>
+        <ul>
+          <li>Come porciones pequeñas y frecuentes (5 comidas ligeras en lugar de 3 grandes)</li>
+          <li>Evita comidas muy grasas, fritas o ultraprocesadas al inicio del tratamiento</li>
+          <li>Mantente bien hidratado — mínimo 2 litros de agua al día</li>
+          <li>Limita el alcohol: reduce el azúcar en sangre y puede potenciar las náuseas</li>
+          <li>Come despacio, mastica bien — el medicamento ya ralentiza tu digestión</li>
+          <li>La mayoría de efectos mejoran solos después de 2–4 semanas</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <h3 class="glp-section-title fade-up">Preguntas <em>frecuentes</em></h3>
+    <div class="glp-faq fade-up">
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span>¿Cuánto peso puedo esperar perder?</span>
+          <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <p>Los resultados varían según el medicamento, la dosis y el estilo de vida. En estudios clínicos, los pacientes con <strong>tirzepatida (Mounjaro) perdieron en promedio el 22,5%</strong> de su peso inicial en 72 semanas con la dosis de 15 mg. Con <strong>semaglutida (Ozempic), el 21%</strong> en 68 semanas. Con <strong>liraglutida (Saxenda), el 8%</strong> en 56 semanas.</p>
+          <p>La mayoría de los pacientes empieza a notar reducción del apetito en las primeras semanas. Resultados visibles en peso suelen aparecer entre la semana 4 y 8.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span>¿Hay efecto rebote al dejar el medicamento?</span>
+          <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <p>Es posible recuperar parte del peso al suspender el tratamiento si no se han consolidado nuevos hábitos alimenticios. Los efectos del medicamento (menos apetito, más saciedad) disminuyen gradualmente al suspenderlo, y las hormonas del apetito vuelven a sus niveles anteriores.</p>
+          <p>Por eso es fundamental que durante el tratamiento <strong>trabajes con nuestros médicos en consolidar un nuevo patrón alimenticio</strong>. El medicamento es el puente — los hábitos son el destino. Nunca se debe suspender sin consultar al médico.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span>¿Qué debo comer mientras tomo GLP-1?</span>
+          <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <p>No hay alimentos prohibidos, pero sí recomendaciones que maximizan los resultados y minimizan los efectos secundarios:</p>
+          <ul>
+            <li><strong>Prioriza:</strong> proteína (pollo, huevo, legumbres, pescado), fibra (verduras, frutas, avena), grasas saludables (aguacate, nueces)</li>
+            <li><strong>Reduce:</strong> alimentos ultraprocesados, fritos, bebidas azucaradas, harinas refinadas</li>
+            <li><strong>Evita en exceso:</strong> alcohol (interacción con el control de azúcar y náuseas)</li>
+            <li><strong>Tip práctico:</strong> al sentir menos hambre, asegúrate de comer suficiente proteína — la pérdida de masa muscular es un riesgo si no se mantiene una ingesta proteica adecuada</li>
+          </ul>
+          <p>Tu médico SANARÉ te entregará un plan nutricional personalizado junto con el tratamiento.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span>¿Cómo se inyecta? ¿Es doloroso?</span>
+          <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <p>Las inyecciones son subcutáneas (bajo la piel, no en músculo ni vena) y se aplican <strong>una vez por semana</strong> en el abdomen, muslo o parte posterior del brazo. La aguja es muy delgada (4–6 mm) — la mayoría de pacientes las describe como una sensación mínima o inexistente.</p>
+          <ul>
+            <li>Rota la zona de inyección cada semana para evitar irritación</li>
+            <li>Inyecta siempre el mismo día de la semana</li>
+            <li>La pluma viene precargada — no necesitas preparar jeringas</li>
+            <li>Tu médico SANARÉ te guía en el primer uso por videollamada</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span>¿Puedo usarlo si tengo diabetes tipo 2?</span>
+          <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <p>Sí — de hecho, varios GLP-1 fueron desarrollados originalmente para la diabetes tipo 2. <strong>Ozempic (semaglutida)</strong> está aprobado en Colombia como tratamiento para la diabetes tipo 2 y produce pérdida de peso como efecto adicional. <strong>Saxenda (liraglutida)</strong> también mejora el control glucémico.</p>
+          <p>Si estás tomando insulina o sulfonilureas, el riesgo de hipoglucemia (azúcar baja) aumenta — por eso es <strong>imprescindible supervisión médica</strong>. Nuestros internistas ajustan la medicación según tu perfil completo.</p>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span>¿Qué pasa si olvido una dosis?</span>
+          <svg class="acc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="acc-body">
+          <ul>
+            <li>Si <strong>han pasado 4 días o menos</strong>: aplícatela en ese momento. La siguiente dosis sigue siendo el día programado.</li>
+            <li>Si <strong>han pasado más de 4 días</strong>: sáltate esa dosis. La siguiente sigue siendo el día programado.</li>
+            <li><strong>Nunca apliques doble dosis</strong> para compensar.</li>
+            <li>Siempre debe haber al menos 3 días de intervalo entre dosis.</li>
+          </ul>
+          <p>Si tienes dudas, escríbenos por WhatsApp al +57 316 288 1161 — tu médico SANARÉ responde.</p>
+        </div>
+      </div>
+
+    </div><!-- /glp-faq -->
+
+    <!-- CTA inside section -->
+    <div style="text-align:center;margin-top:56px;padding:44px 28px;background:var(--green-lt);border-radius:20px;border:1px solid #86efac;" class="fade-up">
+      <h3 style="font-family:'Onest',sans-serif;font-size:clamp(20px,2.8vw,30px);font-weight:800;color:var(--navy);letter-spacing:-.02em;margin-bottom:12px;">¿Listo para saber si calificas?</h3>
+      <p style="font-size:15px;color:var(--muted);max-width:480px;margin:0 auto 28px;">Nuestros médicos internistas evalúan tu caso, determinan el medicamento ideal y te acompañan desde el primer día.</p>
+      <a href="#calificacion" class="btn btn-green" style="font-size:16px;padding:16px 36px;">Verificar si califico →</a>
+    </div>
+
   </div>
 </section>
 
@@ -1413,6 +1769,17 @@
       });
     });
   });
+
+  // ── FAQ Accordion ─────────────────────────────────────────
+  function toggleAcc(btn) {
+    var body = btn.nextElementSibling;
+    var isOpen = body.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.acc-body.open').forEach(function(b) { b.classList.remove('open'); });
+    document.querySelectorAll('.acc-trigger.open').forEach(function(t) { t.classList.remove('open'); });
+    // Open clicked if it was closed
+    if (!isOpen) { body.classList.add('open'); btn.classList.add('open'); }
+  }
 
   // ── Scroll animations (IntersectionObserver) ──────────────
   var fadeObserver = new IntersectionObserver(function(entries) {
